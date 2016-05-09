@@ -30,10 +30,10 @@
 
                     a {
                         padding: .5rem 1rem;
-                        border: 1px solid $link;
+                        background: $link;
+                        color: $positive;
                         min-width: 6rem;
                         text-decoration: none;
-                        color: $link;
                     }
                 }
             }
@@ -72,6 +72,24 @@
 
         header {
 
+        }
+
+        div.camera {
+            background: $block;
+            margin-top: 2rem;
+            padding: 2rem;
+
+            i {
+                display: block;
+                margin: 2rem;
+            }
+
+            button {
+                border: none;
+                background: $link;
+                color: $positive;
+                padding: .5rem 1rem;
+            }
         }
     }
 }

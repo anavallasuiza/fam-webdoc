@@ -3,6 +3,7 @@
 require('shared');
 require('webrtc-adapter');
 
+const $ = require('jquery');
 const director = require('director');
 const co = require('co');
 
@@ -17,16 +18,22 @@ const models = require('./models')(app);
 const controllers = require('./controllers')(app);
 const preloader = require('preloader');
 
+
 const routes = {
     '/': {
         on: controllers.home.on,
         after: controllers.home.after
     },
     '/intro': {
+        before: controllers.middlewares.requireUserId,
         on: controllers.intro.on,
         after: controllers.intro.after
     }
 };
+
+if(DEVELOPMENT) {
+    window.app = app;
+}
 
 /**
  * Bootstrap
@@ -52,6 +59,7 @@ router.configure({
 
         setTimeout(() => {
             app.config.$mountPoint.html(html).removeClass('is-hidden');
+
             next();
         }, 400);
     })
