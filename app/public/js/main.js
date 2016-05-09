@@ -8,12 +8,14 @@ const co = require('co');
 
 const app = {
     config: {
-        $mountPoint: $('[data-app]')
+        $mountPoint: $('[data-app]'),
+        $preloadWidget: $('[data-preload]')
     }
 };
 
 const models = require('./models')(app);
 const controllers = require('./controllers')(app);
+const preloader = require('preloader');
 
 const routes = {
     '/': {
@@ -36,10 +38,19 @@ router.configure({
     async: true,
     html5history: true,
     before: co.wrap(function* (next) {
+        app.config.$mountPoint.addClass('is-hidden');
+
         const html = yield models.getPage('/' + router.getRoute());
-        //get images
-        //preload images
-        //preload videos? https://www.safaribooksonline.com/library/view/html5-canvas/9781449308032/ch06s04.html
+        const images = $(html).find('img').map((n, i) => i.src).get();
+
+        if(images.length) {
+            app.config.$preloadWidget.removeClass('is-hidden');
+            yield preloader.preloadImages(images, app.config.$preloadWidget);
+            app.config.$preloadWidget.addClass('is-hidden');
+        }
+
+        app.config.$mountPoint.removeClass('is-hidden');
+
         app.config.$mountPoint.html(html);
         next();
     })
@@ -47,6 +58,8 @@ router.configure({
 
 
 router.init();
+
+app.router = router;
 
 /**
  * Handle internal nav
