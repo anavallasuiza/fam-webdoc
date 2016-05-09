@@ -21,3 +21,28 @@
     animation-fill-mode: forwards;
 
 }
+
+//Flex
+
+@mixin flexCenter {
+    align-items: center;
+    justify-content: center;
+
+    div.camera {
+        background: $block;
+        margin-top: 2rem;
+        padding: 2rem;
+
+        i {
+            display: block;
+            margin: 2rem;
+        }
+
+        button {
+            border: none;
+            background: $negative;
+            color: $color;
+            padding: .5rem 1rem;
+        }
+    }
+}

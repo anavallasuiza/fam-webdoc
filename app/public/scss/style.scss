@@ -1,17 +1,33 @@
+//Variables
+$color: #fff;
+$negative: #000;
+$link: #3079ed;
+$block: #eee;
+
+//Modules
 @import '../web_modules/font-awesome/scss/font-awesome';
 @import 'mixins';
 @import 'animations';
 @import 'utilities/normalize';
 
-// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800);
+//Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800);
 
-$color: #fff;
-$negative: #000;
 
+//Pages
+@import 'sections/home';
+
+
+//Generic
 * {
     transition:opacity 0.4s linear;
 
     .is-hidden {
         opacity:0;
     }
+}
+
+.panel {
+    display: flex;
+    min-height: 100vh;
 }

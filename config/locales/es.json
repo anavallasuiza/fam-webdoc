@@ -1,3 +1,20 @@
 {
-	"Error": "Error"
+	"HAMBRE": "HAMBRE",
+	"Lo que se ve, lo que se esconde": "Lo que se ve, lo que se esconde",
+	"Catalán": "Catalán",
+	"Inglés": "Inglés",
+	"Español": "Español",
+	"Duración": "Duración",
+	"txt-duracion": "txt-duracion",
+	"Tipología": "Tipología",
+	"txt-tipología": "txt-tipología",
+	"Navegación": "Navegación",
+	"txt-navegación": "txt-navegación",
+	"¿Cómo quieres vivir la experiencia": "¿Cómo quieres vivir la experiencia",
+	"txt-permisos": "txt-permisos",
+	"Cámara y audio activados": "Cámara y audio activados",
+	"txt-camara-audio activados": "txt-camara-audio activados",
+	"Activar": "Activar",
+	"No, gracias": "No, gracias",
+	"¿Cómo quieres vivir la experiencia?": "¿Cómo quieres vivir la experiencia?"
 }

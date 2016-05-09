@@ -43,16 +43,17 @@ router.configure({
         const html = yield models.getPage('/' + router.getRoute());
         const images = $(html).find('img').map((n, i) => i.src).get();
 
-        if(images.length) {
+        if (images.length) {
             app.config.$preloadWidget.removeClass('is-hidden');
             yield preloader.preloadImages(images, app.config.$preloadWidget);
             app.config.$preloadWidget.addClass('is-hidden');
         }
 
-        app.config.$mountPoint.removeClass('is-hidden');
 
-        app.config.$mountPoint.html(html);
-        next();
+        setTimeout(() => {
+            app.config.$mountPoint.html(html).removeClass('is-hidden');
+            next();
+        }, 400);
     })
 });
 
