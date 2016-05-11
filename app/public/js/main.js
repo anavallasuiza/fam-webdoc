@@ -11,7 +11,9 @@ const app = {
     config: {
         $mountPoint: $('[data-app]'),
         $preloadWidget: $('[data-preload]')
-    }
+    },
+    hasVideo: navigator.mediaDevices,
+    helpers: require('helpers')
 };
 
 const models = require('./models')(app);
@@ -28,15 +30,20 @@ const routes = {
         before: controllers.middlewares.requireUserId,
         on: controllers.intro.on,
         after: controllers.intro.after
+    },
+    '/mashup/:where/:uuid': {
+        before: controllers.middlewares.requireUserId,
+        on: controllers.mashup.on,
+        after: controllers.mashup.after
     }
 };
 
-if(DEVELOPMENT) {
+if (DEVELOPMENT) {
     window.app = app;
 }
 
 /**
- * Bootstrap
+ * Bootstrap router
  */
 
 const router = director.Router(routes);
@@ -47,19 +54,29 @@ router.configure({
     before: co.wrap(function* (next) {
         app.config.$mountPoint.addClass('is-hidden');
 
-        const html = yield models.getPage('/' + router.getRoute());
-        const images = $(html).find('img').map((n, i) => i.src).get();
+        const html = yield models.getPage('/' + router.getRoute().join('/'));
 
-        if (images.length) {
+        const media = [
+            ...$(html).find('img').map((n, i) => ({
+                type: 'image',
+                src: i.src
+            })).get(),
+            ...$(html).find('video[data-preload]').map((n, i) => ({
+                type: 'video',
+                src: i.src
+            })).get()
+        ];
+
+
+        if (media.length && false) {
             app.config.$preloadWidget.removeClass('is-hidden');
-            yield preloader.preloadImages(images, app.config.$preloadWidget);
+            yield preloader.preloadMedia(media, app.config.$preloadWidget);
             app.config.$preloadWidget.addClass('is-hidden');
         }
 
 
         setTimeout(() => {
             app.config.$mountPoint.html(html).removeClass('is-hidden');
-
             next();
         }, 400);
     })
@@ -69,6 +86,8 @@ router.configure({
 router.init();
 
 app.router = router;
+app.models = models;
+app.controllers = controllers;
 
 /**
  * Handle internal nav

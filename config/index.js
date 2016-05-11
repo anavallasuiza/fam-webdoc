@@ -19,6 +19,7 @@ const production = require('./env/production');
 //TODO: configure i18n here so we can use translations in config.info
 const defaults = {
     root: path.join(__dirname, '..'),
+    uploads: path.join(__dirname, '..', 'uploads'),
     i18n: {
         directory: path.join(__dirname, 'locales'),
         syncFiles: true,

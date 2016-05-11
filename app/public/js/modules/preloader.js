@@ -1,21 +1,36 @@
 'use strict';
 
-module.exports.preloadImages = (images, $preloadWidget) => {
+module.exports.preloadMedia = (media, $preloadWidget) => {
 
-    const total = images.length;
+    const total = media.length;
     let loaded = 0;
 
-    const promises = images.map((i) => new Promise((resolve, reject) => {
-        const image = new Image();
-        image.src = i;
 
-        image.onload = () => {
-            loaded++;
-            $preloadWidget.html(`${loaded} / ${total}`);
-            return resolve(i);
-        };
+    const promises = media.map((i) => new Promise((resolve, reject) => {
+        if (i.type === 'image') {
+            const image = new Image();
 
-        image.onerror = (error) => reject(error);
+            image.onload = () => {
+                loaded++;
+                $preloadWidget.html(`${loaded} / ${total}`);
+                return resolve(i);
+            };
+
+            image.onerror = (error) => reject(error);
+            image.src = i.src;
+
+        } else if (i.type === 'video') {
+            const video = document.createElement('video');
+
+            video.oncanplaythrough = () => {
+                loaded++;
+                $preloadWidget.html(`${loaded} / ${total}`);
+                return resolve(i);
+            };
+
+            video.onerror = (error) => reject(error);
+            video.src = i.src;
+        }
     }));
 
     return Promise.all(promises);

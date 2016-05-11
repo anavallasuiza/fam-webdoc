@@ -1,0 +1,23 @@
+.intro {
+    section {
+
+        video {
+            object-fit: cover;
+            min-width: 100%;
+            min-height: 100%;
+            position: absolute;
+        }
+
+        .controls {
+            position: absolute;
+            text-align: center;
+            bottom: 10%;
+            min-width: 100%;
+
+            button {
+                @include button;
+                font-size: 2rem;
+            }
+        }
+    }
+}

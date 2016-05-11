@@ -9,7 +9,7 @@ const config = require('./');
  */
 
 const webdoc = require(path.join(config.root, 'app/controllers/webdoc'));
-
+const multer = require('multer')();
 
 module.exports = (app, passport) => {
 
@@ -19,6 +19,16 @@ module.exports = (app, passport) => {
 
     app.get('/', webdoc.index);
     app.get('/intro', webdoc.intro);
+    app.get('/mashup/:where/:uuid', webdoc.mashup);
+
+
+
+    /**
+     * Upload
+     */
+
+
+    app.post('/upload', multer.single('video'), webdoc.upload);
 
 
     //Locales
@@ -29,14 +39,14 @@ module.exports = (app, passport) => {
      * Error Handling
      */
 
-    app.use(function(req, res, next) {
+    app.use(function (req, res, next) {
         var err = new Error('Not Found');
         err.status = 404;
         next(err);
     });
 
     if (app.get('env') === 'development') {
-        app.use(function(err, req, res, next) {
+        app.use(function (err, req, res, next) {
             res.status(err.status || 500);
             return res.render('error', {
                 layout: 'simple',
@@ -46,7 +56,7 @@ module.exports = (app, passport) => {
         });
     }
 
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         return res.render('error', {
             layout: 'simple',

@@ -1,7 +1,10 @@
 'use strict';
 
+
 const wrap = require('co-express');
 
+const uploader = require('../lib/uploader');
+const selector = require('../lib/selector');
 /**
  * Home
  */
@@ -19,6 +22,9 @@ module.exports.index = (req, res) => {
     }
 };
 
+/**
+ * Intro
+ */
 
 module.exports.intro = (req, res) => {
     if (req.xhr) {
@@ -31,6 +37,45 @@ module.exports.intro = (req, res) => {
         });
     }
 };
+
+/**
+ * Mashup
+ */
+
+module.exports.mashup = wrap(function* (req, res) {
+    if (req.xhr) {
+
+        const selected = yield selector.select(req.params.uuid, req.params.where);
+
+        return res.render('mashup', {
+            videos: selected,
+            where: req.params.where,
+            layout: null
+        });
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+});
+
+/**
+ * Upload
+ */
+
+module.exports.upload = wrap(function* (req, res) {
+    if (req.xhr) {
+        yield uploader.upload(req.body.dest, req.body.name, req.file.buffer);
+
+        return res.json({
+            status: 'ok',
+            name: req.body.name
+        });
+
+    } else {
+        return res.redirect('/');
+    }
+});
 
 
 /**

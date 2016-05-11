@@ -1,3 +1,25 @@
 <article class="intro">
-    This is intro. Go to <a href="/">Index</a>
+    <section data-output class="panel fixed output">
+        <video type="video/webm"></video>
+
+        <div class="controls">
+            <button data-play type="button">{{__ 'Ver'}}</button>
+            <button data-restart type="button">{{__ 'Grabar otro video'}}</button>
+            <button data-save type="button">{{__ 'Guardar y continuar'}}</button>
+        </div>
+
+    </section>
+    <section data-control class="panel fixed control">
+
+        <video type="video/webm"></video>
+
+        <div class="controls">
+            <button data-start type="button">{{__ 'Grabar'}}</button>
+        </div>
+
+    </section>
+    <section data-intro class="panel fixed intro-video">
+        <video type="video/mp4" data-preload src="/static/media/sample.mp4" autoplay></video>
+
+    </section>
 </article>

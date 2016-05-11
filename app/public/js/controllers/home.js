@@ -1,6 +1,7 @@
 'use strict';
 
 const uuid = require('node-uuid');
+const mediaRecorder = require('mediarecorder');
 
 module.exports = (app) => {
     return {
@@ -12,25 +13,32 @@ module.exports = (app) => {
             }
 
             $root.find('[data-cancel]').on('click', e => {
-                app.config.novideo = true;
+                app.hasVideo = false;
                 app.router.setRoute('/intro');
             });
 
+            $root.find('[data-start]').on('click', e => {
+                if (app.hasVideo) {
+                    app.helpers.scrollTo($root.find('.permissions'));
+                } else {
+                    app.router.setRoute('/intro');
+                }
+            });
+
             $root.find('[data-activate]').on('click', e => {
-                const p = navigator.mediaDevices.getUserMedia({
-                    audio: true,
-                    video: true
-                });
 
-                p.then(stream => {
-                    for (let stream of stream.getTracks()) {
-                        stream.stop();
-                    }
-                });
-
-                p.catch(function(error) {
-                    console.log('pasou', error);
-                });
+                mediaRecorder.requestPermission()
+                    .then(stream => {
+                        for (let stream of stream.getTracks()) {
+                            stream.stop();
+                        }
+                        app.hasVideo = true;
+                        app.router.setRoute('/intro');
+                    })
+                    .catch((error) => {
+                        app.hasVideo = false;
+                        app.router.setRoute('/intro');
+                    });
             });
 
             next();

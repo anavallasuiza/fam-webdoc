@@ -16,6 +16,7 @@ $block: #eee;
 
 //Pages
 @import 'sections/home';
+@import 'sections/intro';
 
 
 //Generic
@@ -24,10 +25,27 @@ $block: #eee;
 
     .is-hidden {
         opacity:0;
+        pointer-events: none;
     }
 }
 
 .panel {
     display: flex;
     min-height: 100vh;
+    min-width: 100vw;
+}
+
+.panel.fixed {
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+[data-preload] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: $negative;
 }

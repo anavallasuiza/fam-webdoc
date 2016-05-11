@@ -29,9 +29,8 @@
                     margin: .5rem;
 
                     a {
+                        @include button;
                         padding: .5rem 1rem;
-                        background: $link;
-                        color: $positive;
                         min-width: 6rem;
                         text-decoration: none;
                     }
@@ -62,6 +61,13 @@
                 }
             }
         }
+
+        [data-start] {
+            @include button;
+            min-width: 6rem;
+            padding: .5rem 1rem;
+            font-size: 2rem;
+        }
     }
 
     .panel.permissions {
@@ -85,9 +91,7 @@
             }
 
             button {
-                border: none;
-                background: $link;
-                color: $positive;
+                @include button;
                 padding: .5rem 1rem;
             }
         }
