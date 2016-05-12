@@ -19,7 +19,7 @@ class Recorder {
                 this.stream = stream;
                 this.recorder = new MediaRecorder(this.stream, {
                     audioBitsPerSecond: 64000,
-                    videoBitsPerSecond: 700000,
+                    videoBitsPerSecond: 500000,
                     mimeType: 'video/webm'
                 });
 
@@ -96,8 +96,8 @@ const requestPermission = () => {
     return navigator.mediaDevices.getUserMedia({
         audio: true,
         video: {
-            width: 1024,
-            height: 576
+            width: 640,
+            height: 360
         }
     });
 };

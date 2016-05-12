@@ -8,9 +8,9 @@ module.exports = (app) => {
         mashup: require('./mashup')(app),
         middlewares: {
             requireUserId: function(...args) {
-                // if(!app.user) {
-                //     location = '/';
-                // }
+                if(!app.user) {
+                    location = '/';
+                }
 
                 args.pop()();
             }
