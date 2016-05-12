@@ -2,6 +2,7 @@
 
 module.exports.preloadMedia = (media, $preloadWidget) => {
 
+    const $bar = $preloadWidget.find('[data-bar]');
     const total = media.length;
     let loaded = 0;
 
@@ -24,7 +25,11 @@ module.exports.preloadMedia = (media, $preloadWidget) => {
 
             video.oncanplaythrough = () => {
                 loaded++;
-                $preloadWidget.html(`${loaded} / ${total}`);
+
+                $bar.css({
+                    width: parseInt((loaded * 100) / total) + '%'
+                });
+
                 return resolve(i);
             };
 

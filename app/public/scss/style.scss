@@ -48,4 +48,11 @@ $block: #eee;
     min-height: 100vh;
     min-width: 100vw;
     background: $negative;
+
+    [data-bar] {
+        background: $positive;
+        width: 0;
+        height: 1rem;
+        transition: width 0.2s linear;
+    }
 }

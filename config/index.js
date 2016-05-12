@@ -20,6 +20,7 @@ const production = require('./env/production');
 const defaults = {
     root: path.join(__dirname, '..'),
     uploads: path.join(__dirname, '..', 'uploads'),
+    sampleVideos: 5,
     i18n: {
         directory: path.join(__dirname, 'locales'),
         syncFiles: true,

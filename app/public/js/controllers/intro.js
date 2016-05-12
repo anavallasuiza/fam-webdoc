@@ -34,7 +34,7 @@ module.exports = (app) => {
                 setTimeout(() => {
                     $control.addClass('is-hidden');
                     recorder.stop();
-                }, 2000);
+                }, app.config.recordingTime);
             });
 
             //Recorder output

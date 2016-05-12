@@ -4,15 +4,15 @@ module.exports = (app) => {
     return {
         home: require('./home')(app),
         intro: require('./intro')(app),
-        mashup: require('./mashup')(app),
         mosaic: require('./mosaic')(app),
+        mashup: require('./mashup')(app),
         middlewares: {
-            requireUserId: function(next) {
-                if(!app.user) {
-                    location = '/';
-                }
+            requireUserId: function(...args) {
+                // if(!app.user) {
+                //     location = '/';
+                // }
 
-                next();
+                args.pop()();
             }
         }
     };

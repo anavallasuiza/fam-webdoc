@@ -10,7 +10,8 @@ const co = require('co');
 const app = {
     config: {
         $mountPoint: $('[data-app]'),
-        $preloadWidget: $('[data-preload]')
+        $preloadWidget: $('[data-preload]'),
+        recordingTime: 2 * 1000
     },
     hasVideo: navigator.mediaDevices,
     helpers: require('helpers')
@@ -51,7 +52,9 @@ const router = director.Router(routes);
 router.configure({
     async: true,
     html5history: true,
-    before: co.wrap(function* (next) {
+    before: co.wrap(function* (...args) {
+        const next = args.pop();
+
         app.config.$mountPoint.addClass('is-hidden');
 
         const html = yield models.getPage('/' + router.getRoute().join('/'));
@@ -68,7 +71,7 @@ router.configure({
         ];
 
 
-        if (media.length && false) {
+        if (media.length) {
             app.config.$preloadWidget.removeClass('is-hidden');
             yield preloader.preloadMedia(media, app.config.$preloadWidget);
             app.config.$preloadWidget.addClass('is-hidden');
