@@ -79,6 +79,24 @@ module.exports.upload = wrap(function* (req, res) {
 
 
 /**
+* Hub
+*/
+
+module.exports.hub = (req, res) => {
+    if (req.xhr) {
+        return res.render('hub', {
+            layout: null
+        });
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+
+};
+
+
+/**
  * Locale
  */
 

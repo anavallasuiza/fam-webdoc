@@ -36,6 +36,11 @@ const routes = {
         before: controllers.middlewares.requireUserId,
         on: controllers.mashup.on,
         after: controllers.mashup.after
+    },
+    '/hub': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.hub.on,
+        after: controllers.hub.after
     }
 };
 

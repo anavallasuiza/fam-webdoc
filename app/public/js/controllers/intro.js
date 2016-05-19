@@ -20,52 +20,61 @@ module.exports = (app) => {
 
             //Init video
             $introVideo.on('ended', (e) => {
-                $intro.addClass('is-hidden');
+                if(app.hasVideo) {
+                    $intro.addClass('is-hidden');
+                } else {
+                    app.router.setRoute('/mashup/intro/anonymous');
+                }
             });
 
-            //Recorder control
-            recorder = new Recorder($controlVideo, $outputVideo);
+            if(app.hasVideo) {
+                //Recorder control
+                recorder = new Recorder($controlVideo, $outputVideo);
 
-            recorder.init();
+                recorder.init();
 
-            $control.find('[data-start]').on('click', (e) => {
-                recorder.start();
+                $control.find('[data-start]').on('click', (e) => {
+                    recorder.start();
 
-                setTimeout(() => {
-                    $control.addClass('is-hidden');
-                    recorder.stop();
-                }, app.config.recordingTime);
-            });
+                    setTimeout(() => {
+                        $control.addClass('is-hidden');
+                        recorder.stop();
+                    }, app.config.recordingTime);
+                });
 
-            //Recorder output
+                //Recorder output
 
-            $output.find('[data-play]').on('click', (e) => {
-                $outputVideo.get(0).play();
-            });
+                $output.find('[data-play]').on('click', (e) => {
+                    $outputVideo.get(0).play();
+                });
 
-            $output.find('[data-restart]').on('click', (e) => {
-                $outputVideo.get(0).pause();
-                recorder.startPreview();
-                recorder.clean();
+                $output.find('[data-restart]').on('click', (e) => {
+                    $outputVideo.get(0).pause();
+                    recorder.startPreview();
+                    recorder.clean();
 
-                $control.removeClass('is-hidden');
-            });
+                    $control.removeClass('is-hidden');
+                });
 
-            $output.find('[data-save]').on('click', (e) => {
-                app.models.uploadVideo(recorder.getData(), app.user, 'intro')
-                    .done(data => {
-                        app.router.setRoute(`/mashup/intro/${data.name}`);
-                    })
-                    .error(error => {
-                        console.error(error);
-                    });
-            });
+                $output.find('[data-save]').on('click', (e) => {
+                    app.models.uploadVideo(recorder.getData(), app.user, 'intro')
+                        .done(data => {
+                            app.router.setRoute(`/mashup/intro/${data.name}`);
+                        })
+                        .error(error => {
+                            console.error(error);
+                        });
+                });
 
+            }
 
             next();
         },
         after: function after(next) {
-            recorder.off();
+            if(app.hasVideo) {
+                recorder.off();
+            }
+
             next();
         }
     };

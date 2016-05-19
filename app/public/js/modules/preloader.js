@@ -1,29 +1,37 @@
 'use strict';
 
+const $ = require('jquery');
+
 module.exports.preloadMedia = (media, $preloadWidget) => {
 
     const $bar = $preloadWidget.find('[data-bar]');
     const total = media.length;
     let loaded = 0;
 
-
     const promises = media.map((i) => new Promise((resolve, reject) => {
         if (i.type === 'image') {
-            const image = new Image();
+            let $image = $('<img>');
 
-            image.onload = () => {
+            //TODO: move to function
+
+            $image.on('load', () => {
                 loaded++;
-                $preloadWidget.html(`${loaded} / ${total}`);
+                $bar.css({
+                    width: parseInt((loaded * 100) / total) + '%'
+                });
                 return resolve(i);
-            };
+            });
 
-            image.onerror = (error) => reject(error);
-            image.src = i.src;
+            $image.on('error', (error) => reject(error));
+            $image.attr('src', i.src);
 
-        } else if (i.type === 'video') {
-            const video = document.createElement('video');
+            $image = null;
 
-            video.oncanplaythrough = () => {
+        } else if (i.type === 'video' || i.type === 'audio') {
+            let $media = i.type === 'video' ? $('<video>') : $('audio');
+
+            //TODO: move to function
+            $media.on('canplaythrough', () => {
                 loaded++;
 
                 $bar.css({
@@ -31,12 +39,22 @@ module.exports.preloadMedia = (media, $preloadWidget) => {
                 });
 
                 return resolve(i);
-            };
+            });
 
-            video.onerror = (error) => reject(error);
-            video.src = i.src;
+            $media.on('error stalled', (error) => {
+                reject(error);
+            });
+
+            $media.attr({
+                preload: 'auto',
+                src: i.src,
+                controls: 'controls'
+            });
+
+            $media = null;
         }
     }));
 
+    //TODO: all promises must be resolved
     return Promise.all(promises);
 };

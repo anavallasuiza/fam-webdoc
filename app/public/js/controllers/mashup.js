@@ -16,7 +16,7 @@ module.exports = (app) => {
                 if(current < $videos.length) {
                     $videos.eq(current++).removeClass('is-hidden').get(0).play();
                 } else {
-                    console.log('mosaico');
+                    app.router.setRoute('/mashup');
                 }
             });
 

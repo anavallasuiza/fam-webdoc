@@ -20,6 +20,7 @@ module.exports = (app, passport) => {
     app.get('/', webdoc.index);
     app.get('/intro', webdoc.intro);
     app.get('/mashup/:where/:uuid', webdoc.mashup);
+    app.get('/hub', webdoc.hub);
 
 
 

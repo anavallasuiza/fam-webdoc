@@ -1,0 +1,42 @@
+.hub {
+
+    .panel {
+        display: block;
+        .part {
+
+            z-index: 0;
+
+            img {
+                @include fullscreen;
+                display: none;
+            }
+
+            &.visible img {
+                display: block;
+            }
+        }
+    }
+
+    .textos {
+        position: absolute;
+        @include fullscreen;
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+
+
+        .titulo {
+            margin-top: 1em;
+            font-size: 7em;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 2px 2px 2px #000;
+            opacity: 0;
+
+            &.visible {
+                opacity: 1;
+            }
+        }
+    }
+
+}
