@@ -8,21 +8,23 @@ module.exports.preloadMedia = (media, $preloadWidget) => {
     const total = media.length;
     let loaded = 0;
 
+    const updateBar = () => {
+        loaded++;
+        $bar.css({
+            width: parseInt((loaded * 100) / total) + '%'
+        });
+    };
+
     const promises = media.map((i) => new Promise((resolve, reject) => {
         if (i.type === 'image') {
             let $image = $('<img>');
 
-            //TODO: move to function
-
             $image.on('load', () => {
-                loaded++;
-                $bar.css({
-                    width: parseInt((loaded * 100) / total) + '%'
-                });
-                return resolve(i);
+                updateBar();
+                return resolve(true);
             });
 
-            $image.on('error', (error) => reject(error));
+            $image.on('error', (error) => resolve(false));
             $image.attr('src', i.src);
 
             $image = null;
@@ -30,19 +32,13 @@ module.exports.preloadMedia = (media, $preloadWidget) => {
         } else if (i.type === 'video' || i.type === 'audio') {
             let $media = i.type === 'video' ? $('<video>') : $('audio');
 
-            //TODO: move to function
             $media.on('canplaythrough', () => {
-                loaded++;
-
-                $bar.css({
-                    width: parseInt((loaded * 100) / total) + '%'
-                });
-
-                return resolve(i);
+                updateBar();
+                return resolve(true);
             });
 
             $media.on('error stalled', (error) => {
-                reject(error);
+                resolve(false);
             });
 
             $media.attr({
@@ -55,6 +51,5 @@ module.exports.preloadMedia = (media, $preloadWidget) => {
         }
     }));
 
-    //TODO: all promises must be resolved
     return Promise.all(promises);
 };

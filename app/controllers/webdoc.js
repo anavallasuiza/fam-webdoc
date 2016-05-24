@@ -42,7 +42,7 @@ module.exports.intro = (req, res) => {
  * Mashup
  */
 
-module.exports.mashup = wrap(function* (req, res) {
+module.exports.mashup = wrap(function*(req, res) {
     if (req.xhr) {
 
         const selected = yield selector.select(req.params.uuid, req.params.where);
@@ -63,7 +63,7 @@ module.exports.mashup = wrap(function* (req, res) {
  * Upload
  */
 
-module.exports.upload = wrap(function* (req, res) {
+module.exports.upload = wrap(function*(req, res) {
     if (req.xhr) {
         yield uploader.upload(req.body.dest, req.body.name, req.file.buffer);
 
@@ -79,8 +79,8 @@ module.exports.upload = wrap(function* (req, res) {
 
 
 /**
-* Hub
-*/
+ * Hub
+ */
 
 module.exports.hub = (req, res) => {
     if (req.xhr) {
