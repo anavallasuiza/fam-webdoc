@@ -1,0 +1,15 @@
+<section class="panel {{type}}">
+{{#if image}}
+    <img src="/static/img/{{image}}">
+{{else}}
+    <video src="/static/media/{{video}}" preload data-preload></video>
+{{/if}}
+
+{{#if points}}
+    <ul class="points">
+    {{#each points}}
+        <li style="top: {{top}};left: {{left}}"><span>{{text}}</span></li>
+    {{/each}}
+    </ul>
+{{/if}}
+</section>

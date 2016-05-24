@@ -17,7 +17,7 @@
         }
     }
 
-    .textos {
+    .overlay {
         position: absolute;
         @include fullscreen;
         display: flex;
@@ -25,7 +25,7 @@
         align-items: baseline;
 
 
-        .titulo {
+        .title {
             margin-top: 1em;
             font-size: 7em;
             font-weight: 800;

@@ -10,10 +10,10 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
 
             const $parts = $root.find('.part');
-            const $titles = $root.find('.titulo');
+            const $titles = $root.find('.title');
 
             const windowWidth = $window.width();
-            const bounce = 5;
+            const bounce = 1;
 
             let timeout;
 
@@ -24,6 +24,7 @@ module.exports = (app) => {
 
                 //Titles
                 $titles.removeClass('visible');
+                console.log($titles.eq(Math.floor((n * $titles.length) / $parts.length)));
                 $titles.eq(Math.floor((n * $titles.length) / $parts.length)).addClass('visible');
             };
 

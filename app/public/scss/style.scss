@@ -17,7 +17,15 @@ $block: #eee;
 //Pages
 @import 'sections/home';
 @import 'sections/intro';
+@import 'sections/mashup';
 @import 'sections/hub';
+
+//Sequence panels
+@import 'panels/title';
+@import 'panels/autoplay';
+@import 'panels/vff';
+@import 'panels/viei';
+@import 'panels/flipbook';
 
 
 //Generic
@@ -42,7 +50,7 @@ $block: #eee;
     left:0;
 }
 
-[data-preload] {
+[data-preloader] {
     position: fixed;
     top: 0;
     left: 0;

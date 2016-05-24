@@ -1,0 +1,7 @@
+.sequence {
+    .autoplay {
+        video {
+            @include fullscreen;
+        }
+    }
+}

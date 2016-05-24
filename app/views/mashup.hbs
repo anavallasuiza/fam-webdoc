@@ -1,8 +1,8 @@
 <article class="mashup">
-    <section class="panel title">
+    <section class="panel fixed title">
         {{#each videos}}
-        <video data-preload class="is-hidden" preload="none" type="video/webm" src="/uploads/{{../where}}/{{this}}"></video>
+        <video data-preload class="is-hidden" preload type="video/webm" src="/uploads/{{../where}}/{{this}}"></video>
         {{/each}}
-        <video data-preload class="is-hidden" preload="none" type="video/mp4" src="/static/media/sample.mp4"></video>
+        <video data-preload class="is-hidden" preload type="video/mp4" src="/static/media/sample.mp4"></video>
     </section>
 </article>

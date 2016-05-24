@@ -23,7 +23,7 @@ module.exports = (app) => {
                 if(app.hasVideo) {
                     $intro.addClass('is-hidden');
                 } else {
-                    // app.router.setRoute('/mashup/intro/anonymous');
+                    app.router.setRoute('/mashup/intro/anonymous');
                 }
             });
 

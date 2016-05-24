@@ -95,6 +95,24 @@ module.exports.hub = (req, res) => {
 
 };
 
+/**
+ * Sequences
+ */
+
+module.exports.sequence = (req, res) => {
+    if (req.xhr) {
+        const sequence = require(`../sequences/s${req.params.id}`);
+        return res.render('sequence', {
+            layout: null,
+            data: sequence
+        });
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+};
+
 
 /**
  * Locale

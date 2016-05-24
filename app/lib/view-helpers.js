@@ -8,5 +8,8 @@ module.exports = {
     },
     __n: function() {
         return i18n.__n.apply(this, arguments);
+    },
+    isPanelType: function(panel, type) {
+        return panel === type;
     }
 };

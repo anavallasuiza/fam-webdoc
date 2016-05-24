@@ -6,9 +6,10 @@ module.exports = (app) => {
         intro: require('./intro')(app),
         mashup: require('./mashup')(app),
         hub: require('./hub')(app),
+        sequence: require('./sequence')(app),
         middlewares: {
             requireUserId: function(...args) {
-                if(!app.user) {
+                if (!app.user) {
                     location = '/';
                 }
 

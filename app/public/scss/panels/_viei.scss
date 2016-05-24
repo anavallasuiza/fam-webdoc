@@ -1,0 +1,32 @@
+.sequence {
+    .viei {
+        display: block;
+        position: relative;
+        video, img {
+            @include fullscreen;
+        }
+
+        .points {
+            margin: 0;
+            padding:0;
+            list-style: none;
+
+            li {
+                background: $positive;
+                padding: 1rem;
+                position: absolute;
+
+                span {
+                    display: none;
+                }
+
+                &:hover {
+                    span {
+                        display: inline;
+                    }
+                }
+            }
+        }
+
+    }
+}

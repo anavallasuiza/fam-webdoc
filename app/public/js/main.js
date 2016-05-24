@@ -10,7 +10,7 @@ const co = require('co');
 const app = {
     config: {
         $mountPoint: $('[data-app]'),
-        $preloadWidget: $('[data-preload]'),
+        $preloadWidget: $('[data-preloader]'),
         recordingTime: 2 * 1000
     },
     hasVideo: navigator.mediaDevices,
@@ -33,7 +33,7 @@ const routes = {
         after: controllers.intro.after
     },
     '/mashup/:where/:uuid': {
-        before: controllers.middlewares.requireUserId,
+        // before: controllers.middlewares.requireUserId,
         on: controllers.mashup.on,
         after: controllers.mashup.after
     },
@@ -41,6 +41,11 @@ const routes = {
         // before: controllers.middlewares.requireUserId,
         on: controllers.hub.on,
         after: controllers.hub.after
+    },
+    '/sequence/:id': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.sequence.on,
+        after: controllers.sequence.after
     }
 };
 
@@ -57,7 +62,7 @@ const router = director.Router(routes);
 router.configure({
     async: true,
     html5history: true,
-    before: co.wrap(function* (...args) {
+    before: co.wrap(function*(...args) {
         const next = args.pop();
 
         app.config.$mountPoint.addClass('is-hidden');

@@ -16,7 +16,7 @@ module.exports = (app) => {
                 if(current < $videos.length) {
                     $videos.eq(current++).removeClass('is-hidden').get(0).play();
                 } else {
-                    app.router.setRoute('/mashup');
+                    app.router.setRoute('/hub');
                 }
             });
 
@@ -24,7 +24,7 @@ module.exports = (app) => {
 
             next();
         },
-        after: function after(where, intro, next) {
+        after: function after(next) {
             next();
         }
     };

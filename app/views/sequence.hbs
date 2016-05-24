@@ -1,0 +1,5 @@
+<article class="sequence {{data.id}}">
+    {{#each data.panels}}
+       {{> (lookup . 'type')}}
+    {{/each}}
+</article>

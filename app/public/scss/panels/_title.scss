@@ -1,0 +1,10 @@
+.sequence {
+    .title {
+        flex-direction: column;
+        @include flexCenter;
+
+        h1 {
+            font-size: 5rem;
+        }
+    }
+}
