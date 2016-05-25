@@ -2,6 +2,7 @@
     .title {
         flex-direction: column;
         @include flexCenter;
+        background: $positive;
 
         h1 {
             font-size: 5rem;

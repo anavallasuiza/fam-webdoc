@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": ["babel", "react"],
+  "plugins": ["babel"],
     "rules": {
         "strict": [0, "global"],
         "indent": [
@@ -55,7 +55,6 @@
         "superInFunctions": true,
         "templateStrings": true,
         "unicodeCodePointEscapes": true,
-        "globalReturn": true,
-        "jsx": true
+        "globalReturn": true
     }
 }

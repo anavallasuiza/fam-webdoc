@@ -15,7 +15,7 @@ const s1 = {
         },
         {
             type: 'vff',
-            height: 3000,
+            height: 10000,
             video: 'sample.mp4'
         },
         {

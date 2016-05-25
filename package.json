@@ -21,6 +21,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "jquery": "^2.2.2",
+    "jquery-scrollify": "^0.1.14",
     "merge": "^1.2.0",
     "nodemon": "^1.8.1",
     "rimraf": "^2.4.4",
