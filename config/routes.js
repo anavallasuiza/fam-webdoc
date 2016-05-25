@@ -57,8 +57,7 @@ module.exports = (app, passport) => {
         res.status(err.status || 500);
         return res.render('error', {
             layout: 'simple',
-            message: err.message,
-            error: {}
+            message: err.message
         });
     });
 };
