@@ -1,5 +1,9 @@
 .sequence {
     .vff {
         display: block;
+
+        video {
+            @include fullscreen;
+        }
     }
 }

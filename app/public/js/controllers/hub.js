@@ -24,7 +24,6 @@ module.exports = (app) => {
 
                 //Titles
                 $titles.removeClass('visible');
-                console.log($titles.eq(Math.floor((n * $titles.length) / $parts.length)));
                 $titles.eq(Math.floor((n * $titles.length) / $parts.length)).addClass('visible');
             };
 
@@ -35,8 +34,7 @@ module.exports = (app) => {
                 }
 
                 timeout = setTimeout(() => {
-                    const n = Math.floor((e.originalEvent.layerX * $parts.length) / windowWidth);
-
+                    const n = Math.floor((e.originalEvent.clientX * $parts.length) / windowWidth);
                     show(n);
                 }, bounce);
 

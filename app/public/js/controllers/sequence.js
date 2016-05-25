@@ -4,6 +4,7 @@ module.exports = (app) => {
 
     return {
         on: function on(id, next) {
+            const $root = app.config.$mountPoint;
 
             next();
         },

@@ -22,16 +22,16 @@
         @include fullscreen;
         display: flex;
         justify-content: space-around;
-        align-items: baseline;
 
 
         .title {
-            margin-top: 1em;
+            padding-top: 1em;
             font-size: 7em;
             font-weight: 800;
             color: #fff;
             text-shadow: 2px 2px 2px #000;
             opacity: 0;
+            text-decoration: none;
 
             &.visible {
                 opacity: 1;
