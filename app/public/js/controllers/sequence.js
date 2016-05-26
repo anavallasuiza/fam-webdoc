@@ -10,18 +10,7 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
 
             const $panels = $root.find('.panel');
-            let current;
-
-            //Control generic sequence features:
-            // - autoplay ✓
-            // - vff ✓
-            // - viei
-            //Also:
-            // - sequence length (px)
-            // - store sequence viewed percent (localStorage)
-            // - fade panels sound
-            //
-            //
+            let current = 0;
 
             //Panel handlers
             const handlers = $panels.map((i, panel) => {
@@ -39,7 +28,7 @@ module.exports = (app) => {
                 setHeights: false,
                 sectionName: false,
                 after: (index) => {
-                    if (current) {
+                    if (current > -1) {
                         handlers[current].after && handlers[current].after();
                     }
 

@@ -19,23 +19,30 @@
 
     .overlay {
         position: absolute;
-        @include fullscreen;
+        width: 100vw;
+        height: 100vh;
         display: flex;
         justify-content: space-around;
 
 
         .title {
-            padding-top: 1em;
-            font-size: 7em;
-            font-weight: 800;
-            color: #fff;
-            text-shadow: 2px 2px 2px #000;
-            opacity: 0;
+            flex-grow: 1;
             text-decoration: none;
 
-            &.visible {
-                opacity: 1;
+            span {
+                font-weight: 800;
+                color: #fff;
+                text-shadow: 2px 2px 2px #000;
+                display: block;
+                white-space: nowrap;
+                opacity: 0;
+                transition:opacity 0.1s linear;
+
+                &.visible {
+                    opacity: 1;
+                }
             }
+
         }
     }
 

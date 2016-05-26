@@ -6,11 +6,17 @@ module.exports = (app) => {
 
     return {
         on: function on(next) {
-
             const $root = app.config.$mountPoint;
+            const height = $window.height();
 
             const $parts = $root.find('.part');
-            const $titles = $root.find('.title');
+            const $titles = $root.find('.title span');
+
+            //Adjust heights
+            $titles.css({
+                'font-size': Math.floor(height/10) + 'px',
+                'line-height': Math.floor(height/10) + 'px'
+            });
 
             const windowWidth = $window.width();
             const bounce = 1;
@@ -24,7 +30,7 @@ module.exports = (app) => {
 
                 //Titles
                 $titles.removeClass('visible');
-                $titles.eq(Math.floor((n * $titles.length) / $parts.length)).addClass('visible');
+                $titles.eq(n).addClass('visible');
             };
 
             $window.on('mousemove.fam', e => {

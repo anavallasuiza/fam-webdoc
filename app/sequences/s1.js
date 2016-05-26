@@ -4,7 +4,11 @@ const i18n = require('i18n');
 
 const s1 = {
     id: 'sq1',
+
     panels: [{
+        type: 'autoplay',
+        video: 'sample.mp4'
+    }, {
         type: 'viei',
         image: '7.jpg',
         icon: {
@@ -36,9 +40,6 @@ const s1 = {
     }, {
         type: 'title',
         text: i18n.__('Secuencia 1 title')
-    }, {
-        type: 'autoplay',
-        video: 'sample.mp4'
     }, {
         type: 'vff',
         height: 10000,

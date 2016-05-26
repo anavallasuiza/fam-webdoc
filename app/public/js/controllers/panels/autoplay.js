@@ -1,13 +1,27 @@
 'use strict';
 
+const Circle = require('circleprogress');
+
 module.exports = ($panel) => {
     const $video = $panel.find('video');
+    const video = $video.get(0);
+    let progress;
+
     return {
+        init: () => {
+            progress = new Circle($panel.find('.progress'), 100, 30, 0);
+        },
         on: () => {
-            $video.get(0).play();
+
+            video.play();
+            $video.on('timeupdate', () => {
+                progress.update((video.currentTime / video.duration).toFixed(2));
+            });
+
         },
         after: () => {
-            $video.get(0).pause();
+            video.pause();
+            $video.off('timeupdate');
         }
     };
 };

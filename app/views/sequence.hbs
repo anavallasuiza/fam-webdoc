@@ -1,4 +1,4 @@
-<article class="sequence {{data.id}}">
+<article class="sequence" data-id="{{data.id}}">
     {{#each data.panels}}
        {{> (lookup . 'type')}}
     {{/each}}
