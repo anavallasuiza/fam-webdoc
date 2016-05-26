@@ -8,7 +8,31 @@
 {{#if points}}
     <ul class="points">
     {{#each points}}
-        <li style="top: {{top}};left: {{left}}"><span>{{text}}</span></li>
+        <li style="top: {{top}};left: {{left}}">
+            <img class="spot" src="/static/img/{{../icon.file}}" width="{{../icon.width}}" height="{{../icon.height}}">
+
+            <div data-anchor="{{anchor}}" {{#if class}}class="is-hidden {{class}}"{{/if}}>
+            {{#if content.title}}
+                <h1>{{content.title}}</h1>
+            {{/if}}
+
+            {{#if content.img}}
+                <img src="/static/img/{{content.img}}">
+            {{/if}}
+
+            {{#if content.text}}
+                <p>{{content.text}}</p>
+            {{/if}}
+
+            {{#if content.audio}}
+                <audio src="/static/media/{{content.audio}}" autobuffer controls></audio>
+            {{/if}}
+
+            {{#if content.video}}
+                <video src="/static/media/{{content.video}}" autobuffer controls></video>
+            {{/if}}
+            </div>
+        </li>
     {{/each}}
     </ul>
 {{/if}}

@@ -25,7 +25,6 @@ $block: #eee;
 @import 'panels/autoplay';
 @import 'panels/vff';
 @import 'panels/viei';
-@import 'panels/flipbook';
 
 
 //Generic
@@ -61,7 +60,10 @@ $block: #eee;
     [data-bar] {
         background: $positive;
         width: 0;
-        height: 1rem;
+        height: 0.2rem;
+        position: absolute;
+        margin-top: -0.1rem;
+        top: 50%;
         transition: width 0.2s linear;
     }
 }

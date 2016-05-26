@@ -24,7 +24,7 @@ module.exports = ($panel) => {
             });
 
             interval = setInterval(() => {
-                if(video.readyState >= 3){
+                if (video.readyState >= 3) {
                     video.currentTime = currentPos;
                     video.pause();
                 }
@@ -34,9 +34,11 @@ module.exports = ($panel) => {
         after: () => {
             $window.off('scroll.vff');
 
-            if(interval) {
-                clearInterval(interval);
-            }
+            clearInterval(interval);
+
+            video.currentTime = 0;
+            currentPos = 0;
+            video.pause();
         }
     };
 };

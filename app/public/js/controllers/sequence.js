@@ -10,7 +10,7 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
 
             const $panels = $root.find('.panel');
-            let $current;
+            let current;
 
             //Control generic sequence features:
             // - autoplay ✓
@@ -20,27 +20,32 @@ module.exports = (app) => {
             // - sequence length (px)
             // - store sequence viewed percent (localStorage)
             // - fade panels sound
+            //
+            //
 
-            const genericPanelsHandlers = {
-                autoplay: require('./panels/autoplay'),
-                vff: require('./panels/vff')
-            };
+            //Panel handlers
+            const handlers = $panels.map((i, panel) => {
+                const $panel = $(panel);
+                const handler = require(`./panels/${$panel.data('type')}`)($panel);
+                //Init panel if necessary
+                handler.init && handler.init();
+
+                return handler;
+            }).get();
+
 
             $.scrollify({
                 section: $panels,
                 setHeights: false,
                 sectionName: false,
                 after: (index) => {
-                    if ($current) {
-                        const handler = genericPanelsHandlers[$current.data('type')];
-                        handler && handler($current).after();
+                    if (current) {
+                        handlers[current].after && handlers[current].after();
                     }
 
-                    const handler = genericPanelsHandlers[$.scrollify.current().data('type')];
+                    handlers[index].on && handlers[index].on();
 
-                    handler && handler($.scrollify.current()).on();
-
-                    $current = $.scrollify.current();
+                    current = index;
                 }
             });
 
