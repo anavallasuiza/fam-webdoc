@@ -68,6 +68,8 @@ module.exports = (app) => {
 
             }
 
+            $introVideo.get(0).play();
+
             next();
         },
         after: function after(next) {
