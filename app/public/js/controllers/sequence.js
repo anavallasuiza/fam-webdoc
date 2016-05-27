@@ -16,6 +16,7 @@ module.exports = (app) => {
             const handlers = $panels.map((i, panel) => {
                 const $panel = $(panel);
                 const handler = require(`./panels/${$panel.data('type')}`)($panel);
+
                 //Init panel if necessary
                 handler.init && handler.init();
 

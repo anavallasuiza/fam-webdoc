@@ -16,6 +16,17 @@
                 @include button;
                 font-size: 2rem;
             }
+
+            .bar {
+                width: 0%;
+                height: .2rem;
+                background: $positive;
+                transition: width 10s linear;
+
+                &.recording {
+                    width: 100%;
+                }
+            }
         }
     }
 }

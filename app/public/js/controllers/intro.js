@@ -13,8 +13,12 @@ module.exports = (app) => {
 
             const $intro = $root.find('[data-intro]');
             const $introVideo = $intro.find('video');
+
             const $control = $root.find('[data-control]');
+            const $start = $control.find('[data-start]');
             const $controlVideo = $control.find('video');
+            const $bar = $control.find('[data-bar]');
+
             const $output = $root.find('[data-output]');
             const $outputVideo = $output.find('video');
 
@@ -33,11 +37,16 @@ module.exports = (app) => {
 
                 recorder.init();
 
-                $control.find('[data-start]').on('click', (e) => {
+
+                $start.on('click', (e) => {
                     recorder.start();
+                    $start.addClass('is-hidden');
+
+                    $bar.addClass('recording');
 
                     setTimeout(() => {
                         $control.addClass('is-hidden');
+                        $bar.removeClass('recording');
                         recorder.stop();
                     }, app.config.recordingTime);
                 });
@@ -52,6 +61,8 @@ module.exports = (app) => {
                     $outputVideo.get(0).pause();
                     recorder.startPreview();
                     recorder.clean();
+
+                    $start.removeClass('is-hidden');
 
                     $control.removeClass('is-hidden');
                 });

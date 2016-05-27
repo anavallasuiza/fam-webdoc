@@ -11,7 +11,7 @@ const app = {
     config: {
         $mountPoint: $('[data-app]'),
         $preloadWidget: $('[data-preloader]'),
-        recordingTime: 2 * 1000
+        recordingTime: 10 * 1000
     },
     hasVideo: navigator.mediaDevices,
     helpers: require('helpers')

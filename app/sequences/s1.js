@@ -10,6 +10,7 @@ const s1 = {
         video: 'sample.mp4'
     }, {
         type: 'viei',
+        bgsound: 'music.mp3',
         image: '7.jpg',
         icon: {
             file: 'star.svg',
@@ -39,7 +40,8 @@ const s1 = {
         }]
     }, {
         type: 'title',
-        text: i18n.__('Secuencia 1 title')
+        text: i18n.__('Secuencia 1 title'),
+        bgsound: 'music.mp3'
     }, {
         type: 'vff',
         height: 10000,

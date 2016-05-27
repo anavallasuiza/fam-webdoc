@@ -1,3 +1,7 @@
 <section class="panel {{type}}" data-type="{{type}}">
+{{#if bgsound}}
+    <audio class="bgsound" src="/static/media/{{bgsound}}" loop></audio>
+{{/if}}
+
     <h1>{{text}}</h1>
 </section>

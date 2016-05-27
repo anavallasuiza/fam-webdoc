@@ -12,8 +12,8 @@ module.exports = ($panel) => {
             progress = new Circle($panel.find('.progress'), 100, 30, 0);
         },
         on: () => {
-
             video.play();
+
             $video.on('timeupdate', () => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
             });
