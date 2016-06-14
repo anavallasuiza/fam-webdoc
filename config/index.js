@@ -11,7 +11,6 @@ const _ = require('lodash');
 const development = require('./env/development');
 const production = require('./env/production');
 
-
 /**
  * Default config
  */

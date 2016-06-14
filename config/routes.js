@@ -11,7 +11,7 @@ const config = require('./');
 const webdoc = require(path.join(config.root, 'app/controllers/webdoc'));
 const multer = require('multer')();
 
-module.exports = (app, passport) => {
+module.exports = (app) => {
 
     /**
      * Public
@@ -43,7 +43,7 @@ module.exports = (app, passport) => {
     });
 
     if (app.get('env') === 'development') {
-        app.use(function(err, req, res, next) {
+        app.use(function(err, req, res) {
             res.status(err.status || 500);
             return res.render('error', {
                 layout: 'simple',
@@ -53,7 +53,7 @@ module.exports = (app, passport) => {
         });
     }
 
-    app.use(function(err, req, res, next) {
+    app.use(function(err, req, res) {
         res.status(err.status || 500);
         return res.render('error', {
             layout: 'simple',

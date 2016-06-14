@@ -21,7 +21,7 @@ const viewHelpers = require(path.join(config.root, 'app/lib/view-helpers'));
 
 const env = config.env;
 
-module.exports = function (app, passport) {
+module.exports = function (app) {
 
 
     /**

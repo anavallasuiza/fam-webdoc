@@ -21,7 +21,6 @@ const models = require('./models')(app);
 const controllers = require('./controllers')(app);
 const preloader = require('preloader');
 
-
 const routes = {
     '/': {
         on: controllers.home.on,
@@ -49,6 +48,7 @@ const routes = {
     }
 };
 
+//noinspection JSUnresolvedVariable
 if (DEVELOPMENT) {
     window.app = app;
 }
@@ -62,7 +62,7 @@ const router = director.Router(routes);
 router.configure({
     async: true,
     html5history: true,
-    before: co.wrap(function*(...args) {
+    before: co.wrap(function* before(...args) {
         const next = args.pop();
 
         app.config.$mountPoint.addClass('is-hidden');
