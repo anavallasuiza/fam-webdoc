@@ -58,6 +58,7 @@ body {
 .panel {
   display: flex;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 .panel.fixed {

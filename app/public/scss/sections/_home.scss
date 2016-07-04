@@ -1,6 +1,10 @@
 .home {
   background-image: url('/static/img/background-frontpage.jpg');
 
+  .panel {
+    min-width: auto;
+  }
+
   .panel.title {
     flex-direction: column;
     align-items: center;
