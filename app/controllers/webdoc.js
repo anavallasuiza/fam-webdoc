@@ -10,8 +10,27 @@ const selector = require('../lib/selector');
  */
 
 module.exports.index = (req, res) => {
+
     if (req.xhr) {
         return res.render('home', {
+            layout: null
+        });
+
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+};
+
+/**
+ * Start
+ */
+
+module.exports.start = (req, res) => {
+
+    if (req.xhr) {
+        return res.render('start', {
             layout: null
         });
 
@@ -123,5 +142,5 @@ module.exports.locale = (req, res) => {
         maxAge: 900000
     });
 
-    res.redirect('back');
+    res.redirect('/start');
 };

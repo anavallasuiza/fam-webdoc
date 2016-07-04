@@ -1,6 +1,6 @@
 //Variables
-$positive: #fff;
-$negative: #000;
+$positive: #000;
+$negative: #fff;
 $link: #3079ed;
 $block: #eee;
 
@@ -11,11 +11,11 @@ $block: #eee;
 @import 'utilities/normalize';
 
 //Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800);
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 //Pages
 @import 'sections/home';
+@import 'sections/start';
 @import 'sections/intro';
 @import 'sections/mashup';
 @import 'sections/hub';
@@ -27,44 +27,60 @@ $block: #eee;
 @import 'panels/vff';
 @import 'panels/viei';
 
-
 //Generic
-* {
-    transition:opacity 0.4s linear;
 
-    .is-hidden {
-        opacity:0;
-        pointer-events: none;
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: $positive;
+  color: $negative;
+
+  .main-container {
+    max-width: 1400px;
+    min-width: 1000px;
+    margin: 0 auto;
+
+    article {
+      background-size: contain;
+      background-repeat: no-repeat;
     }
+  }
+}
+
+* {
+  transition: opacity 0.4s linear;
+
+  .is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .panel {
-    display: flex;
-    min-height: 100vh;
-    min-width: 100vw;
+  display: flex;
+  min-height: 100vh;
 }
 
 .panel.fixed {
-    position: fixed;
-    top:0;
-    left:0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 [data-preloader] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-height: 100vh;
-    min-width: 100vw;
-    background: $negative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: $negative;
 
-    [data-bar] {
-        background: $positive;
-        width: 0;
-        height: 0.2rem;
-        position: absolute;
-        margin-top: -0.1rem;
-        top: 50%;
-        transition: width 0.2s linear;
-    }
+  [data-bar] {
+    background: $positive;
+    width: 0;
+    height: 0.2rem;
+    position: absolute;
+    margin-top: -0.1rem;
+    top: 50%;
+    transition: width 0.2s linear;
+  }
 }

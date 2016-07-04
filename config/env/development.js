@@ -4,14 +4,14 @@ const fs = require('fs');
 const path = require('path');
 
 /**
-* Load development config stored in dev.env.json
-*/
+ * Load development config stored in dev.env.json
+ */
 
 const devConfig = path.join(__dirname, 'dev.env.json');
 
-if(fs.existsSync(devConfig)) {
+if (fs.existsSync(devConfig)) {
     const env = JSON.parse(fs.readFileSync(devConfig));
-    for(let key of Object.keys(env)) {
+    for (let key of Object.keys(env)) {
         process.env[key] = env[key];
     }
 }

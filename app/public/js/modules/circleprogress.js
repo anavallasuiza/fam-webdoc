@@ -1,21 +1,21 @@
 'use strict';
 
 class Circle {
-    constructor($element, size = 100, barWidth = 20, initial = 0, bgColor = 'rgba(255,255,255,0.2)', barColor = 'rgba(255,255,255,1)') {
+    constructor($element, radius = 100, barWidth = 20, initial = 0, bgColor = 'rgba(255,255,255,0.2)', barColor = 'rgba(255,255,255,1)') {
         this.$element = $element;
-        this.size = size;
+        this.radius = radius;
         this.barWidth = barWidth;
         this.initial = initial;
         this.bgColor = bgColor;
         this.barColor = barColor;
-        this.radius = (this.size - this.barWidth) / 2;
+        this.radius = (this.radius - this.barWidth) / 2;
 
         this.canvas = document.createElement('canvas');
-        this.canvas.width = this.canvas.height = this.size;
+        this.canvas.width = this.canvas.height = this.radius;
 
         this.ctx = this.canvas.getContext('2d');
 
-        this.ctx.translate(this.size / 2, this.size / 2);
+        this.ctx.translate(this.radius / 2, this.radius / 2);
         this.ctx.rotate(-1 * Math.PI / 2);
 
         this.$element.append(this.canvas);

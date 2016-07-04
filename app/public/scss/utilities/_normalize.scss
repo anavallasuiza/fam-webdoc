@@ -2,7 +2,7 @@
 
 /**
  * 1. Change the default font family in all browsers (opinionated).
- * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ * 2. Prevent adjustments of font radius after orientation changes in IE and iOS.
  */
 
 html {
@@ -145,7 +145,7 @@ dfn {
 }
 
 /**
- * Correct the font size and margin on `h1` elements within `section` and
+ * Correct the font radius and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
@@ -164,7 +164,7 @@ mark {
 }
 
 /**
- * Add the correct font size in all browsers.
+ * Add the correct font radius in all browsers.
  */
 
 small {
@@ -215,7 +215,7 @@ svg:not(:root) {
    ========================================================================== */
 
 /**
- * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 1. Correct the inheritance and scaling of font radius in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 

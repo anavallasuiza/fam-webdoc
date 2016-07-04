@@ -24,7 +24,7 @@ module.exports = ($panel) => {
                 }
             };
 
-            $panel.on('click', (e) => {
+            $panel.on('click', () => {
                 $currentContent && hideCurrent();
             });
 

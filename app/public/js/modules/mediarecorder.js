@@ -27,7 +27,7 @@ class Recorder {
                     this.chunks.push(e.data);
                 };
 
-                this.recorder.onstop = (e) => {
+                this.recorder.onstop = () => {
                     this._end();
                 };
 

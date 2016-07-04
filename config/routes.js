@@ -17,6 +17,7 @@ module.exports = (app) => {
      * Public
      */
     app.get('/', webdoc.index);
+    app.get('/start', webdoc.start);
     app.get('/intro', webdoc.intro);
     app.get('/mashup/:where/:uuid', webdoc.mashup);
     app.get('/hub', webdoc.hub);

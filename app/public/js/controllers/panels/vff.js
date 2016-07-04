@@ -14,7 +14,7 @@ module.exports = ($panel) => {
 
     return {
         on: () => {
-            $window.on('scroll.vff', (e) => {
+            $window.on('scroll.vff', () => {
                 const pos = $window.scrollTop() - top;
                 const percent = pos / height;
 

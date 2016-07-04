@@ -26,6 +26,10 @@ const routes = {
         on: controllers.home.on,
         after: controllers.home.after
     },
+    '/start': {
+        on: controllers.start.on,
+        after: controllers.start.after
+    },
     '/intro': {
         before: controllers.middlewares.requireUserId,
         on: controllers.intro.on,

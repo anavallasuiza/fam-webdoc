@@ -1,36 +1,43 @@
 @mixin centered() {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 @mixin fullscreen() {
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
 }
 
 //Animation mixins
 
-
-@mixin fadein {
-    animation-name: fadein;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-
+@mixin fadein($delay:"0s", $duration:"1s") {
+  animation-name: fadein;
+  animation-duration: unquote($duration);
+  animation-delay: unquote($delay);
+  animation-fill-mode: forwards;
 }
 
+@mixin leftfade($delay:"1s", $duration:"2s") {
+  animation-name: leftfade;
+  animation-duration: unquote($duration);
+  animation-delay: unquote($delay);
+  animation-fill-mode: forwards;
+}
+
+
 @mixin button {
-    background: $link;
-    color: $positive;
-    border: none;
+  background: $link;
+  color: $positive;
+  border: none;
 }
 
 //Flex
 
 @mixin flexCenter {
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }

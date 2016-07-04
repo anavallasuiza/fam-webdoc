@@ -37,7 +37,7 @@ module.exports.preloadMedia = (media, $preloadWidget) => {
                 return resolve(true);
             });
 
-            $media.on('error stalled', (error) => {
+            $media.on('error stalled', () => {
                 resolve(false);
             });
 

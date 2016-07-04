@@ -1,0 +1,137 @@
+.start {
+  background-image: url('/static/img/background-frontpage.jpg');
+
+  .panel.title {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    header {
+      text-align: center;
+      h1 {
+        font-size: 6rem;
+        margin: 4rem 0;
+        visibility: hidden;
+      }
+
+      p {
+        font-size: 2rem;
+        margin: 2rem 0;
+        background: url('/static/img/subtitle.png');
+        width: 781px;
+        height: 153px;
+        color: transparent;
+        opacity: 0;
+        @include leftfade("1s", "2s");
+      }
+    }
+
+    ul.tipology {
+      display: flex;
+      flex-direction: row;
+      @include flexCenter;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        min-width: 7rem;
+        margin: 2rem 3rem;
+        text-align: left;
+        padding-left: 110px;
+        opacity: 0;
+
+        &.ico-exp {
+          background: url('/static/img/icono_tiempo.png') no-repeat;
+          @include fadein("2s", "1s");
+        }
+
+        &.ico-tip {
+          background: url('/static/img/icono_sinopsis.png') no-repeat;
+          @include fadein("3s", "1s");
+        }
+
+        &.ico-dur {
+          background: url('/static/img/icono_tiempo.png') no-repeat;
+          @include fadein("4s", "1s");
+
+        }
+
+        i {
+          display: block;
+          margin: 0 0 1rem 0;
+        }
+
+        p {
+          font-size: .8rem;
+        }
+      }
+    }
+
+    [data-start] {
+      background: url('/static/img/icono_flecha.png');
+      border: none;
+      color: transparent;
+      width: 52px;
+      height: 53px;
+      outline: none;
+      margin-top: 3rem;
+      opacity: 0;
+      @include fadein('5s', '1s');
+
+    }
+  }
+
+  .panel.permissions {
+    display: flex;
+    flex-direction: column;
+    @include flexCenter;
+    text-align: center;
+    background: url('/static/img/imagen_activar_camara.jpg') no-repeat;
+    background-size: cover;
+
+    header {
+      display: flex;
+      flex-direction: row;
+      @include flexCenter;
+      background: url('/static/img/vols_viure_experiencia.png') no-repeat center right;
+      width: 800px;
+      height: 174px;
+
+      h1 {
+        flex: 1 0 auto;
+        width: 450px;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    div.camera {
+      width: 420px;
+      height: 330px;
+      margin-left: -10px;
+      box-sizing: border-box;
+      background: url('/static/img/cuadrado_ojo.png') no-repeat;
+
+      margin-top: 2rem;
+      padding: 6rem 2.3rem 0rem 2.3rem;
+
+      strong {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: .9rem;
+      }
+
+      button {
+        background: none;
+        border: none;
+        color: $negative;
+        padding: .5rem 1rem;
+      }
+    }
+  }
+}
