@@ -46,7 +46,7 @@
         opacity: 0;
 
         &.ico-exp {
-          background: url('/static/img/icono_tiempo.png') no-repeat;
+          background: url('/static/img/icono_puntero.png') no-repeat;
           @include fadein("2s", "1s");
         }
 
