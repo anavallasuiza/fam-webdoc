@@ -9,11 +9,24 @@
 
 @keyframes leftfade {
   0% {
-    margin-left: -100px;
+    transform: translateX(-100px);
     opacity: 0;
   }
   100% {
-    margin-left: 0px;
+    transform: translateX(0px);
+
     opacity: 1;
+  }
+}
+
+@keyframes zoomtext {
+  0% {
+    opacity: 1;
+    font-size: 10rem;
+  }
+
+  100% {
+    opacity: 0;
+    font-size: 4rem;
   }
 }

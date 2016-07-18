@@ -1,44 +1,43 @@
 .home {
-  background-image: url('/static/img/background-frontpage.jpg');
 
-  .panel {
-    min-width: auto;
-  }
-
-  .panel.title {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    header {
-      text-align: center;
-      h1 {
-        font-size: 6rem;
-        margin: 1rem 0;
-        visibility: hidden;
-      }
-
-      ul {
-        margin: -10rem 0 2rem 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        @include flexCenter;
-
-        li {
-          margin: .5rem;
-          font-family: 'Montserrat', sans-serif;
-          font-weight: 400;
-          font-size: 2rem;
-
-          a {
-            color: $negative;
-            padding: .5rem 2rem;
-            text-decoration: none;
-          }
-        }
-      }
+    .panel {
+        min-width: auto;
     }
-  }
+    .panel.title {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        header {
+            video {
+                display: none;
+            }
+
+            canvas {
+
+            }
+            h1 {
+                font-size: 6rem;
+                margin: 1rem 0;
+                display: none;
+            }
+            ul {
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                @include flexCenter;
+                li {
+                    margin: .5rem;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 400;
+                    font-size: 2rem;
+                    a {
+                        color: $negative;
+                        padding: .5rem 2rem;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
 }

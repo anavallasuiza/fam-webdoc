@@ -6,27 +6,64 @@
             position: absolute;
         }
 
-        .controls {
+        .pre-record {
             position: absolute;
+            width: 100%;
+            font-size: 10rem;
+            top: 50%;
             text-align: center;
-            bottom: 10%;
-            min-width: 100%;
+            margin-top: -5rem;
+
+            &.counting {
+                @include zoomtext;
+            }
+        }
+
+        .bar {
+            position: absolute;
+            bottom: 20px;
+            width: 0;
+            height: .2rem;
+            background: $negative;
+            transition: width 10s linear;
+            z-index: 120;
+
+            &.recording {
+                width: 100%;
+            }
+        }
+
+        .controls {
+            padding: 2rem;
+            box-sizing: border-box;
+            z-index: 100;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .info {
+                background: $bgalpha;
+                width: 20vw;
+                padding: 2rem;
+            }
+
+            button[data-start] {
+                background: url('/static/img/rec.png');
+                background-repeat: no-repeat;
+                width: 100px;
+                height: 56px;
+                color: transparent;
+                outline: none;
+            }
+
 
             button {
                 @include button;
                 font-size: 2rem;
             }
 
-            .bar {
-                width: 0;
-                height: .2rem;
-                background: $positive;
-                transition: width 10s linear;
-
-                &.recording {
-                    width: 100%;
-                }
-            }
         }
     }
 }

@@ -1,3 +1,5 @@
+//Layout mixins
+//
 @mixin centered() {
   position: absolute;
   top: 50%;
@@ -12,8 +14,9 @@
   object-fit: cover;
 }
 
-//Animation mixins
 
+//Animation mixins
+//TODO: use a single function
 @mixin fadein($delay:"0s", $duration:"1s") {
   animation-name: fadein;
   animation-duration: unquote($duration);
@@ -28,6 +31,15 @@
   animation-fill-mode: forwards;
 }
 
+@mixin zoomtext($delay:"1s", $duration:".2s") {
+  animation-name: zoomtext;
+  animation-duration: unquote($duration);
+  animation-delay: unquote($delay);
+  animation-fill-mode: forwards;
+}
+
+
+//Element mixins
 
 @mixin button {
   background: $link;
@@ -35,9 +47,12 @@
   border: none;
 }
 
-//Flex
+
+//Flex mixins
 
 @mixin flexCenter {
   align-items: center;
   justify-content: center;
 }
+
+

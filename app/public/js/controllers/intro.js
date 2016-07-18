@@ -4,6 +4,7 @@ const Recorder = require('mediarecorder').Recorder;
 
 let recorder;
 
+
 module.exports = (app) => {
 
     return {
@@ -15,23 +16,44 @@ module.exports = (app) => {
             const $introVideo = $intro.find('video');
 
             const $control = $root.find('[data-control]');
+            const $controlUI = $control.find('[data-ui]');
             const $start = $control.find('[data-start]');
             const $controlVideo = $control.find('video');
-            const $bar = $control.find('[data-bar]');
+            const $count = $control.find('.pre-record');
+            const $bar = $root.find('[data-bar]');
 
             const $output = $root.find('[data-output]');
             const $outputVideo = $output.find('video');
 
+            const preRecord = () => {
+                let count = 3;
+                let interval;
+                $count.html('').removeClass('counting');
+
+                return new Promise((resolve, reject) => {
+                    interval = setInterval(() => {
+                        if (count === 0) {
+                            clearInterval(interval);
+                            $count.html(count).addClass('counting');
+                            return resolve();
+                        }
+                        $count.html(count);
+                        count--;
+                    }, 1000);
+                });
+            };
+
+
             //Init video
             $introVideo.on('ended', (e) => {
-                if(app.hasVideo) {
+                if (app.hasVideo) {
                     $intro.addClass('is-hidden');
                 } else {
                     app.router.setRoute('/mashup/intro/anonymous');
                 }
             });
 
-            if(app.hasVideo) {
+            if (app.hasVideo) {
                 //Recorder control
                 recorder = new Recorder($controlVideo, $outputVideo);
 
@@ -39,16 +61,19 @@ module.exports = (app) => {
 
 
                 $start.on('click', (e) => {
-                    recorder.start();
-                    $start.addClass('is-hidden');
+                    $controlUI.addClass('is-hidden');
+                    preRecord().then(() => {
+                        recorder.start();
 
-                    $bar.addClass('recording');
+                        $bar.addClass('recording');
 
-                    setTimeout(() => {
-                        $control.addClass('is-hidden');
-                        $bar.removeClass('recording');
-                        recorder.stop();
-                    }, app.config.recordingTime);
+                        setTimeout(() => {
+                            $control.addClass('is-hidden');
+                            $bar.removeClass('recording');
+                            recorder.stop();
+                        }, app.config.recordingTime);
+
+                    });
                 });
 
                 //Recorder output
@@ -62,7 +87,7 @@ module.exports = (app) => {
                     recorder.startPreview();
                     recorder.clean();
 
-                    $start.removeClass('is-hidden');
+                    $controlUI.removeClass('is-hidden');
 
                     $control.removeClass('is-hidden');
                 });
@@ -79,12 +104,15 @@ module.exports = (app) => {
 
             }
 
-            $introVideo.get(0).play();
+            //Uncomment next line and delete next one
+            // $introVideo.get(0).play();
+            $intro.addClass('is-hidden');
+
 
             next();
         },
         after: function after(next) {
-            if(app.hasVideo) {
+            if (app.hasVideo) {
                 recorder.off();
             }
 

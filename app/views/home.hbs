@@ -2,12 +2,23 @@
     <section class="panel title">
         <header>
             <h1>{{__ 'HAMBRE'}}</h1>
+            <div class="front-video">
+                <video src="/static/media/frontpage.mp4" autobuffer loop></video>
+                <canvas width="1024" height="296"></canvas>
+            </div>
             <ul>
                 <li><a data-external href="/locale/ca">{{__ 'CA'}}</a> //</li>
                 <li><a data-external href="/locale/en">{{__ 'IN'}}</a> //</li>
                 <li><a data-external href="/locale/es">{{__ 'ES'}}</a></li>
             </ul>
         </header>
-
     </section>
+
+    <svg width="400" height="300" baseProfile="full" version="1.2">
+        <defs>
+        <mask id="videomask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" transform="scale(1)">
+            <text x="200" y="100">F-A-M</text>
+        </mask>
+        </defs>
+    </svg>
 </article>
