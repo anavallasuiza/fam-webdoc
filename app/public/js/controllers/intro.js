@@ -105,8 +105,8 @@ module.exports = (app) => {
             }
 
             //Uncomment next line and delete next one
-            // $introVideo.get(0).play();
-            $intro.addClass('is-hidden');
+            $introVideo.get(0).play();
+            // $intro.addClass('is-hidden');
 
 
             next();

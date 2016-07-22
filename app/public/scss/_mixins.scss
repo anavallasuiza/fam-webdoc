@@ -38,6 +38,13 @@
   animation-fill-mode: forwards;
 }
 
+@mixin bottomShow($delay:"1s", $duration:".2s") {
+  animation-name: bottomShow;
+  animation-duration: unquote($duration);
+  animation-delay: unquote($delay);
+  animation-fill-mode: forwards;
+}
+
 
 //Element mixins
 

@@ -31,28 +31,27 @@ const routes = {
         after: controllers.start.after
     },
     '/intro': {
-        // before: controllers.middlewares.requireUserId,
+        before: controllers.middlewares.requireUserId,
         on: controllers.intro.on,
         after: controllers.intro.after
     },
     '/mashup/:where/:uuid': {
-        // before: controllers.middlewares.requireUserId,
+        before: controllers.middlewares.requireUserId,
         on: controllers.mashup.on,
         after: controllers.mashup.after
     },
     '/hub': {
-        // before: controllers.middlewares.requireUserId,
+        before: controllers.middlewares.requireUserId,
         on: controllers.hub.on,
         after: controllers.hub.after
     },
     '/sequence/:id': {
-        // before: controllers.middlewares.requireUserId,
+        before: controllers.middlewares.requireUserId,
         on: controllers.sequence.on,
         after: controllers.sequence.after
     }
 };
 
-//noinspection JSUnresolvedVariable
 if (DEVELOPMENT) {
     window.app = app;
 }

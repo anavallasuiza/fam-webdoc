@@ -6,7 +6,8 @@
     }
     .panel.title {
         flex-direction: column;
-        @include flexCenter;
+        align-items: center;
+        justify-content: top;
         .cover {
             position: absolute;
             top: 0;
@@ -24,42 +25,43 @@
             canvas {}
             p {
                 background: url('/static/img/subtitle.png');
-                width: 781px;
+                width: 687px;
                 height: 153px;
                 margin: 0 auto;
                 color: transparent;
                 opacity: 0;
-                @include leftfade("1s",
-                "2s");
+                @include leftfade("1s", "2s");
             }
         }
         ul.tipology {
             display: flex;
             flex-direction: row;
-            @include flexCenter;
+            align-items: top;
+            justify-content: center;
             list-style: none;
             margin: 0;
             padding: 0;
+            opacity: 0;
+
+            &.active {
+                @include bottomShow("0s", "3s");
+            }
+
             li {
+                font-weight: 300;
                 min-width: 7rem;
                 margin: 2rem 3rem;
                 text-align: left;
-                padding-left: 110px;
-                opacity: 0;
+                padding-left: 5rem;
+
                 &.ico-exp {
                     background: url('/static/img/icono_puntero.png') no-repeat;
-                    @include fadein("2s",
-                    "1s");
                 }
                 &.ico-tip {
                     background: url('/static/img/icono_sinopsis.png') no-repeat;
-                    @include fadein("3s",
-                    "1s");
                 }
                 &.ico-dur {
                     background: url('/static/img/icono_tiempo.png') no-repeat;
-                    @include fadein("4s",
-                    "1s");
                 }
                 i {
                     display: block;
@@ -78,8 +80,8 @@
             height: 53px;
             outline: none;
             opacity: 0;
-            @include fadein('5s',
-            '1s');
+            @include fadein('3s', '1s');
+
         }
     }
     .panel.permissions {
@@ -109,7 +111,6 @@
             background: url('/static/img/cuadrado_ojo.png') no-repeat;
             padding: 6rem 4rem 0rem 4rem;
             margin-top: -4rem;
-
             strong {
                 font-size: 3rem;
             }
@@ -124,8 +125,8 @@
                 margin: 0 auto;
                 padding: 0rem 3rem;
                 margin-bottom: 1rem;
-
                 &[data-activate] {
+                    font-weight: bold;
                     background: $red;
                     font-size: 3rem;
                     margin-top: 5rem;

@@ -40,6 +40,7 @@
             width: 100vw;
             height: 100vh;
             display: flex;
+            flex-direction: row-reverse;
             justify-content: space-between;
             align-items: center;
 
@@ -49,19 +50,34 @@
                 padding: 2rem;
             }
 
-            button[data-start] {
-                background: url('/static/img/rec.png');
-                background-repeat: no-repeat;
-                width: 100px;
-                height: 56px;
-                color: transparent;
-                outline: none;
-            }
+            .button-list {
+                display: flex;
+                flex-direction: column;
+
+                background-color: $bgalpha;
+
+                button[data-start], button[data-restart] {
+                    background-image: url('/static/img/rec.png');
+                }
+                button[data-play] {
+                    background-image: url('/static/img/icono_ojo.png');
+                }
+                button[data-save] {
+                    background-image: url('/static/img/icono_aceptar.png');
+                }
 
 
-            button {
-                @include button;
-                font-size: 2rem;
+                button {
+                    @include button;
+                    text-transform: uppercase;
+                    background-repeat: no-repeat;
+                    background-position: center 1rem;
+                    background-color: transparent;
+                    color: $negative;
+                    outline: none;
+                    padding: 5rem 1rem 0.5rem 1rem;
+                    font-size: 1.3rem;
+                }
             }
 
         }

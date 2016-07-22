@@ -3,6 +3,7 @@
 const uuid = require('node-uuid');
 const mediaRecorder = require('mediarecorder');
 const VideoCanvas = require('videocanvas');
+const $ = require('jquery');
 
 module.exports = (app) => {
     return {
@@ -10,6 +11,21 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
             const $video = $root.find('.front-video video');
             const $canvas = $root.find('.front-video canvas');
+
+
+            $('body').css('overflow', 'hidden');
+
+            $(window).one('mousewheel keydown', (e) => {
+                $root.find('.tipology').addClass('active');
+                setTimeout(() => {
+                    $(window).one('mousewheel keydown', (e) => {
+                        $('html, body').animate({
+                            scrollTop: $root.find('.permissions').offset().top
+                        }, 2000);
+
+                    });
+                }, 3000);
+            });
 
             const videomask = new VideoCanvas($video.get(0), $canvas.get(0));
 

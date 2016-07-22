@@ -6,14 +6,16 @@ $block: #eee;
 $red: #580607;
 $bgalpha: rgba(0,0,0,.5);
 
+//Fonts
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import 'utilities/fonts';
+
 //Modules
 @import '../web_modules/font-awesome/scss/font-awesome';
 @import 'mixins';
 @import 'animations';
 @import 'utilities/normalize';
 
-//Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 //Pages
 @import 'sections/home';
@@ -35,6 +37,9 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: $positive;
   color: $negative;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
 
   .main-container {
     max-width: 2000px;
@@ -42,7 +47,7 @@ body {
     margin: 0 auto;
 
     article {
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
     }
   }

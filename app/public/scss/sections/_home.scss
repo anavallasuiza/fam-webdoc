@@ -1,4 +1,6 @@
 .home {
+    background-image: url('/static/img/portada_camara_fondo.jpg');
+    // background-position: center;
 
     .panel {
         min-width: auto;
@@ -7,6 +9,17 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/static/img/portada_camara_cuadrados_codigo.png');
+        }
+
+
         header {
             video {
                 display: none;
@@ -31,6 +44,7 @@
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 400;
                     font-size: 2rem;
+                    z-index: 1000;
                     a {
                         color: $negative;
                         padding: .5rem 2rem;

@@ -26,6 +26,8 @@ const publicFolders = {
     media: 'dist/media'
 };
 
+
+
 /**
  * Media
  */
@@ -35,21 +37,21 @@ const mediaToProcess = {
     output: publicFolders.media
 };
 
-gulp.task('media', function () {
+gulp.task('media', function() {
     return gulp.src(mediaToProcess.input)
         .pipe(gulp.dest(mediaToProcess.output));
 });
 
 /**
- * Media
+ * Fonts
  */
 
 const fontsToProcess = {
-    input: 'app/public/web_modules/font-awesome/fonts/**/**',
+    input: ['app/public/web_modules/font-awesome/fonts/**/**', 'app/public/fonts/**.*'],
     output: publicFolders.fonts
 };
 
-gulp.task('fonts', function () {
+gulp.task('fonts', function() {
     return gulp.src(fontsToProcess.input)
         .pipe(gulp.dest(fontsToProcess.output));
 });
@@ -82,7 +84,7 @@ const styleCowOptions = {
 };
 
 
-gulp.task('css:dev', function () {
+gulp.task('css:dev', function() {
     return gulp.src(styleToProcess.input)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -94,7 +96,7 @@ gulp.task('css:dev', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('css:prod', function () {
+gulp.task('css:prod', function() {
     return gulp.src(styleToProcess.input)
         .pipe(sass().on('error', sass.logError))
         .pipe(stylecow(merge({}, styleCowOptions, {
@@ -113,7 +115,7 @@ const imagesToProcess = {
 };
 
 
-gulp.task('images',  function () {
+gulp.task('images', function() {
     return gulp.src(imagesToProcess.input)
         .pipe(cache('img'))
         .pipe(imagemin())
@@ -125,7 +127,7 @@ gulp.task('images',  function () {
  * Js
  */
 
-gulp.task('webpack:prod', function (callback) {
+gulp.task('webpack:prod', function(callback) {
 
     let buildConfig = Object.create(webpackConfig);
 
@@ -145,7 +147,7 @@ gulp.task('webpack:prod', function (callback) {
         })
     );
 
-    webpack(buildConfig, function (err, stats) {
+    webpack(buildConfig, function(err, stats) {
         if (err) {
             throw new gutil.PluginError('webpack:prod', err);
         }
@@ -171,8 +173,8 @@ myDevConfig.plugins = myDevConfig.plugins.concat(
 
 var devCompiler = webpack(myDevConfig);
 
-gulp.task('webpack:dev', function (callback) {
-    devCompiler.run(function (err, stats) {
+gulp.task('webpack:dev', function(callback) {
+    devCompiler.run(function(err, stats) {
         if (err) {
             throw new gutil.PluginError('webpack:dev', err);
         }
@@ -188,7 +190,7 @@ gulp.task('webpack:dev', function (callback) {
 /**
  * Extra watchers
  */
-gulp.task('webpack:watch', ['webpack:dev'], function () {
+gulp.task('webpack:watch', ['webpack:dev'], function() {
     return browserSync.reload();
 });
 
@@ -199,7 +201,7 @@ gulp.task('webpack:watch', ['webpack:dev'], function () {
 
 const BROWSER_SYNC_RELOAD_DELAY = 500;
 
-gulp.task('nodemon', function (cb) {
+gulp.task('nodemon', function(cb) {
     let called = false;
     return nodemon({
         script: 'server.js',
@@ -233,7 +235,7 @@ const watchFiles = {
     fonts: 'app/public/web_modules/font-awesome/fonts/**/**'
 };
 
-gulp.task('dev-server', function (callback) {
+gulp.task('dev-server', function(callback) {
     browserSync.init({
         proxy: 'http://localhost:8080',
         open: false
@@ -253,7 +255,7 @@ gulp.task('dev-server', function (callback) {
  * Wipe workspace
  */
 
-gulp.task('wipe', function () {
+gulp.task('wipe', function() {
     return gulp.src('dist')
         .pipe(rimraf());
 });
@@ -261,13 +263,13 @@ gulp.task('wipe', function () {
 /**
  * Development task
  */
-gulp.task('dev', function () {
+gulp.task('dev', function() {
     return runSequence('wipe', ['images', 'fonts', 'media', 'css:dev', 'webpack:dev'], 'nodemon', 'dev-server');
 });
 
 /**
  * Default task
  */
-gulp.task('default', function () {
+gulp.task('default', function() {
     return runSequence('wipe', ['media', 'fonts', 'images', 'css:prod', 'webpack:prod']);
 });

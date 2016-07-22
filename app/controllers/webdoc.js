@@ -5,6 +5,8 @@ const wrap = require('co-express');
 
 const uploader = require('../lib/uploader');
 const selector = require('../lib/selector');
+const _ = require('lodash');
+
 /**
  * Home
  */
@@ -69,6 +71,7 @@ module.exports.mashup = wrap(function*(req, res) {
         return res.render('mashup', {
             videos: selected,
             where: req.params.where,
+            disruptive: _.sample(['dis1.mp4', 'dis2.mp4', 'dis3.mp4']),
             layout: null
         });
     } else {
