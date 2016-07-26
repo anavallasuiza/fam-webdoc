@@ -1,6 +1,8 @@
 'use strict';
 
 const $ = require('jquery');
+window.$ = window.jQuery = $;
+
 require('jquery-scrollify');
 
 module.exports = (app) => {
@@ -10,7 +12,7 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
 
             const $panels = $root.find('.panel');
-            let current = 0;
+            let current = -1;
 
             //Panel handlers
             const handlers = $panels.map((i, panel) => {

@@ -1,4 +1,8 @@
 <section class="panel {{type}}" style="height:{{height}}px" data-type="{{type}}">
-    <video src="/static/media/{{video}}" preload data-preload></video>
+    <div class="progress"></div>
 
+    <video src="/static/media/{{video}}" preload data-preload></video>
+    {{#if audio}}
+        <audio src="/static/media/{{audio}}" loop></audio>
+    {{/if}}
 </section>

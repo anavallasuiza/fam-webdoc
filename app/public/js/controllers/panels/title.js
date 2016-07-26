@@ -1,25 +1,25 @@
 'use strict';
 
 module.exports = ($panel) => {
-    let bgSound;
-    const $bgSound = $panel.find('.bgsound');
+    let audio;
+    const $audio = $panel.find('audio');
 
-    if ($bgSound.length) {
-        bgSound = $bgSound.get(0);
+    if ($audio.length) {
+        audio = $audio.get(0);
     }
 
     return {
         on: () => {
-            if (bgSound) {
-                bgSound.volume = 0;
-                bgSound.play();
+            if (audio) {
+                audio.volume = 0;
+                audio.play();
 
-                $bgSound.animate({ volume: 1 }, 1000);
+                $audio.animate({ volume: 1 }, 1000);
             }
         },
         after: () => {
-            if (bgSound) {
-                $bgSound.animate({ volume: 0 }, 1000, () => bgSound.pause());
+            if (audio) {
+                $audio.animate({ volume: 0 }, 1000, () => audio.pause());
 
             }
 

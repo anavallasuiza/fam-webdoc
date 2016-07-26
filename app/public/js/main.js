@@ -46,7 +46,7 @@ const routes = {
         after: controllers.hub.after
     },
     '/sequence/:id': {
-        before: controllers.middlewares.requireUserId,
+        // before: controllers.middlewares.requireUserId,
         on: controllers.sequence.on,
         after: controllers.sequence.after
     }

@@ -9,7 +9,7 @@ module.exports = ($panel) => {
 
     return {
         init: () => {
-            progress = new Circle($panel.find('.progress'), 100, 30, 0);
+            progress = new Circle($panel.find('.progress'), 120, 30, 0);
         },
         on: () => {
             video.play();
