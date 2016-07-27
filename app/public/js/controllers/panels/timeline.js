@@ -19,10 +19,9 @@ module.exports = ($panel) => {
 
             scrubber.on('dragMove', _.debounce((event, pointer) => {
                 const relativePosition = scrubber.position.y / $slider.height();
-                console.log(-1 * ($canvas.outerHeight() * relativePosition));
 
                 $canvas.css('transform', `translateY(${-1 * ($canvas.outerHeight() * relativePosition)}px)`);
-            }, 100));
+            }, 10));
         },
         after: () => {
 
