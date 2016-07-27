@@ -41,7 +41,7 @@ const routes = {
         after: controllers.mashup.after
     },
     '/hub': {
-        before: controllers.middlewares.requireUserId,
+        // before: controllers.middlewares.requireUserId,
         on: controllers.hub.on,
         after: controllers.hub.after
     },

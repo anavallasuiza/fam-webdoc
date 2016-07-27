@@ -26,13 +26,14 @@
 
 
         .title {
-            flex-grow: 1;
+            width: 33vw;
             text-decoration: none;
 
             span {
-                font-weight: 800;
+                text-align: left;
+                font-weight: 600;
                 color: #fff;
-                text-shadow: 2px 2px 2px $negative;
+                text-shadow: 2px 2px 2px $positive;
                 display: block;
                 white-space: nowrap;
                 opacity: 0;
