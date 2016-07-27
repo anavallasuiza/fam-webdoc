@@ -1,7 +1,7 @@
 //Variables
 $positive: #000;
 $negative: #fff;
-$link: #3079ed;
+$link: #3079ed; //Azul claro
 $block: #eee;
 $red: #580607;
 $bgalpha: rgba(0,0,0,.5);
@@ -30,6 +30,7 @@ $bgalpha: rgba(0,0,0,.5);
 @import 'panels/autoplay';
 @import 'panels/vff';
 @import 'panels/viei';
+@import 'panels/timeline';
 
 //Generic
 

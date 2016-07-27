@@ -110,7 +110,7 @@ gulp.task('css:prod', function() {
  * Images
  */
 const imagesToProcess = {
-    input: 'app/public/img/*.{jpg,png,gif,svg,ico}',
+    input: 'app/public/img/**/*.{jpg,png,gif,svg,ico}',
     output: publicFolders.img
 };
 

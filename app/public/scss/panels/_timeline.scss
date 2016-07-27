@@ -1,0 +1,62 @@
+.sequence {
+    .timeline {
+        background: $positive;
+        height: 100vh;
+
+        .tray {
+            background-image: url(/static/img/canvas/fondo_canvas.jpg);
+            background-size: fit;
+            overflow-y: hidden;
+            .canvas {
+                transition: 0.1s ease-in-out;
+
+                img {
+                    width: 100%;
+                }
+
+            }
+        }
+
+        .handler {
+            position: absolute;
+            box-sizing: border-box;
+            padding: 0 1rem;
+            right: 0;
+            height: 100vh;
+            width: 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .slider {
+                flex-grow: 1;
+                width: 100%;
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4//8/AAX+Av7czFnnAAAAAElFTkSuQmCC);
+                background-position: center top;
+                background-repeat: repeat-y;
+
+                .scrubber {
+                    background: $red;
+                    height: .8rem;
+                    width: 100%;
+                    cursor: pointer;
+                }
+            }
+
+            .end {
+                font-weight: 800;
+                color: $red;
+                font-size: 2rem;
+                padding: 1rem 0;
+
+                &.top {
+                    border-top: 1rem solid $red;
+                }
+                &.bottom {
+                    border-bottom: 1rem solid $red;
+                }
+            }
+        }
+    }
+
+}

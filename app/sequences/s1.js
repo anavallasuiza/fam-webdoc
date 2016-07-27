@@ -6,17 +6,19 @@ const s1 = {
     id: 'sq1',
 
     panels: [{
-        type: 'title',
-        text: i18n.__('El hambre es una mujer africana hambrienta, con muchos hijos, que no va a la escuela y no tiene trabajo, nacida en un país seco, corrupto, estéril. Una imagen repetida infinitas veces que no nos deja ver el resto.')
-    }, {
-        type: 'vff',
-        height: 10000,
-        video: 's1p1faf.mp4',
-        audio: 's1p1faf.mp3'
-    }, {
-        type: 'autoplay',
-        video: 's1p2.mp4'
-    }
+            type: 'title',
+            text: i18n.__('El hambre es una mujer africana hambrienta, con muchos hijos, que no va a la escuela y no tiene trabajo, nacida en un país seco, corrupto, estéril. Una imagen repetida infinitas veces que no nos deja ver el resto.')
+        }, {
+            type: 'vff',
+            height: 10000,
+            video: 's1p1faf.mp4',
+            audio: 's1p1faf.mp3'
+        }, {
+            type: 'autoplay',
+            video: 's1p2.mp4'
+        }, {
+            type: 'timeline'
+        }
         /*, {
                 type: 'viei',
                 bgsound: 'music.mp3',
@@ -56,6 +58,7 @@ const s1 = {
                 height: 10000,
                 video: 'sample.mp4'
             }*/
+
     ]
 };
 
