@@ -14,7 +14,6 @@ module.exports = (app) => {
 
             //Adjust heights
             $titles.css({
-                'font-size': Math.floor(height/10) + 'px',
                 'line-height': Math.floor(height/10) + 'px'
             });
 

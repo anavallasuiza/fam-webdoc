@@ -17,15 +17,15 @@ module.exports.select = (uuid, where) => {
 
             let possible;
 
-            if(uuid === 'anonymous') {
-                possible = files.filter(f => !f.startsWith('.')).slice(0, config.sampleVideos);
+            if (uuid === 'anonymous') {
+                possible = _.shuffle(files.filter(f => !f.startsWith('.')).slice(0, config.sampleVideos));
             } else {
                 const userFile = `${uuid}.webm`;
-                possible = files.filter(f => (f !== userFile && !f.startsWith('.'))).slice(0, config.sampleVideos);
+                possible = _.shuffle(files.filter(f => (f !== userFile && !f.startsWith('.'))).slice(0, config.sampleVideos));
                 possible.push(userFile);
             }
 
-            return resolve(_.shuffle(possible));
+            return resolve(possible);
         });
 
     });

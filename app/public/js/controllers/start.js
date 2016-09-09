@@ -15,10 +15,10 @@ module.exports = (app) => {
 
             $('body').css('overflow', 'hidden');
 
-            $(window).one('mousewheel keydown', (e) => {
+            $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
                 $root.find('.tipology').addClass('active');
                 setTimeout(() => {
-                    $(window).one('mousewheel keydown', (e) => {
+                    $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
                         $('html, body').animate({
                             scrollTop: $root.find('.permissions').offset().top
                         }, 2000);

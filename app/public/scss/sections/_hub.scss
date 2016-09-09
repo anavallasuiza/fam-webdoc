@@ -24,13 +24,21 @@
         display: flex;
         justify-content: space-around;
 
-
         .title {
             width: 33vw;
             text-decoration: none;
+            font-size: 4rem;
+
+            &:nth-child(2) {
+                text-align: center;
+            }
+
+            &:last-child {
+                text-align: right;
+                direction: rtl;
+            }
 
             span {
-                text-align: left;
                 font-weight: 600;
                 color: #fff;
                 text-shadow: 2px 2px 2px $positive;

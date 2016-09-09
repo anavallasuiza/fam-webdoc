@@ -8,8 +8,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: top;
-        margin-top: 10%;
-
         .cover {
             position: absolute;
             top: 0;
@@ -20,11 +18,11 @@
         }
         header {
             text-align: center;
+            margin-top: 5rem;
             h1,
             video {
                 display: none;
             }
-            canvas {}
             p {
                 background: url('/static/img/subtitle.png');
                 width: 687px;
@@ -32,7 +30,8 @@
                 margin: 0 auto;
                 color: transparent;
                 opacity: 0;
-                @include leftfade("1s", "2s");
+                @include leftfade("1s",
+                "2s");
             }
         }
         ul.tipology {
@@ -44,18 +43,16 @@
             margin: 0;
             padding: 0;
             opacity: 0;
-
             &.active {
-                @include bottomShow("0s", "3s");
+                @include bottomShow("0s",
+                "3s");
             }
-
             li {
                 font-weight: 300;
                 min-width: 7rem;
                 margin: 2rem 3rem;
                 text-align: left;
                 padding-left: 5rem;
-
                 &.ico-exp {
                     background: url('/static/img/icono_puntero.png') no-repeat;
                 }
@@ -74,6 +71,7 @@
                 }
             }
         }
+
         [data-start] {
             background: url('/static/img/icono_flecha.png');
             border: none;
@@ -82,10 +80,17 @@
             height: 53px;
             outline: none;
             opacity: 0;
-            @include fadein('3s', '1s');
+            @include fadein('3s',
+            '1s');
+        }
 
+        @media (max-height: 700px) {
+            [data-start] {
+                display: none;
+            }
         }
     }
+
     .panel.permissions {
         display: flex;
         flex-direction: column;
@@ -130,7 +135,7 @@
                 &[data-activate] {
                     font-weight: bold;
                     background: $red;
-                    font-size: 3rem;
+                    font-size: 2rem;
                     margin-top: 5rem;
                 }
             }

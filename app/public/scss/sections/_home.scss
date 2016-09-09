@@ -9,11 +9,11 @@
     .panel {
         min-width: auto;
     }
+
     .panel.title {
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
-        margin-top: 10%;
 
         .cover {
             position: absolute;
@@ -24,15 +24,12 @@
             background-image: url('/static/img/portada_camara_cuadrados_codigo.png');
         }
 
-
         header {
+            margin-top: 5rem;
             video {
                 display: none;
             }
 
-            canvas {
-
-            }
             h1 {
                 font-size: 6rem;
                 margin: 1rem 0;

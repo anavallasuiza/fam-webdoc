@@ -56,8 +56,11 @@
 
                 background-color: $bgalpha;
 
-                button[data-start], button[data-restart] {
+                button[data-start] {
                     background-image: url('/static/img/rec.png');
+                }
+                button[data-restart] {
+                    background-image: url('/static/img/rerec.png');
                 }
                 button[data-play] {
                     background-image: url('/static/img/icono_ojo.png');
