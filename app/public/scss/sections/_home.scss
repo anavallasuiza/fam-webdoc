@@ -1,14 +1,19 @@
 .home {
     background-image: url('/static/img/portada_camara_fondo.jpg');
-    // background-position: center;
+    background-position: center;
+
+    svg {
+        display: none;
+    }
 
     .panel {
         min-width: auto;
     }
     .panel.title {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: center;
+        margin-top: 10%;
 
         .cover {
             position: absolute;

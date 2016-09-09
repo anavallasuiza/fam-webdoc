@@ -29,7 +29,6 @@
     "npm": "^3.10.5",
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",
-    "scrollmagic": "^2.0.5",
     "webpack": "^1.12.9",
     "webrtc-adapter": "1.1.0"
   },
