@@ -23,7 +23,8 @@ const s1 = {
         {
             type: 'timeline',
             init: 1968,
-            end: 2015
+            end: 2015,
+            position: 'lateral-docked'
         },
         {
             type: 'title',
