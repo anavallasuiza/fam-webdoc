@@ -2,10 +2,16 @@
     .timeline {
         background: $positive;
 
+
         .tray {
             background-image: url(/static/img/canvas/fondo_canvas.jpg);
             background-size: fit;
             overflow-y: hidden;
+
+            .tray-bottom {
+                height: 100vh;
+            }
+
             .canvas {
                 img {
                     width: 100%;
@@ -34,10 +40,21 @@
                 background-repeat: repeat-y;
 
                 .scrubber {
+                    position: relative;
                     background: $red;
                     height: .8rem;
                     width: 100%;
                     cursor: pointer;
+
+                    .text {
+                        position: absolute;
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                        top: -10px;
+                        left: -90px;
+                        width: 80px;
+                        text-align: right;
+                    }
                 }
             }
 

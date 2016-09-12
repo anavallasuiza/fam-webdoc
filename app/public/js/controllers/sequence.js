@@ -30,14 +30,12 @@ module.exports = (app) => {
                 section: $panels,
                 setHeights: false,
                 sectionName: false,
+                before: (index) => {
+                    (current > -1 && handlers[current].after) && handlers[current].after();
+                },
                 after: (index) => {
-                    if (current > -1) {
-                        handlers[current].after && handlers[current].after();
-                    }
-
-                    handlers[index].on && handlers[index].on();
-
                     current = index;
+                    handlers[current].on && handlers[current].on();
                 }
             });
 

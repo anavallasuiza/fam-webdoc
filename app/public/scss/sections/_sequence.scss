@@ -1,10 +1,22 @@
 .sequence {
+
     .panel {
         position: relative;
+
+        &.lateral-docked {
+            transform: translateX(100vw) translateY(-100vh);
+        }
+
+        &.lateral {
+            transform: translateX(100vw);
+        }
+
         .progress {
             position: absolute;
             right: 1rem;
             top: 1rem;
         }
+
+
     }
 }

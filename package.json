@@ -21,6 +21,7 @@
     "gulp-stylecow": "^3.1.1",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
+    "in-view": "^0.4.3",
     "install": "^0.8.1",
     "jquery": "^2.2.2",
     "jquery-scrollify": "^0.1.14",
