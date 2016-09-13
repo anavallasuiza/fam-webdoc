@@ -6,8 +6,8 @@ const inView = require('in-view');
 
 const $window = $(window);
 
-function range(value, r1, r2) {
-    return (value - r1[0]) * (r2[1] - r2[0]) / (r1[1] - r1[0]) + r2[0];
+function range(v, range1, range2) {
+    return (v - range1[0]) * (range2[1] - range2[0]) / (range1[1] - range1[0]) + range2[0];
 }
 
 module.exports = ($panel) => {
@@ -30,10 +30,15 @@ module.exports = ($panel) => {
             const contentOffset = $panel.offset().top;
             const contentHeight = $images.toArray().reduce((previous, current) => previous + $(current).outerHeight(), 0);
             const sliderHeight = $slider.outerHeight();
+            const bottom = contentOffset + contentHeight - $images.last().outerHeight() - $scrubber.outerHeight();
 
             const positionHandler = () => {
-                const scruberPosition = range(window.scrollY, [contentOffset, contentOffset + contentHeight], [0, sliderHeight]);
-                $scrubber.css('margin-top', scruberPosition);
+                const pos = window.scrollY;
+
+                if (pos > contentOffset && pos < bottom) {
+                    const scruberPosition = range(pos, [contentOffset, bottom], [0, sliderHeight]);
+                    $scrubber.css('margin-top', scruberPosition);
+                }
             };
 
             $window.on('scroll.timeline', _.debounce(positionHandler, 5));
