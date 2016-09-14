@@ -1,48 +1,73 @@
 'use strict';
 
 const $ = require('jquery');
+const _ = require('lodash');
 window.$ = window.jQuery = $;
 
-require('jquery-scrollify');
+$.fn.scrollTo = function(elem, speed) {
+    $(this).animate({
+        scrollTop: $(this).scrollTop() - $(this).offset().top + $(elem).offset().top
+    }, speed == undefined ? 1000 : speed);
+    return this;
+};
+
+
+function lastVisibleInContainer(elements) {
+    return _.last(elements.map(element => {
+        const parent = element.parentElement;
+        const rect = element.getBoundingClientRect();
+        const rectParent = parent.getBoundingClientRect();
+
+        if (((rect.top + element.clientHeight) > 0) && (rect.top < parent.clientHeight) && (rectParent.left < window.innerWidth)) {
+            return element;
+        }
+
+    }).filter(Boolean));
+
+}
 
 module.exports = (app) => {
 
     return {
         on: function on(id, next) {
             const $root = app.config.$mountPoint;
-
             const $panels = $root.find('.panel');
-            let current = -1;
+            let current = $panels.get(0);
+            const handlers = new Map();
 
-            //Panel handlers
-            const handlers = $panels.map((i, panel) => {
+            for (const panel of $panels) {
                 const $panel = $(panel);
                 const handler = require(`./panels/${$panel.data('type')}`)($panel);
 
                 //Init panel if necessary
                 handler.init && handler.init();
 
-                return handler;
-            }).get();
+                handlers.set(panel, handler);
+            }
 
 
-            $.scrollify({
-                section: $panels,
-                setHeights: false,
-                sectionName: false,
-                before: (index) => {
-                    (current > -1 && handlers[current].after) && handlers[current].after();
-                },
-                after: (index) => {
-                    current = index;
-                    handlers[current].on && handlers[current].on();
+            const checkViewport = () => {
+                const visible = lastVisibleInContainer($panels.toArray());
+                if (current !== visible) {
+                    handlers.get(current).after();
+                    handlers.get(visible).on();
+
+                    current = visible;
                 }
-            });
+
+            };
+
+            $($panels.parent()).on('scroll.sequence', _.debounce(checkViewport, 5)).trigger('scroll.sequence');
+
+
+
+            $('body').css('overflow', 'hidden');
+
 
             next();
         },
         after: function after(id, next) {
-            $.scrollify.destroy();
+            $('body').css('overflow', 'auto');
 
             next();
         }

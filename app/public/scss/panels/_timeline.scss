@@ -2,7 +2,6 @@
     .timeline {
         background: $positive;
 
-
         .tray {
             background-image: url(/static/img/canvas/fondo_canvas.jpg);
             background-size: fit;
@@ -21,10 +20,10 @@
         }
 
         .handler {
-            position: absolute;
+            position: fixed;
             box-sizing: border-box;
             padding: 0 1rem;
-            right: 0;
+            left: 192vw;
             top: 0;
             height: 100vh;
             width: 6rem;

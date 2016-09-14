@@ -1,5 +1,16 @@
 <article class="sequence" data-id="{{data.id}}">
-    {{#each data.panels}}
-       {{> (lookup . 'type')}}
-    {{/each}}
+    {{#if data.adquired}}
+    <section class="side adquired">
+        {{#each data.adquired}}
+           {{> (lookup . 'type')}}
+        {{/each}}
+    </section>
+    {{/if}}
+    {{#if data.missing}}
+    <section class="side missing">
+        {{#each data.missing}}
+           {{> (lookup . 'type')}}
+        {{/each}}
+    </section>
+    {{/if}}
 </article>

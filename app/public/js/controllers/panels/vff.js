@@ -1,11 +1,10 @@
 'use strict';
 
-const $ = require('jquery');
 const Circle = require('circleprogress');
 
 
 module.exports = ($panel) => {
-    const $window = $(window);
+    const $sequence = $panel.parent();
     const $video = $panel.find('video');
     const video = $video.get(0);
 
@@ -48,8 +47,8 @@ module.exports = ($panel) => {
 
             video.currentTime = 0;
 
-            $window.on('scroll.vff', () => {
-                const pos = $window.scrollTop() - top;
+            $sequence.on('scroll.vff', () => {
+                const pos = $sequence.scrollTop() - top;
                 const percent = pos / height;
 
                 if (percent >= 0 && percent <= 1) {
@@ -63,10 +62,10 @@ module.exports = ($panel) => {
                     video.pause();
                 }
 
-            }, 40);
+            }, 20);
         },
         after: () => {
-            $window.off('scroll.vff');
+            $sequence.off('scroll.vff');
             $audio.off('timeupdate');
 
             if (audio) {

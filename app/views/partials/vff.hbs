@@ -1,8 +1,10 @@
-<section class="panel {{type}}" style="height:{{height}}px" data-type="{{type}}">
+<section class="panel {{type}}" style="height:{{height}}px" data-type="{{type}}" data-dock>
     <div class="progress"></div>
 
     <video src="/static/media/{{video}}" preload data-preload></video>
     {{#if audio}}
         <audio src="/static/media/{{audio}}" loop></audio>
     {{/if}}
+
+    {{> door}}
 </section>
