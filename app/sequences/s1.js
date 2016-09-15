@@ -26,7 +26,7 @@ const s1 = {
             end: 2015
         }, {
             type: 'title',
-            text: i18n.__('Fin de secuencia')
+            text: i18n.__('Volver al mosaico')
         }
     ]
 

@@ -18,6 +18,8 @@ module.exports = ($panel) => {
     const sliderHeight = $slider.outerHeight();
     const $parent = $panel.parent();
 
+    let scrollSpy;
+
     const bottom = contentOffset + contentHeight - $images.last().outerHeight() - $scrubber.outerHeight();
 
     // TODO: update with better module
@@ -30,25 +32,22 @@ module.exports = ($panel) => {
 
     return {
         on: () => {
-
             const positionHandler = () => {
                 const pos = $parent.scrollTop();
 
-                if (pos > contentOffset && pos < bottom) {
+                if (pos >= contentOffset && pos <= bottom) {
                     const scruberPosition = range(pos, [contentOffset, bottom], [0, sliderHeight]);
                     $scrubber.css('margin-top', Math.floor(scruberPosition));
                 }
             };
 
-            $parent.on('scroll.timeline', positionHandler);
-
-            positionHandler();
+            scrollSpy = setInterval(positionHandler, 50);
 
             $scrubber.css('margin-top', '0px');
 
         },
         after: () => {
-            $panel.parent().off('scroll.timeline');
+            clearInterval(scrollSpy);
         }
     };
 };

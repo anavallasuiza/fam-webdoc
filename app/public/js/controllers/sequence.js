@@ -2,14 +2,6 @@
 
 const $ = require('jquery');
 const _ = require('lodash');
-window.$ = window.jQuery = $;
-
-$.fn.scrollTo = function(elem, speed) {
-    $(this).animate({
-        scrollTop: $(this).scrollTop() - $(this).offset().top + $(elem).offset().top
-    }, speed == undefined ? 1000 : speed);
-    return this;
-};
 
 
 function lastVisibleInContainer(elements) {
@@ -53,12 +45,17 @@ module.exports = (app) => {
                     handlers.get(visible).on();
 
                     current = visible;
+
+                    const $v = $(visible);
+
+                    $v.parent().animate({
+                        scrollTop: visible.offsetTop
+                    }, 500);
                 }
 
             };
 
-            $($panels.parent()).on('scroll.sequence', _.debounce(checkViewport, 5)).trigger('scroll.sequence');
-
+            $($panels.parent()).on('scroll.sequence', _.debounce(checkViewport, 50)).trigger('scroll.sequence');
 
 
             $('body').css('overflow', 'hidden');
@@ -67,7 +64,11 @@ module.exports = (app) => {
             next();
         },
         after: function after(id, next) {
+            const $root = app.config.$mountPoint;
+            const $panels = $root.find('.panel');
+
             $('body').css('overflow', 'auto');
+            $($panels.parent()).off('scroll.sequence');
 
             next();
         }
