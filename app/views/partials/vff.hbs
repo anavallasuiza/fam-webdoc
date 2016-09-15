@@ -3,7 +3,7 @@
 
     <video src="/static/media/{{video}}" preload data-preload></video>
     {{#if audio}}
-        <audio src="/static/media/{{audio}}" loop></audio>
+        <audio src="/static/media/{{audio}}" data-subtitles='{{parseSRT subtitles}}' loop></audio>
     {{/if}}
 
     {{> door}}

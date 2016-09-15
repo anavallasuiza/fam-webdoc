@@ -1,9 +1,10 @@
 'use strict';
 
 const Circle = require('circleprogress');
+const subtitles = require('subtitles');
 
 
-module.exports = ($panel) => {
+module.exports = ($panel, app) => {
     const $sequence = $panel.parent();
     const $video = $panel.find('video');
     const video = $video.get(0);
@@ -16,6 +17,9 @@ module.exports = ($panel) => {
 
     let audio;
     const $audio = $panel.find('audio');
+
+    const subtitleHandler = Object.create(subtitles.handler);
+    subtitleHandler.init($audio, app.subtitleViewer);
 
     if ($audio.length) {
         audio = $audio.get(0);
@@ -36,10 +40,12 @@ module.exports = ($panel) => {
                 audio.volume = 0;
                 audio.play();
 
+                subtitleHandler.listen();
+
                 $audio.animate({ volume: 1 }, 1000);
                 $progressBar.removeClass('is-hidden').css('position', 'fixed');
 
-                $audio.on('timeupdate', () => {
+                $audio.on('timeupdate.progress', () => {
                     progress.update((audio.currentTime / audio.duration).toFixed(2));
                 });
 
@@ -66,7 +72,8 @@ module.exports = ($panel) => {
         },
         after: () => {
             $sequence.off('scroll.vff');
-            $audio.off('timeupdate');
+            $audio.off('timeupdate.progress');
+            subtitleHandler.destroy();
 
             if (audio) {
                 $audio.animate({ volume: 0 }, 1000, () => audio.pause());

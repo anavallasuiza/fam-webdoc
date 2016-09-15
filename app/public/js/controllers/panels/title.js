@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = ($panel) => {
+module.exports = ($panel, app) => {
     let audio;
     const $audio = $panel.find('audio');
+    const $terminal = $panel.find('a[data-terminal]');
 
     if ($audio.length) {
         audio = $audio.get(0);
@@ -15,13 +16,29 @@ module.exports = ($panel) => {
                 audio.play();
 
                 $audio.animate({ volume: 1 }, 1000);
+
             }
+
+            $terminal.on('click', (e) => {
+                e.preventDefault();
+                const sq = $terminal.data('terminal');
+
+                if(!app.sequences[sq].done) {
+                    app.sequences[sq].done = true;
+                }
+
+                app.router.setRoute($terminal.attr('href'));
+            });
+
+
         },
         after: () => {
             if (audio) {
                 $audio.animate({ volume: 0 }, 1000, () => audio.pause());
 
             }
+
+            $terminal.off('click');
 
         }
     };

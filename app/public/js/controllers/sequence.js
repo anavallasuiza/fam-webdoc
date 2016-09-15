@@ -2,6 +2,7 @@
 
 const $ = require('jquery');
 const _ = require('lodash');
+const subtitles = require('subtitles');
 
 
 function lastVisibleInContainer(elements) {
@@ -19,17 +20,20 @@ function lastVisibleInContainer(elements) {
 }
 
 module.exports = (app) => {
-
     return {
         on: function on(id, next) {
             const $root = app.config.$mountPoint;
             const $panels = $root.find('.panel');
             let current = $panels.get(0);
             const handlers = new Map();
+            let locked = false;
+
+            app.subtitleViewer = Object.create(subtitles.viewer);
+            app.subtitleViewer.init($root.find('.subtitles'));
 
             for (const panel of $panels) {
                 const $panel = $(panel);
-                const handler = require(`./panels/${$panel.data('type')}`)($panel);
+                const handler = require(`./panels/${$panel.data('type')}`)($panel, app);
 
                 //Init panel if necessary
                 handler.init && handler.init();
@@ -39,6 +43,10 @@ module.exports = (app) => {
 
 
             const checkViewport = () => {
+                if(locked) {
+                    return false;
+                }
+
                 const visible = lastVisibleInContainer($panels.toArray());
                 if (current !== visible) {
                     handlers.get(current).after();
@@ -47,10 +55,11 @@ module.exports = (app) => {
                     current = visible;
 
                     const $v = $(visible);
+                    locked = true;
 
                     $v.parent().animate({
                         scrollTop: visible.offsetTop
-                    }, 500);
+                    }, 1000, () => locked = false);
                 }
 
             };
@@ -63,7 +72,7 @@ module.exports = (app) => {
 
             next();
         },
-        after: function after(id, next) {
+        after: function after(next) {
             const $root = app.config.$mountPoint;
             const $panels = $root.find('.panel');
 

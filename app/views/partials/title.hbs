@@ -3,7 +3,15 @@
     <audio src="/static/media/{{bgsound}}" loop></audio>
 {{/if}}
 
-    <h1>{{text}}</h1>
+    {{#if terminal}}
+    <a data-external data-terminal="{{terminal}}" href="/hub">
+    {{/if}}
+
+        <h1>{{text}}</h1>
+
+    {{#if terminal}}
+    </a>
+    {{/if}}
 
     {{> door}}
 

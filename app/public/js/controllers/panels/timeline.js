@@ -7,7 +7,7 @@ function range(v, range1, range2) {
     return (v - range1[0]) * (range2[1] - range2[0]) / (range1[1] - range1[0]) + range2[0];
 }
 
-module.exports = ($panel) => {
+module.exports = ($panel, app) => {
     const $handler = $panel.find('.handler');
     const $slider = $handler.find('.slider');
     const $scrubber = $slider.find('.scrubber');

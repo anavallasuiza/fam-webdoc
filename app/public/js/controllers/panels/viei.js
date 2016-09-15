@@ -2,7 +2,7 @@
 
 const $ = require('jquery');
 
-module.exports = ($panel) => {
+module.exports = ($panel, app) => {
     let $currentContent;
 
     let bgSound;

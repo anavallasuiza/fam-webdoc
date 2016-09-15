@@ -13,6 +13,20 @@ const app = {
         $preloadWidget: $('[data-preloader]'),
         recordingTime: 10 * 1000
     },
+    sequences: {
+        's1': {
+            'done': false,
+            'fresh': true
+        },
+        's2': {
+            'done': false,
+            'fresh': true
+        },
+        's3': {
+            'done': false,
+            'fresh': true
+        }
+    },
     hasVideo: navigator.mediaDevices,
     helpers: require('helpers')
 };

@@ -44,4 +44,14 @@
 
 
     }
+
+    .subtitles {
+        position: fixed;
+        bottom: 15vh;
+        margin: 0 20vw;
+        width: 60vw;
+        text-align:center;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 0px $positive;
+    }
 }

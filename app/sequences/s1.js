@@ -16,6 +16,7 @@ const s1 = {
     }, {
         type: 'autoplay',
         video: 's1p2.mp4',
+        subtitles: i18n.__('telediarios-cast.srt'),
         door: true
     }],
     missing: [
@@ -26,7 +27,9 @@ const s1 = {
             end: 2015
         }, {
             type: 'title',
-            text: i18n.__('Volver al mosaico')
+            text: i18n.__('Volver al mosaico'),
+            terminal: 's1'
+
         }
     ]
 

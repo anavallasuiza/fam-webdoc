@@ -3,13 +3,18 @@
 const Circle = require('circleprogress');
 const $ = require('jquery');
 const _ = require('lodash');
+const subtitles = require('subtitles');
+
 
 const $window = $(window);
 
-module.exports = ($panel) => {
+module.exports = ($panel, app) => {
     const $video = $panel.find('video');
     const video = $video.get(0);
     let progress;
+
+    const subtitleHandler = Object.create(subtitles.handler);
+    subtitleHandler.init($video, app.subtitleViewer);
 
     return {
         init: () => {
@@ -17,6 +22,8 @@ module.exports = ($panel) => {
         },
         on: () => {
             video.play();
+
+            subtitleHandler.listen();
 
             $video.on('timeupdate', () => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
@@ -44,6 +51,7 @@ module.exports = ($panel) => {
         },
         after: () => {
             video.pause();
+            subtitleHandler.destroy();
             $video.off('timeupdate');
             $window.off('mousemove.door');
         }

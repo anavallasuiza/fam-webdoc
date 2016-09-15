@@ -1,43 +1,50 @@
 .hub {
-
     .panel {
         display: block;
         .part {
-
             z-index: 0;
-
             img {
                 @include fullscreen;
                 display: none;
             }
-
             &.visible img {
                 display: block;
             }
         }
     }
-
     .overlay {
         position: absolute;
         width: 100vw;
         height: 100vh;
         display: flex;
         justify-content: space-around;
-
         .title {
-            width: 33vw;
+            width: 33.333vw;
             text-decoration: none;
             font-size: 4rem;
-
             &:nth-child(2) {
                 text-align: center;
             }
-
             &:last-child {
                 text-align: right;
                 direction: rtl;
             }
-
+            &.s {
+                background-position: center;
+                background-size: contain;
+            }
+            &.fresh {
+                @include fadein(0s, 3s);
+            }
+            &.s1 {
+                background-image: url('/static/img/s1done.jpg');
+            }
+            &.s2 {
+                background-image: url('/static/img/s2done.jpg');
+            }
+            &.s3 {
+                background-image: url('/static/img/s3done.jpg');
+            }
             span {
                 font-weight: 600;
                 color: #fff;
@@ -45,14 +52,11 @@
                 display: block;
                 white-space: nowrap;
                 opacity: 0;
-                transition:opacity 0.1s linear;
-
+                transition: opacity 0.1s linear;
                 &.visible {
                     opacity: 1;
                 }
             }
-
         }
     }
-
 }

@@ -12,9 +12,24 @@ module.exports = (app) => {
             const $parts = $root.find('.part');
             const $titles = $root.find('.title span');
 
+            //Update classes
+            for (let [name, sq] of Object.entries(app.sequences)) {
+                const $a = $root.find(`[data-${name}]`);
+                if (sq.done) {
+                    $a.addClass(name);
+
+                    if (sq.fresh) {
+                        $a.addClass('fresh');
+                        sq.fresh = false;
+                    }
+                }
+
+            }
+
+
             //Adjust heights
             $titles.css({
-                'line-height': Math.floor(height/10) + 'px'
+                'line-height': Math.floor(height / 10) + 'px'
             });
 
             const windowWidth = $window.width();
