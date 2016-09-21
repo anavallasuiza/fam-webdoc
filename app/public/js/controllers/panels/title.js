@@ -23,7 +23,7 @@ module.exports = ($panel, app) => {
                 e.preventDefault();
                 const sq = $terminal.data('terminal');
 
-                if(!app.sequences[sq].done) {
+                if (!app.sequences[sq].done) {
                     app.sequences[sq].done = true;
                 }
 

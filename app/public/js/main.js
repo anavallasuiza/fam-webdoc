@@ -125,5 +125,6 @@ app.controllers = controllers;
 
 $('body').on('click', 'a:not([data-external])', (e) => {
     router.setRoute($(e.currentTarget).attr('href'));
+
     e.preventDefault();
 });
