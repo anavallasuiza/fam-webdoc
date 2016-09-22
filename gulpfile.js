@@ -7,8 +7,8 @@ const rimraf = require('gulp-rimraf');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const stylecow = require('gulp-stylecow');
-const imagemin = require('gulp-imagemin');
-const cache = require('gulp-cached');
+// const imagemin = require('gulp-imagemin');
+// const cache = require('gulp-cached');
 const browserSync = require('browser-sync').create();
 const nodemon = require('gulp-nodemon');
 const webpack = require('webpack');
@@ -114,11 +114,10 @@ const imagesToProcess = {
     output: publicFolders.img
 };
 
-
 gulp.task('images', function() {
     return gulp.src(imagesToProcess.input)
-        .pipe(cache('img'))
-        .pipe(imagemin())
+        // .pipe(cache('img'))
+        // .pipe(imagemin())
         .pipe(gulp.dest(imagesToProcess.output));
 });
 

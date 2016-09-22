@@ -17,28 +17,28 @@
 
 //Animation mixins
 //TODO: use a single function
-@mixin fadein($delay:"0s", $duration:"1s") {
+@mixin fadein($delay:'0s', $duration:'1s') {
   animation-name: fadein;
   animation-duration: unquote($duration);
   animation-delay: unquote($delay);
   animation-fill-mode: forwards;
 }
 
-@mixin leftfade($delay:"1s", $duration:"2s") {
+@mixin leftfade($delay:'1s', $duration:'2s') {
   animation-name: leftfade;
   animation-duration: unquote($duration);
   animation-delay: unquote($delay);
   animation-fill-mode: forwards;
 }
 
-@mixin zoomtext($delay:"1s", $duration:".2s") {
+@mixin zoomtext($delay:'1s', $duration:'.2s') {
   animation-name: zoomtext;
   animation-duration: unquote($duration);
   animation-delay: unquote($delay);
   animation-fill-mode: forwards;
 }
 
-@mixin bottomShow($delay:"1s", $duration:".2s") {
+@mixin bottomShow($delay:'1s', $duration:'.2s') {
   animation-name: bottomShow;
   animation-duration: unquote($duration);
   animation-delay: unquote($delay);

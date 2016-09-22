@@ -34,7 +34,7 @@
                 background-size: contain;
             }
             &.fresh {
-                @include fadein(0s, 3s);
+                @include fadein('0s', '3s');
             }
             &.s1 {
                 background-image: url('/static/img/s1done.jpg');
