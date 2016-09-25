@@ -2,13 +2,12 @@
 
 const Circle = require('circleprogress');
 const $ = require('jquery');
-const _ = require('lodash');
 const subtitles = require('subtitles');
 
 
 const $window = $(window);
 
-module.exports = ($panel, app) => {
+module.exports = ($panel, app, door) => {
     const $video = $panel.find('video');
     const video = $video.get(0);
     let progress;
@@ -29,24 +28,8 @@ module.exports = ($panel, app) => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
             });
 
-            if ($panel.has('.door')) {
-                const $door = $panel.find('.door');
-                const handlePosition = (e) => {
-                    const pos = e.clientX;
-                    if (pos > $window.width() * 0.80) {
-                        $door.css('left', '50vw');
-                    } else {
-                        $door.css('left', '100vw');
-                    }
-                };
+            $video.on('ended', () => door.show());
 
-                $window.on('mousemove.door', _.debounce(handlePosition, 20));
-
-                $door.on('click', () => {
-                    $('.sequence').addClass('lateral');
-                    $('.sequence .side').trigger('scroll.sequence');
-                });
-            }
 
         },
         after: () => {

@@ -16,7 +16,7 @@ const s1 = {
     }, {
         type: 'autoplay',
         video: 's1p2.mp4',
-        subtitles: i18n.__('telediarios-cast.srt'),
+        subtitles: i18n.__('telediarios_cas.srt'),
         door: true
     }],
     missing: [
@@ -24,7 +24,11 @@ const s1 = {
         {
             type: 'timeline',
             init: 1968,
-            end: 2015
+            end: 2015,
+            unknown: i18n.__('unknown_cas.srt'),
+            pilger: i18n.__('pilger_cas.srt'),
+            buerk: i18n.__('buerk_cas.srt'),
+            bill:  i18n.__('bill_cas.srt')
         }, {
             type: 'title',
             text: i18n.__('Volver al mosaico'),

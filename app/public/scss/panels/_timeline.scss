@@ -12,8 +12,58 @@
             }
 
             .canvas {
-                img {
-                    width: 100%;
+                div {
+                    position: relative;
+
+                    &.unknown {
+                        video {
+                            width: 35vw;
+                            top: 30vh;
+                            left: 50%;
+                            margin-left: -35vw;
+                        }
+                    }
+
+                    &.bangladesh {
+                        video {
+                            width: 35vw;
+                            top: 30vh;
+                            left: 55%;
+                        }
+                    }
+
+                    &.ethiopia {
+                        video {
+                            width: 40vw;
+                            top: 30vh;
+                            left: 44%;
+                        }
+                    }
+
+                    &.wearetheworld {
+                        video {
+                            width: 25vw;
+                            top: 20vh;
+                            left: 42%;
+                        }
+                    }
+
+                    &.somalia {
+                        video {
+                            width: 34vw;
+                            top: 60vh;
+                            left: 5%;
+                        }
+                    }
+
+                    video {
+                        position: absolute;
+                        z-index: 100;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
                 }
 
             }
@@ -30,6 +80,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            z-index: 10001;
 
             .slider {
                 flex-grow: 1;
@@ -43,7 +94,6 @@
                     background: $red;
                     height: .8rem;
                     width: 100%;
-                    cursor: pointer;
 
                     .text {
                         position: absolute;
@@ -54,6 +104,7 @@
                         width: 200px;
                         text-align: right;
                         text-shadow: 1px 1px 1px $positive;
+
                     }
                 }
             }

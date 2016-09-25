@@ -24,16 +24,41 @@ module.exports = (app) => {
         on: function on(id, next) {
             const $root = app.config.$mountPoint;
             const $panels = $root.find('.panel');
+            const $door = $root.find('.door');
             let current = $panels.get(0);
             const handlers = new Map();
             let locked = false;
+            let displaced = false;
+
+            const handleDoor = () => {
+                const action = !displaced ? 'addClass' : 'removeClass';
+
+                $root.find('.sequence')[action]('lateral');
+                $root.find('.side').trigger('scroll.sequence');
+
+                displaced = !displaced;
+
+            };
+
+
+            const door = {
+                show: () => {
+                    $door.addClass('visible');
+                    $door.on('mouseover click', handleDoor);
+                },
+                hide: () => {
+                    $door.removeClass('visible');
+                    $door.off('mouseover click', handleDoor);
+                }
+            };
+
 
             app.subtitleViewer = Object.create(subtitles.viewer);
             app.subtitleViewer.init($root.find('.subtitles'));
 
             for (const panel of $panels) {
                 const $panel = $(panel);
-                const handler = require(`./panels/${$panel.data('type')}`)($panel, app);
+                const handler = require(`./panels/${$panel.data('type')}`)($panel, app, door);
 
                 //Init panel if necessary
                 handler.init && handler.init();
@@ -43,7 +68,7 @@ module.exports = (app) => {
 
 
             const checkViewport = () => {
-                if(locked) {
+                if (locked) {
                     return false;
                 }
 

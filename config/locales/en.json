@@ -57,5 +57,10 @@
 	"Volver al mosaico": "Volver al mosaico",
 	"telediarios-cast.srt": "telediarios-cast.srt",
 	"lang": "lang",
-	"cas": "cas"
+	"cas": "cas",
+	"telediarios_cas.srt": "telediarios_cas.srt",
+	"unknown_cas.srt": "unknown_cas.srt",
+	"pilger_cas.srt": "pilger_cas.srt",
+	"buerk_cas.srt": "buerk_cas.srt",
+	"bill_cas.srt": "bill_cas.srt"
 }
