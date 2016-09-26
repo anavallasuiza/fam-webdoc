@@ -25,30 +25,33 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
             const $panels = $root.find('.panel');
             const $door = $root.find('.door');
+
             let current = $panels.get(0);
+
             const handlers = new Map();
-            let locked = false;
             let displaced = false;
 
             const handleDoor = () => {
                 const action = !displaced ? 'addClass' : 'removeClass';
 
                 $root.find('.sequence')[action]('lateral');
-                $root.find('.side').trigger('scroll.sequence');
+
+
+                handlers.get(current).after();
+                $($panels.parent()).trigger('scroll.sequence');
 
                 displaced = !displaced;
 
             };
 
+            $door.on('click', handleDoor);
 
             const door = {
                 show: () => {
                     $door.addClass('visible');
-                    $door.on('mouseover click', handleDoor);
                 },
                 hide: () => {
                     $door.removeClass('visible');
-                    $door.off('mouseover click', handleDoor);
                 }
             };
 
@@ -68,9 +71,6 @@ module.exports = (app) => {
 
 
             const checkViewport = () => {
-                if (locked) {
-                    return false;
-                }
 
                 const visible = lastVisibleInContainer($panels.toArray());
                 if (current !== visible) {
@@ -78,13 +78,13 @@ module.exports = (app) => {
                     handlers.get(visible).on();
 
                     current = visible;
+                    door.hide();
 
-                    const $v = $(visible);
-                    locked = true;
+                    // const $v = $(visible);
 
-                    $v.parent().animate({
-                        scrollTop: visible.offsetTop
-                    }, 1000, () => locked = false);
+                    // $v.parent().animate({
+                    //     scrollTop: visible.offsetTop
+                    // }, 1000, () => locked = false);
                 }
 
             };

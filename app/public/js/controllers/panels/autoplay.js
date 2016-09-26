@@ -28,11 +28,15 @@ module.exports = ($panel, app, door) => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
             });
 
-            $video.on('ended', () => door.show());
+            if ($video.is('[data-door]')) {
+                $video.on('ended', () => door.show());
+            }
 
 
         },
         after: () => {
+
+
             video.pause();
             subtitleHandler.destroy();
             $video.off('timeupdate');

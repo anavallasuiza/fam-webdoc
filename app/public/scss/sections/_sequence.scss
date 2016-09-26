@@ -40,16 +40,15 @@
         width: 900px;
         background: url('/static/img/door.png');
         background-size: auto 100%;
-        right: -900px;
+        right: -450px;
         transition: all 1s;
         cursor: pointer;
         opacity: 0;
-        display: none;
+        z-index: -1;
 
         &.visible {
-            right: -450px;
             opacity: 1;
-            display: block;
+            z-index: 10000000;
         }
 
     }

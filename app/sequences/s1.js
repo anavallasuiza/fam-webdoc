@@ -10,7 +10,7 @@ const s1 = {
         text: i18n.__('El hambre es una mujer africana hambrienta, con muchos hijos, que no va a la escuela y no tiene trabajo, nacida en un país seco, corrupto, estéril. Una imagen repetida infinitas veces que no nos deja ver el resto.')
     }, {
         type: 'vff',
-        height: 10000,
+        height: 40000,
         video: 's1p1faf.mp4',
         audio: 's1p1faf.mp3'
     }, {

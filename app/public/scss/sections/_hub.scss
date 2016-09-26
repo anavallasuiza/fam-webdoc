@@ -18,10 +18,16 @@
         height: 100vh;
         display: flex;
         justify-content: space-around;
+
+        .f {
+            display: none;
+        }
+
         .title {
             width: 33.333vw;
             text-decoration: none;
             font-size: 4rem;
+
             &:nth-child(2) {
                 text-align: center;
             }
@@ -29,22 +35,7 @@
                 text-align: right;
                 direction: rtl;
             }
-            &.s {
-                background-position: center;
-                background-size: contain;
-            }
-            &.fresh {
-                @include fadein('0s', '3s');
-            }
-            &.s1 {
-                background-image: url('/static/img/s1done.jpg');
-            }
-            &.s2 {
-                background-image: url('/static/img/s2done.jpg');
-            }
-            &.s3 {
-                background-image: url('/static/img/s3done.jpg');
-            }
+
             span {
                 font-weight: 600;
                 color: #fff;

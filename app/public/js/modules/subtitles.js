@@ -6,7 +6,13 @@ var subtitles = {
             this.$element = $element;
         },
         show: function(text) {
+            if(this.hideTimeout) {
+                clearTimeout(this.hideTimeout);
+            }
+
             this.$element.show().text(text);
+
+            this.hideTimeout = setTimeout(this.hide.bind(this), 5000);
         },
         hide: function() {
             this.$element.hide();

@@ -1,5 +1,4 @@
 'use strict';
-
 const $ = require('jquery');
 const inView = require('in-view');
 
@@ -21,7 +20,6 @@ module.exports = ($panel, app, door) => {
         subtitleHandler.init($(media), app.subtitleViewer);
 
         subs.push(subtitleHandler);
-
     }
 
     const contentOffset = $panel.offset().top;
@@ -59,10 +57,10 @@ module.exports = ($panel, app, door) => {
 
     return {
         on: () => {
+            subs.forEach((sub) => sub.listen());
+
             const positionHandler = () => {
                 const pos = $parent.scrollTop();
-
-                subs.forEach((sub) => sub.listen());
 
                 if (pos >= contentOffset && pos <= bottom) {
                     const scruberPosition = range(pos, [contentOffset, bottom], [0, sliderHeight]);
@@ -76,6 +74,7 @@ module.exports = ($panel, app, door) => {
 
         },
         after: () => {
+            playingMedia && playingMedia.pause();
             clearInterval(scrollSpy);
             subs.forEach((sub) => sub.destroy());
         }

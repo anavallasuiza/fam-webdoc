@@ -4,11 +4,11 @@ Esta es la cola para comer.
 
 2
 00:00:05,680 --> 00:00:07,640
-Son campesinos etíopes.
+Son campesinos etÃ­opes.
 
 3
 00:00:07,640 --> 00:00:10,600
-Antes tenían ganado, 
+Antes tenÃ­an ganado,
 tierras y casas.
 
 4

@@ -1,19 +1,19 @@
 1
 00:00:03,680 --> 00:00:05,680
-Aquesta és la cua per menjar.
+Aquesta Ã©s la cua per menjar.
 
 2
 00:00:05,680 --> 00:00:07,640
-Són camperols etíops.
+SÃ³n camperols etÃ­ops.
 
 3
 00:00:07,640 --> 00:00:10,600
-Abans tenien pastures, 
+Abans tenien pastures,
 terres i cases.
 
 4
 00:00:10,600 --> 00:00:12,600
-Les van vendre per 
+Les van vendre per
 comprar menjar.
 
 5

@@ -9,23 +9,21 @@ module.exports = (app) => {
             const $root = app.config.$mountPoint;
             const height = $window.height();
 
-            const $parts = $root.find('.part');
-            const $titles = $root.find('.title span');
+            const $parts = $root.find('.part:not(.done)');
+            const $alternates = $root.find('.part.done');
 
             //Update classes
             for (let [name, sq] of Object.entries(app.sequences)) {
                 const $a = $root.find(`[data-${name}]`);
                 if (sq.done) {
                     $a.addClass(name);
-
-                    if (sq.fresh) {
-                        $a.addClass('fresh');
-                        sq.fresh = false;
-                    }
+                    $a.find('.a').removeClass('active').hide();
+                    $a.find('.f').addClass('active').show().data('alternate', name);
                 }
 
             }
 
+            const $titles = $root.find('.title div.active span');
 
             //Adjust heights
             $titles.css({
@@ -38,13 +36,21 @@ module.exports = (app) => {
             let timeout;
 
             const show = (n) => {
-                //Image
-                $parts.removeClass('visible');
-                $parts.eq(n).addClass('visible');
-
                 //Titles
                 $titles.removeClass('visible');
                 $titles.eq(n).addClass('visible');
+
+                //Image
+                $parts.removeClass('visible');
+                $alternates.removeClass('visible');
+
+                if ($titles.eq(n).parent().is('.f')) {
+                    $root.find('.panel').find('.' + $titles.eq(n).parent().data('alternate')).addClass('visible');
+                } else {
+                    $parts.eq(n).addClass('visible');
+                }
+
+
             };
 
             $window.on('mousemove.fam', e => {
