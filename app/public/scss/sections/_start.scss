@@ -24,14 +24,14 @@
                 display: none;
             }
             p {
-                background: url('/static/img/subtitle.png');
+                background-image: url('/static/img/subtitle_cat.png');
+                background-repeat: no-repeat;
                 width: 687px;
-                height: 153px;
+                height: 90px;
                 margin: 0 auto;
                 color: transparent;
                 opacity: 0;
-                @include leftfade("1s",
-                "2s");
+                @include leftfade("1s", "2s");
             }
         }
         ul.tipology {
