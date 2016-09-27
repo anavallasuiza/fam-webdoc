@@ -7,16 +7,17 @@ const s1 = {
 
     adquired: [{
         type: 'title',
-        text: i18n.__('El hambre es una mujer africana hambrienta, con muchos hijos, que no va a la escuela y no tiene trabajo, nacida en un país seco, corrupto, estéril. Una imagen repetida infinitas veces que no nos deja ver el resto.')
+        text: i18n.__('La fam és una dona africana famèlica, amb molts fills, que no va a l’escola i no té cap feina, nascuda a un país sec, corrupte, estèril. Una imatge repetida infinites vegades que no ens deixa veure’n la resta.')
     }, {
         type: 'vff',
         height: 40000,
         video: 's1p1faf.mp4',
-        audio: 's1p1faf.mp3'
+        audio: 's1p1faf.mp3',
+        subtitles: 'chimamanda_cat.srt'
     }, {
         type: 'autoplay',
         video: 's1p2.mp4',
-        subtitles: i18n.__('telediarios_cas.srt'),
+        subtitles: i18n.__('telediarios_cat.srt'),
         door: true
     }],
     missing: [
@@ -25,13 +26,13 @@ const s1 = {
             type: 'timeline',
             init: 1968,
             end: 2015,
-            unknown: i18n.__('unknown_cas.srt'),
-            pilger: i18n.__('pilger_cas.srt'),
-            buerk: i18n.__('buerk_cas.srt'),
-            bill:  i18n.__('bill_cas.srt')
+            unknown: i18n.__('unknown_cat.srt'),
+            pilger: i18n.__('pilger_cat.srt'),
+            buerk: i18n.__('buerk_cat.srt'),
+            bill:  i18n.__('bill_cat.srt')
         }, {
             type: 'title',
-            text: i18n.__('Volver al mosaico'),
+            text: i18n.__('Tornar al mosaic'),
             terminal: 's1'
 
         }

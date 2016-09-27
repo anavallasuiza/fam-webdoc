@@ -23,6 +23,12 @@ const env = config.env;
 
 module.exports = function (app) {
 
+    /**
+     * Init i18n
+     */
+
+    app.use(i18n.init);
+
 
     /**
      * Compression
@@ -95,12 +101,6 @@ module.exports = function (app) {
         saveUninitialized: true
     }));
 
-
-    /**
-     * Init i18n
-     */
-
-    app.use(i18n.init);
 
     /**
      * Some default locals
