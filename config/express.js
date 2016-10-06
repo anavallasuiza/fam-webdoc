@@ -23,11 +23,6 @@ const env = config.env;
 
 module.exports = function (app) {
 
-    /**
-     * Init i18n
-     */
-
-    app.use(i18n.init);
 
 
     /**
@@ -100,6 +95,13 @@ module.exports = function (app) {
         resave: true,
         saveUninitialized: true
     }));
+
+    /**
+     * Init i18n
+     */
+
+    app.use(i18n.init);
+
 
 
     /**
