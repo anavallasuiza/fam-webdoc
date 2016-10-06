@@ -1,5 +1,5 @@
 {
-	"HAMBRE": "HAMBRE",
+	"HAMBRE": "FAM",
 	"CAT": "CAT",
 	"ESP": "ESP",
 	"ENG": "ENG",
@@ -21,7 +21,6 @@
 	"Guardar": "Guardar",
 	"grabar": "grabar",
 	"Ara, comparteix la teva imatge. Dóna-li a GRAVAR i descriu el que has vist en veu alta. Tens 10 segons per fer-ho. Si no t’agrada, pots tornar a gravar-la de nou.": "Ara, comparteix la teva imatge. Dóna-li a GRAVAR i descriu el que has vist en veu alta. Tens 10 segons per fer-ho. Si no t’agrada, pots tornar a gravar-la de nou.",
-	"intro.mp4": "intro.mp4",
 	"dona": "dona",
 	"negra": "negra",
 	"emergència": "emergència",
@@ -76,11 +75,6 @@
 	"activisme": "activisme",
 	"respecte": "respecte",
 	"La fam és una dona africana famèlica, amb molts fills, que no va a l’escola i no té cap feina, nascuda a un país sec, corrupte, estèril. Una imatge repetida infinites vegades que no ens deixa veure’n la resta.": "La fam és una dona africana famèlica, amb molts fills, que no va a l’escola i no té cap feina, nascuda a un país sec, corrupte, estèril. Una imatge repetida infinites vegades que no ens deixa veure’n la resta.",
-	"telediarios_cat.srt": "telediarios_cat.srt",
-	"unknown_cat.srt": "unknown_cat.srt",
-	"pilger_cat.srt": "pilger_cat.srt",
-	"buerk_cat.srt": "buerk_cat.srt",
-	"bill_cat.srt": "bill_cat.srt",
 	"Tornar al mosaic": "Tornar al mosaic",
-	"cat": "cat"
+	"CURRENT_LANG": "cat"
 }

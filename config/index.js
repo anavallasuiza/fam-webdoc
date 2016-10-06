@@ -24,7 +24,8 @@ const defaults = {
     i18n: {
         directory: path.join(__dirname, 'locales'),
         syncFiles: true,
-        cookie: 'locale'
+        cookie: 'locale',
+        defaultLocale: 'ca'
     }
 };
 

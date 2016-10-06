@@ -11,6 +11,7 @@ module.exports = ($panel, app, door) => {
     const $video = $panel.find('video');
     const video = $video.get(0);
     let progress;
+    let opened = false;
 
     const subtitleHandler = Object.create(subtitles.handler);
     subtitleHandler.init($video, app.subtitleViewer);
@@ -26,11 +27,13 @@ module.exports = ($panel, app, door) => {
 
             $video.on('timeupdate', () => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
+
+                if ($video.is('[data-door]') && !opened && (video.currentTime > video.duration * 0.9)) {
+                    door.show();
+                    opened = true;
+                }
             });
 
-            if ($video.is('[data-door]')) {
-                $video.on('ended', () => door.show());
-            }
 
 
         },

@@ -123,7 +123,7 @@ module.exports.hub = (req, res) => {
 
 module.exports.sequence = (req, res) => {
     if (req.xhr) {
-        const sequence = require(`../sequences/s${req.params.id}`);
+        const sequence = require(`../sequences/s${req.params.id}`)(req.getLocale());
         return res.render('sequence', {
             layout: null,
             data: sequence
