@@ -18,9 +18,6 @@
  */
 
 const express = require('express');
-const i18n = require('i18n');
-
-const config = require('./config');
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 8080;
@@ -32,12 +29,6 @@ const port = process.env.PORT || 8080;
 
 module.exports.startServer = function () {
     const app = express();
-
-    /**
-     * Init i18n
-     */
-
-    i18n.configure(config.i18n);
 
     /**
      * Bottstrap App

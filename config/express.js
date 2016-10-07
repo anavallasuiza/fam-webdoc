@@ -23,29 +23,11 @@ const env = config.env;
 
 module.exports = function (app) {
 
-
-
     /**
      * Compression
      */
 
     app.use(compression());
-
-    /**
-     * views
-     */
-
-    app.set('views', path.join(config.root, 'app/views'));
-
-    app.engine('.hbs', exphbs({
-        extname: '.hbs',
-        defaultLayout: 'main',
-        layoutsDir: path.join(app.get('views'), 'layouts'),
-        partialsDir: path.join(app.get('views'), 'partials'),
-        helpers: viewHelpers
-    }));
-
-    app.set('view engine', '.hbs');
 
 
     /**
@@ -100,8 +82,25 @@ module.exports = function (app) {
      * Init i18n
      */
 
+    i18n.configure(config.i18n);
     app.use(i18n.init);
 
+
+    /**
+     * views
+     */
+
+    app.set('views', path.join(config.root, 'app/views'));
+
+    app.engine('.hbs', exphbs({
+        extname: '.hbs',
+        defaultLayout: 'main',
+        layoutsDir: path.join(app.get('views'), 'layouts'),
+        partialsDir: path.join(app.get('views'), 'partials'),
+        helpers: viewHelpers
+    }));
+
+    app.set('view engine', '.hbs');
 
 
     /**

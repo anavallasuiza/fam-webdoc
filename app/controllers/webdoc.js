@@ -141,8 +141,8 @@ module.exports.sequence = (req, res) => {
  */
 
 module.exports.locale = (req, res) => {
-    res.cookie('locale', req.params.locale, {
-        maxAge: 900000
+    res.cookie('i18n', req.params.locale, {
+        maxAge: 9000000
     });
 
     res.redirect('/start');
