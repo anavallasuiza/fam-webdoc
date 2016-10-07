@@ -63,9 +63,9 @@ module.exports = function (app) {
      */
 
     app.use(cookieParser());
-    app.use(cookieSession({
-        secret: config.secret
-    }));
+    // app.use(cookieSession({
+    //     secret: config.secret
+    // }));
 
 
     /**
@@ -84,6 +84,8 @@ module.exports = function (app) {
 
     i18n.configure(config.i18n);
     app.use(i18n.init);
+
+    console.log(config.i18n);
 
 
     /**
