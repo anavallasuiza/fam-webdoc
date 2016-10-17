@@ -164,7 +164,6 @@ const s1 = function(req) {
             type: 'title',
             text: i18n.__.call(req, 'Tornar al mosaic'),
             terminal: 's2'
-
         }]
 
     };
