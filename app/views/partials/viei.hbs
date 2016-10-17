@@ -1,4 +1,4 @@
-<section class="panel {{type}}" data-type="{{type}}">
+<section class="panel {{type}}" data-type="{{type}}" {{#if door}}data-door{{/if}}>
 {{#if bgsound}}
     <audio class="bgsound" src="/static/media/{{bgsound}}" loop></audio>
 {{/if}}
@@ -6,14 +6,14 @@
 {{#if image}}
     <img src="/static/img/{{image}}">
 {{else}}
-    <video src="/static/media/{{video}}" loop  preload data-preload></video>
+    <video src="/static/media/{{video}}" loop autoplay preload data-preload></video>
 {{/if}}
 
 {{#if points}}
     <ul class="points">
     {{#each points}}
-        <li style="top: {{top}};left: {{left}}">
-            <img title="{{tooltip}}" class="spot" src="/static/img/{{../icon.file}}" width="{{../icon.width}}" height="{{../icon.height}}" style="martin-top: -{{../icon.offset}}px; margin-left: -{{../icon.offset}}px">
+        <li {{#if tooltip}}data-tooltip="{{tooltip}}"{{/if}} style="top: {{top}};left: {{left}}" class="{{#if borderPoint}}border{{/if}}">
+            <img  class="spot {{#if ../icon.class}}{{../icon.class}}{{/if}}" src="/static/img/{{#if icon}}{{icon.file}}{{else}}{{../icon.file}}{{/if}}" width="{{#if icon}}{{icon.width}}{{else}}{{../icon.width}}{{/if}}" height="{{#if icon}}{{icon.height}}{{else}}{{../icon.height}}{{/if}}" style="martin-top: {{#if icon}}{{icon.offset}}{{else}}{{../icon.offset}}{{/if}}x; margin-left: {{#if icon}}{{icon.offset}}{{else}}{{../icon.offset}}{{/if}}px">
 
             <div data-anchor="{{anchor}}" {{#if class}}class="is-hidden {{class}}"{{/if}}>
             {{#if content.title}}
@@ -33,11 +33,11 @@
             {{/if}}
 
             {{#if content.audio}}
-                <audio src="/static/media/{{content.audio}}" autobuffer controls></audio>
+                <audio src="/static/media/{{content.audio.src}}" autobuffer controls {{#if content.audio.subtitles}}data-subtitles='{{parseSRT content.audio.subtitles}}'{{/if}}></audio>
             {{/if}}
 
             {{#if content.video}}
-                <video src="/static/media/{{content.video}}" autobuffer controls></video>
+                <video src="/static/media/{{content.video.src}}" autobuffer controls {{#if content.video.subtitles}}data-subtitles='{{parseSRT content.video.subtitles}}{{/if}}'></video>
             {{/if}}
             </div>
         </li>

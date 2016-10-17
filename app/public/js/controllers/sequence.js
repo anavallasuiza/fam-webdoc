@@ -41,6 +41,7 @@ module.exports = (app) => {
                 $($panels.parent()).trigger('scroll.sequence');
 
                 displaced = !displaced;
+                door.hide();
 
             };
 
@@ -78,7 +79,7 @@ module.exports = (app) => {
                     handlers.get(visible).on();
 
                     current = visible;
-                    door.hide();
+                    // door.hide();
 
                     // const $v = $(visible);
 

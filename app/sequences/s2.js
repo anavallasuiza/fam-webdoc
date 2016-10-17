@@ -9,6 +9,15 @@ const s1 = function(req) {
         id: 'sq1',
 
         adquired: [{
+            type: 'title',
+            text: i18n.__.call(req, 'Las causas del hambre están fijadas en nuestra mente: sequías, guerras y gobiernos corruptos. Casi siempre son circunstancias que atraviesan ellos. Nosotros casi nunca tenemos nada que ver en ello.')
+        }, {
+            type: 'autoplay',
+            video: 's2p2.mp4',
+            subtitles: `telediarios_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
+            door: true
+        }],
+        missing: [{
             type: 'viei',
             // bgsound: 'music.mp3',
             video: 's2loop.mp4',
@@ -16,13 +25,15 @@ const s1 = function(req) {
                 file: 'star.svg',
                 width: 20,
                 height: 20,
-                offset: -10
+                offset: -10,
+                class: 'pulse'
             },
             points: [{
                 top: '57%',
                 left: '93%',
                 class: 'small',
                 anchor: 'bottom right',
+                borderPoint: true,
                 tooltip: i18n.__.call(req, 'UE - Donald Tusk (President del Consell Europeu) i Jean Claude Junker (President de la Comissió Europea)'),
                 content: {
                     title: i18n.__.call(req, 'Lliure Comerç i Dumping: el negoci perfecte per les multinacionals europees'),
@@ -142,25 +153,17 @@ const s1 = function(req) {
                 left: '95%',
                 class: 'small',
                 anchor: 'top right',
+                borderPoint: true,
                 tooltip: i18n.__.call(req, 'OMC'),
                 content: {
                     title: i18n.__.call(req, "Mercantilització de l'alimentació"),
                     text: i18n.__.call(req, "Els acords en el si de l'OMC, tot i que han avançat menys del que els països del Nord haguessin volgut, han suposat la mercantilització d'àmbits com l'alimentació i els recursos naturals. Els països del sud han resistit i aturat diverses rondes de liberalització comercial, amb la demanda clara de defensar certs sectors, com el dels aliments. El que no han aconseguit països com EEUU o la UE en el marc de l'OMC ho han perseguit a través de tractats bilaterals.")
                 }
-            }, ]
+            }]
         }, {
-            type: 'title',
-            text: i18n.__.call(req, 'Las causas del hambre están fijadas en nuestra mente: sequías, guerras y gobiernos corruptos. Casi siempre son circunstancias que atraviesan ellos. Nosotros casi nunca tenemos nada que ver en ello.')
-        }, {
-            type: 'autoplay',
-            video: 's2p2.mp4',
-            subtitles: `telediarios_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
-            door: true
-        }],
-        missing: [{
             type: 'title',
             text: i18n.__.call(req, 'Tornar al mosaic'),
-            terminal: 's1'
+            terminal: 's2'
 
         }]
 

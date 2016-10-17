@@ -2,8 +2,9 @@
 
 const $ = require('jquery');
 const PS = require('perfect-scrollbar');
+const subtitles = require('subtitles');
 
-module.exports = ($panel, app) => {
+module.exports = ($panel, app, door) => {
     let $currentContent;
 
     let bgSound;
@@ -13,10 +14,25 @@ module.exports = ($panel, app) => {
         bgSound = $bgSound.get(0);
     }
 
+    const subs = [];
+
+    for (let media of $panel.find('video[data-subtitles], audio[data-subtitles]')) {
+        const subtitleHandler = Object.create(subtitles.handler);
+        subtitleHandler.init($(media), app.subtitleViewer);
+
+        subs.push(subtitleHandler);
+    }
+
+
 
     return {
         init: () => {
             const $points = $panel.find('.points li');
+
+
+            for(const sub of subs) {
+                sub.listen();
+            }
 
             const hideCurrent = () => {
                 $currentContent.addClass('is-hidden');
@@ -25,18 +41,19 @@ module.exports = ($panel, app) => {
                 }
             };
 
-            const $video = $panel.find('video');
+            const $media = $panel.find('>video, >img');
 
-            if($video.length) {
+            if ($media.length) {
                 const handlePoints = () => {
-                    $panel.find('.points').css('height', $video.height());
+                    $panel.find('.points').css('height', $media.height());
                 };
 
-                $video.on('loadeddata', () => {
+                $media.on('loadeddata', () => {
                     handlePoints();
                 });
 
-                $(window).on('resize.viei', handlePoints);
+
+                $(window).on('resize.viei', handlePoints).trigger('resize');
             }
 
             $panel.on('click', () => {
@@ -48,10 +65,13 @@ module.exports = ($panel, app) => {
 
                 const $spot = $point.find('img');
                 const $content = $point.find('> div');
+                const $textBlock = $point.find('p');
 
-                PS.initialize($point.find('p').get(0), {
-                    suppressScrollX: true
-                });
+                if ($textBlock.length) {
+                    PS.initialize($textBlock.get(0), {
+                        suppressScrollX: true
+                    });
+                }
 
                 const sizes = {
                     spotWidth: $spot.outerWidth(),
@@ -82,6 +102,7 @@ module.exports = ($panel, app) => {
                     $currentContent && hideCurrent();
 
                     $content.removeClass('is-hidden');
+                    $content.find('video').get(0).play();
                     $currentContent = $content;
                     e.stopPropagation();
                 });
@@ -95,6 +116,11 @@ module.exports = ($panel, app) => {
 
                 $bgSound.animate({ volume: 1 }, 1000);
             }
+
+            if($panel.is('[data-door]')) {
+                door.show();
+            }
+
         },
         after: () => {
             if (bgSound) {
@@ -104,6 +130,9 @@ module.exports = ($panel, app) => {
 
             $(window).off('resize.viei');
 
+            for(const sub of subs) {
+                sub.destroy();
+            }
         }
     };
 };

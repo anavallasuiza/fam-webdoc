@@ -61,7 +61,9 @@ module.exports = ($panel, app, door) => {
 
     return {
         on: () => {
-            subs.forEach((sub) => sub.listen());
+            for(const sub of subs) {
+                sub.listen();
+            }
 
             const positionHandler = () => {
                 const pos = $parent.scrollTop();
@@ -80,7 +82,9 @@ module.exports = ($panel, app, door) => {
         after: () => {
             playingMedia && playingMedia.pause();
             clearInterval(scrollSpy);
-            subs.forEach((sub) => sub.destroy());
+            for(const sub of subs) {
+                sub.destroy();
+            }
         }
     };
 };

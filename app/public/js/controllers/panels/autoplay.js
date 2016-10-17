@@ -12,9 +12,13 @@ module.exports = ($panel, app, door) => {
     const video = $video.get(0);
     let progress;
     let opened = false;
+    const loadSubtitles = $video.is('[data-subtitles]');
+    let subtitleHandler;
 
-    const subtitleHandler = Object.create(subtitles.handler);
-    subtitleHandler.init($video, app.subtitleViewer);
+    if(loadSubtitles) {
+        subtitleHandler = Object.create(subtitles.handler);
+        subtitleHandler.init($video, app.subtitleViewer);
+    }
 
     return {
         init: () => {
@@ -23,7 +27,7 @@ module.exports = ($panel, app, door) => {
         on: () => {
             video.play();
 
-            subtitleHandler.listen();
+            loadSubtitles && subtitleHandler.listen();
 
             $video.on('timeupdate', () => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
@@ -38,10 +42,8 @@ module.exports = ($panel, app, door) => {
 
         },
         after: () => {
-
-
             video.pause();
-            subtitleHandler.destroy();
+            loadSubtitles && subtitleHandler.destroy();
             $video.off('timeupdate');
             $window.off('mousemove.door');
         }

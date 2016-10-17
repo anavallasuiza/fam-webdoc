@@ -32,6 +32,7 @@ $bgalpha: rgba(0,0,0,.5);
 @import 'panels/vff';
 @import 'panels/viei';
 @import 'panels/timeline';
+@import 'panels/generic';
 
 //Generic
 
@@ -42,6 +43,7 @@ body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
+  overflow-x: hidden;
 
   .main-container {
     max-width: 2000px;
