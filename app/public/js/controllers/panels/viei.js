@@ -102,7 +102,10 @@ module.exports = ($panel, app, door) => {
                     $currentContent && hideCurrent();
 
                     $content.removeClass('is-hidden');
-                    $content.find('video').get(0).play();
+                    const $video = $content.find('video');
+                    if($video.length) {
+                        $video.get(0).play();
+                    }
                     $currentContent = $content;
                     e.stopPropagation();
                 });
