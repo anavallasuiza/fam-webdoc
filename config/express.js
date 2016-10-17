@@ -21,7 +21,7 @@ const viewHelpers = require(path.join(config.root, 'app/lib/view-helpers'));
 
 const env = config.env;
 
-module.exports = function (app) {
+module.exports = function(app) {
 
     /**
      * Compression
@@ -63,9 +63,9 @@ module.exports = function (app) {
      */
 
     app.use(cookieParser());
-    // app.use(cookieSession({
-    //     secret: config.secret
-    // }));
+    app.use(cookieSession({
+        secret: config.secret
+    }));
 
 
     /**
@@ -85,8 +85,6 @@ module.exports = function (app) {
     i18n.configure(config.i18n);
     app.use(i18n.init);
 
-    console.log(config.i18n);
-
 
     /**
      * views
@@ -94,24 +92,29 @@ module.exports = function (app) {
 
     app.set('views', path.join(config.root, 'app/views'));
 
-    app.engine('.hbs', exphbs({
+    const hbs = exphbs.create({
         extname: '.hbs',
         defaultLayout: 'main',
         layoutsDir: path.join(app.get('views'), 'layouts'),
         partialsDir: path.join(app.get('views'), 'partials'),
         helpers: viewHelpers
-    }));
+    });
 
+
+    app.engine('.hbs', hbs.engine);
     app.set('view engine', '.hbs');
-
 
     /**
      * Some default locals
      */
 
-    app.use(function (req, res, next) {
+    app.use(function(req, res, next) {
         res.locals.site = config.info;
         res.locals.pkg = pkg;
+
+        hbs.handlebars.registerHelper('__', function() {
+            return i18n.__.apply(req, arguments);
+        });
 
         return next();
     });

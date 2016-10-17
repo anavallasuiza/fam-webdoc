@@ -45,6 +45,12 @@
   animation-fill-mode: forwards;
 }
 
+@mixin pulse($duration:'3s') {
+  animation-name: pulse;
+  animation-duration: unquote($duration);
+  animation-iteration-count: infinite;
+}
+
 
 //Element mixins
 

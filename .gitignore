@@ -13,6 +13,3 @@ logs
 
 #dev config
 config/env/dev.env.json
-.idea/
-
-.vscode

@@ -6,18 +6,22 @@
 {{#if image}}
     <img src="/static/img/{{image}}">
 {{else}}
-    <video src="/static/media/{{video}}" preload data-preload></video>
+    <video src="/static/media/{{video}}" loop  preload data-preload></video>
 {{/if}}
 
 {{#if points}}
     <ul class="points">
     {{#each points}}
         <li style="top: {{top}};left: {{left}}">
-            <img class="spot" src="/static/img/{{../icon.file}}" width="{{../icon.width}}" height="{{../icon.height}}">
+            <img title="{{tooltip}}" class="spot" src="/static/img/{{../icon.file}}" width="{{../icon.width}}" height="{{../icon.height}}" style="martin-top: -{{../icon.offset}}px; margin-left: -{{../icon.offset}}px">
 
             <div data-anchor="{{anchor}}" {{#if class}}class="is-hidden {{class}}"{{/if}}>
             {{#if content.title}}
                 <h1>{{content.title}}</h1>
+            {{/if}}
+
+            {{#if content.subtitle}}
+                <h2>{{content.subtitle}}</h2>
             {{/if}}
 
             {{#if content.img}}

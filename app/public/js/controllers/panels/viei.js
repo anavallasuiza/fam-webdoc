@@ -1,6 +1,7 @@
 'use strict';
 
 const $ = require('jquery');
+const PS = require('perfect-scrollbar');
 
 module.exports = ($panel, app) => {
     let $currentContent;
@@ -24,6 +25,20 @@ module.exports = ($panel, app) => {
                 }
             };
 
+            const $video = $panel.find('video');
+
+            if($video.length) {
+                const handlePoints = () => {
+                    $panel.find('.points').css('height', $video.height());
+                };
+
+                $video.on('loadeddata', () => {
+                    handlePoints();
+                });
+
+                $(window).on('resize.viei', handlePoints);
+            }
+
             $panel.on('click', () => {
                 $currentContent && hideCurrent();
             });
@@ -33,6 +48,10 @@ module.exports = ($panel, app) => {
 
                 const $spot = $point.find('img');
                 const $content = $point.find('> div');
+
+                PS.initialize($point.find('p').get(0), {
+                    suppressScrollX: true
+                });
 
                 const sizes = {
                     spotWidth: $spot.outerWidth(),
@@ -82,6 +101,8 @@ module.exports = ($panel, app) => {
                 $bgSound.animate({ volume: 0 }, 1000, () => bgSound.pause());
 
             }
+
+            $(window).off('resize.viei');
 
         }
     };
