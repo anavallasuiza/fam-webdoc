@@ -29,23 +29,14 @@ module.exports = (app) => {
             let current = $panels.get(0);
 
             const handlers = new Map();
-            let displaced = false;
 
             const handleDoor = () => {
-                const action = !displaced ? 'addClass' : 'removeClass';
-
-                $root.find('.sequence')[action]('lateral');
-
-
+                $root.find('.sequence').addClass('lateral');
                 handlers.get(current).after();
-                $($panels.parent()).trigger('scroll.sequence');
-
-                displaced = !displaced;
                 door.hide();
-
             };
 
-            $door.on('click', handleDoor);
+            $door.one('mouseover', handleDoor);
 
             const door = {
                 show: () => {
