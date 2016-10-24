@@ -3,6 +3,8 @@
         {{#each videos}}
         <video data-preload class="is-hidden" preload type="video/webm" src="/uploads/{{../where}}/{{this}}"></video>
         {{/each}}
+        {{#if disruptive}}
         <video data-preload class="is-hidden" preload type="video/mp4" src="/static/media/{{disruptive}}"></video>
+        {{/if}}
     </section>
 </article>

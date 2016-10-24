@@ -14,6 +14,7 @@ module.exports = (app) => {
 
             const $intro = $root.find('[data-intro]');
             const $introVideo = $intro.find('video');
+            const pos = $root.find('.intro').data('where');
 
             const $control = $root.find('[data-control]');
             const $controlUI = $control.find('[data-ui]');
@@ -49,7 +50,7 @@ module.exports = (app) => {
                 if (app.hasVideo) {
                     $intro.addClass('is-hidden');
                 } else {
-                    app.router.setRoute('/mashup/intro/anonymous');
+                    app.router.setRoute(`/mashup/${pos}/anonymous`);
                 }
             });
 
@@ -93,9 +94,10 @@ module.exports = (app) => {
                 });
 
                 $output.find('[data-save]').on('click', (e) => {
-                    app.models.uploadVideo(recorder.getData(), app.user, 'intro')
+
+                    app.models.uploadVideo(recorder.getData(), app.user, pos)
                         .done(data => {
-                            app.router.setRoute(`/mashup/intro/${data.name}`);
+                            app.router.setRoute(`/mashup/${pos}/${data.name}`);
                         })
                         .error(error => {
                             console.error(error);
@@ -104,10 +106,7 @@ module.exports = (app) => {
 
             }
 
-            //Uncomment next line and delete next one
             $introVideo.get(0).play();
-            // $intro.addClass('is-hidden');
-
 
             next();
         },

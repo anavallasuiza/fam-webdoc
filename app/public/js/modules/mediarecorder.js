@@ -19,7 +19,7 @@ class Recorder {
                 this.stream = stream;
                 this.recorder = new MediaRecorder(this.stream, {
                     audioBitsPerSecond: 64000,
-                    videoBitsPerSecond: 500000,
+                    videoBitsPerSecond: 400000,
                     mimeType: 'video/webm'
                 });
 

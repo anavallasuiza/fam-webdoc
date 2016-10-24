@@ -12,6 +12,19 @@
             }
         }
     }
+
+    .go {
+        position: absolute;
+        bottom:0;
+        left: 0;
+        padding: 12px;
+        box-sizing: border-box;
+        text-align: center;
+        width: 100%;
+        color: $positive;
+        cursor: pointer;
+        background: lime;
+    }
     .overlay {
         position: absolute;
         width: 100vw;
@@ -27,6 +40,14 @@
             width: 33.333vw;
             text-decoration: none;
             font-size: 4rem;
+            padding-bottom: 150px;
+            background-image: url('/static/img/icono_mosaico.png');
+            background-repeat: no-repeat;
+            background-position: center bottom 50px;
+
+            &.s1, &.s2, &.s3 {
+                background-image: url('/static/img/icono_mosaico_visto.png');
+            }
 
             &:nth-child(2) {
                 text-align: center;
@@ -37,7 +58,8 @@
             }
 
             span {
-                font-weight: 600;
+                font-weight: 900;
+                text-transform: uppercase;
                 color: #fff;
                 text-shadow: 2px 2px 2px $positive;
                 display: block;

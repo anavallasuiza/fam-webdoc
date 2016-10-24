@@ -1,4 +1,4 @@
-<article class="intro">
+<article class="intro" data-where="{{pos}}">
     <section data-output class="panel fixed output">
         <video type="video/webm"></video>
         <div class="controls">
@@ -25,6 +25,6 @@
         </div>
     </section>
     <section data-intro class="panel fixed intro-video">
-        <video type="video/mp4" data-preload src="/static/media/intro_{{__ 'CURRENT_LANG'}}.mp4"></video>
+        <video type="video/mp4" data-preload src="/static/media/{{pos}}_{{__ 'CURRENT_LANG'}}.mp4"></video>
     </section>
 </article>

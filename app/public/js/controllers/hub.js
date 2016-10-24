@@ -7,21 +7,28 @@ module.exports = (app) => {
     return {
         on: function on(next) {
             const $root = app.config.$mountPoint;
-            const height = $window.height();
+            const height = $window.height() - 150;
 
             const $parts = $root.find('.part:not(.done)');
             const $alternates = $root.find('.part.done');
+            let canPass = false;
 
             //Update classes
             for (let [name, sq] of Object.entries(app.sequences)) {
                 const $a = $root.find(`[data-${name}]`);
+
                 if (sq.done) {
+                    canPass = true;
                     $a.addClass(name);
                     $a.find('.a').removeClass('active').hide();
                     $a.find('.f').addClass('active').show().data('alternate', name);
                 }
-
             }
+
+            if(canPass) {
+                $root.find('.go').removeClass('is-hidden');
+            }
+
 
             const $titles = $root.find('.title div.active span');
 
@@ -49,12 +56,9 @@ module.exports = (app) => {
                 } else {
                     $parts.eq(n).addClass('visible');
                 }
-
-
             };
 
             $window.on('mousemove.fam', e => {
-
                 if (timeout) {
                     clearTimeout(timeout);
                 }

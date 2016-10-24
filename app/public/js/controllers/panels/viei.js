@@ -14,6 +14,8 @@ module.exports = ($panel, app, door) => {
         bgSound = $bgSound.get(0);
     }
 
+    const $bgVideo = $panel.find('.bgvideo');
+
     const subs = [];
 
     for (let media of $panel.find('video[data-subtitles], audio[data-subtitles]')) {
@@ -120,6 +122,13 @@ module.exports = ($panel, app, door) => {
                 $bgSound.animate({ volume: 1 }, 1000);
             }
 
+
+
+            if($bgVideo.length) {
+                $bgVideo.get(0).play();
+            }
+
+
             if($panel.is('[data-door]')) {
                 door.show();
             }
@@ -130,6 +139,12 @@ module.exports = ($panel, app, door) => {
                 $bgSound.animate({ volume: 0 }, 1000, () => bgSound.pause());
 
             }
+
+
+            if($bgVideo.length) {
+                $bgVideo.get(0).pause();
+            }
+
 
             $(window).off('resize.viei');
 

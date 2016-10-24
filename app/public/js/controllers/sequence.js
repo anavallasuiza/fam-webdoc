@@ -32,7 +32,10 @@ module.exports = (app) => {
 
             const handleDoor = () => {
                 $root.find('.sequence').addClass('lateral');
+                const next = $root.find('.missing .panel').get(0);
                 handlers.get(current).after();
+                handlers.get(next).on();
+                current = next;
                 door.hide();
             };
 

@@ -27,7 +27,7 @@ const app = {
             'fresh': true
         }
     },
-    hasVideo: navigator.mediaDevices,
+    hasVideo: false,
     helpers: require('helpers')
 };
 
@@ -49,8 +49,13 @@ const routes = {
         on: controllers.intro.on,
         after: controllers.intro.after
     },
+    '/outro': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.intro.on,
+        after: controllers.intro.after
+    },
     '/mashup/:where/:uuid': {
-        before: controllers.middlewares.requireUserId,
+        // before: controllers.middlewares.requireUserId,
         on: controllers.mashup.on,
         after: controllers.mashup.after
     },

@@ -1,7 +1,7 @@
 <section class="panel {{type}}" style="height:{{height}}px" data-type="{{type}}" data-dock>
     <div class="progress"></div>
 
-    <video src="/static/media/{{video}}" preload data-preload></video>
+    <video src="/static/media/{{video}}" preload></video>
     {{#if audio}}
         <audio src="/static/media/{{audio}}" data-subtitles='{{parseSRT subtitles}}' loop></audio>
     {{/if}}

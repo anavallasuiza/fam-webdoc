@@ -22,6 +22,7 @@ module.exports = (app) => {
     app.get('/mashup/:where/:uuid', webdoc.mashup);
     app.get('/hub', webdoc.hub);
     app.get('/sequence/:id', webdoc.sequence);
+    app.get('/outro', webdoc.outro);
 
 
     /**

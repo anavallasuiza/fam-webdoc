@@ -5,7 +5,7 @@ const $ = require('jquery');
 module.exports = (app) => {
 
     return {
-        on: function on(where, intro, next) {
+        on: function on(where, uuid, next) {
             const $root = app.config.$mountPoint;
 
             const $videos = $root.find('video');
@@ -18,7 +18,11 @@ module.exports = (app) => {
                 if(current < $videos.length) {
                     $videos.eq(current++).removeClass('is-hidden').get(0).play();
                 } else {
-                    app.router.setRoute('/hub');
+                    if(where === 'intro') {
+                        app.router.setRoute('/hub');
+                    } else {
+                        app.router.setRoute('/end/share');
+                    }
                 }
             });
 

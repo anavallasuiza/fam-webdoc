@@ -14,23 +14,18 @@ module.exports = (app) => {
 
             $('body').css('overflow', 'hidden');
 
-            $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
-                $root.find('.tipology').addClass('active');
-                setTimeout(() => {
-                    $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
-                        navigator.getUserMedia({video: true}, function() {
-                            $('html, body').animate({
-                                scrollTop: $root.find('.permissions').offset().top
-                            }, 2000);
+            function checkSupport() {
+                navigator.getUserMedia({video: true}, function() {
+                    $('html, body').animate({
+                        scrollTop: $root.find('.permissions').offset().top
+                    }, 2000);
 
-                        }, function() {
-                            app.hasVideo = false;
-                            app.router.setRoute('/intro');
-                        });
+                }, function() {
+                    app.hasVideo = false;
+                    app.router.setRoute('/intro');
+                });
+            }
 
-                    });
-                }, 3000);
-            });
 
             const videomask = new VideoCanvas($video.get(0), $canvas.get(0), $canvas.data('font'), $canvas.data('hpos'), $canvas.data('text'));
 
@@ -40,18 +35,21 @@ module.exports = (app) => {
                 app.user = uuid.v1();
             }
 
+            $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
+                $root.find('.tipology').addClass('active');
+                setTimeout(() => {
+                    $(window).one('mousewheel DOMMouseScroll keydown', checkSupport);
+                }, 3000);
+            });
+
+            $root.find('[data-start]').on('click', checkSupport);
+
+
             $root.find('[data-cancel]').on('click', () => {
                 app.hasVideo = false;
                 app.router.setRoute('/intro');
             });
 
-            $root.find('[data-start]').on('click', () => {
-                if (app.hasVideo) {
-                    app.helpers.scrollTo($root.find('.permissions'));
-                } else {
-                    app.router.setRoute('/intro');
-                }
-            });
 
             $root.find('[data-activate]').on('click', () => {
 

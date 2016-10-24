@@ -50,7 +50,8 @@ module.exports.start = (req, res) => {
 module.exports.intro = (req, res) => {
     if (req.xhr) {
         return res.render('intro', {
-            layout: null
+            layout: null,
+            pos: 'intro'
         });
     } else {
         return res.render('base', {
@@ -71,7 +72,7 @@ module.exports.mashup = wrap(function*(req, res) {
         return res.render('mashup', {
             videos: selected,
             where: req.params.where,
-            disruptive: _.sample(['dis1.mp4', 'dis2.mp4', 'dis3.mp4']),
+            disruptive: req.params.where === 'intro' ? _.sample(['dis1.mp4', 'dis2.mp4', 'dis3.mp4']) : false,
             layout: null
         });
     } else {
@@ -128,6 +129,23 @@ module.exports.sequence = (req, res) => {
         return res.render('sequence', {
             layout: null,
             data: sequence
+        });
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+};
+
+/**
+* Outro
+*/
+
+module.exports.outro = (req, res) => {
+    if (req.xhr) {
+        return res.render('intro', {
+            layout: null,
+            pos: 'outro'
         });
     } else {
         return res.render('base', {
