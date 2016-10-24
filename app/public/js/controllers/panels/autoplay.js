@@ -38,8 +38,6 @@ module.exports = ($panel, app, door) => {
                 }
             });
 
-
-
         },
         after: () => {
             video.pause();

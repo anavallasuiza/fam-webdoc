@@ -5,7 +5,7 @@
             <h1>{{__ 'FAM'}}</h1>
             <div class="front-video">
                 <video src="/static/media/frontpage.mp4" autobuffer loop></video>
-                <canvas width="1024" height="296"></canvas>
+                <canvas width="1024" height="296" data-text="{{__ 'F-A-M' }}" data-hpos="{{__ 'CANVAS_H_POS'}}" data-font="{{__ 'CANVAS_FONT'}}"></canvas>
             </div>
             <ul>
                 <li><a data-external href="/locale/ca">{{__ 'CAT'}}</a> //</li>
@@ -15,11 +15,4 @@
         </header>
     </section>
 
-    <svg width="400" height="300" baseProfile="full" version="1.2">
-        <defs>
-        <mask id="videomask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" transform="scale(1)">
-            <text x="200" y="100">F-A-M</text>
-        </mask>
-        </defs>
-    </svg>
 </article>

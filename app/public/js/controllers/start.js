@@ -12,22 +12,27 @@ module.exports = (app) => {
             const $video = $root.find('.front-video video');
             const $canvas = $root.find('.front-video canvas');
 
-
             $('body').css('overflow', 'hidden');
 
             $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
                 $root.find('.tipology').addClass('active');
                 setTimeout(() => {
                     $(window).one('mousewheel DOMMouseScroll keydown', (e) => {
-                        $('html, body').animate({
-                            scrollTop: $root.find('.permissions').offset().top
-                        }, 2000);
+                        navigator.getUserMedia({video: true}, function() {
+                            $('html, body').animate({
+                                scrollTop: $root.find('.permissions').offset().top
+                            }, 2000);
+
+                        }, function() {
+                            app.hasVideo = false;
+                            app.router.setRoute('/intro');
+                        });
 
                     });
                 }, 3000);
             });
 
-            const videomask = new VideoCanvas($video.get(0), $canvas.get(0));
+            const videomask = new VideoCanvas($video.get(0), $canvas.get(0), $canvas.data('font'), $canvas.data('hpos'), $canvas.data('text'));
 
             videomask.start();
 
