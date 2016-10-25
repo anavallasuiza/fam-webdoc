@@ -6,6 +6,9 @@ const $ = require('jquery');
 module.exports = (app) => {
     return {
         on: function on(next) {
+            window.ga('set', 'page', '/');
+            window.ga('send', 'pageview');
+
             const $root = app.config.$mountPoint;
 
             const $video = $root.find('.front-video video');

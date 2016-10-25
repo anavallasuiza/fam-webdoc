@@ -149,9 +149,6 @@ app.controllers = controllers;
 $('body').on('click', 'a:not([data-external])', (e) => {
     const url = $(e.currentTarget).attr('href');
 
-    window.ga('set', 'page', url);
-    window.ga('send', 'pageview');
-
     router.setRoute(url);
 
     e.preventDefault();

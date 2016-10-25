@@ -8,6 +8,10 @@ const $ = require('jquery');
 module.exports = (app) => {
     return {
         on: function on(next) {
+            window.ga('set', 'page', '/start');
+            window.ga('send', 'pageview');
+
+
             const $root = app.config.$mountPoint;
             const $video = $root.find('.front-video video');
             const $canvas = $root.find('.front-video canvas');

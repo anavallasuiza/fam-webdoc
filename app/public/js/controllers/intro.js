@@ -16,6 +16,10 @@ module.exports = (app) => {
             const $introVideo = $intro.find('video');
             const pos = $root.find('.intro').data('where');
 
+            window.ga('set', 'page', '/' + pos);
+            window.ga('send', 'pageview');
+
+
             const $control = $root.find('[data-control]');
             const $controlUI = $control.find('[data-ui]');
             const $start = $control.find('[data-start]');

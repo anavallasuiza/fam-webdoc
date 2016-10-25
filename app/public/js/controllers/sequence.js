@@ -22,6 +22,10 @@ function lastVisibleInContainer(elements) {
 module.exports = (app) => {
     return {
         on: function on(id, next) {
+            window.ga('set', 'page', '/sequence/' + id);
+            window.ga('send', 'pageview');
+
+
             const $root = app.config.$mountPoint;
             const $panels = $root.find('.panel');
             const $door = $root.find('.door');

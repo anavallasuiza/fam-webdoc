@@ -6,6 +6,10 @@ module.exports = (app) => {
 
     return {
         on: function on(next) {
+            window.ga('set', 'page', '/hub');
+            window.ga('send', 'pageview');
+
+
             const $root = app.config.$mountPoint;
             const height = $window.height() - 150;
 

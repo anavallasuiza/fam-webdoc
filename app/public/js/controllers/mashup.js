@@ -6,6 +6,10 @@ module.exports = (app) => {
 
     return {
         on: function on(where, uuid, next) {
+            window.ga('set', 'page', '/mashup');
+            window.ga('send', 'pageview');
+
+
             const $root = app.config.$mountPoint;
 
             const $videos = $root.find('video');
