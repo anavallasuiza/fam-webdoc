@@ -7,17 +7,6 @@ const $ = require('jquery');
 const director = require('director');
 const co = require('co');
 
-function inIframe () {
-    try {
-        return window.self !== window.top;
-    } catch (e) {
-        return true;
-    }
-}
-
-if(inIframe()) {
-    window.open('https://webdoc.projectefam.cc');
-}
 
 
 const app = {

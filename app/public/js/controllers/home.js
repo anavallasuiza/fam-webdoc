@@ -14,6 +14,21 @@ module.exports = (app) => {
 
             videomask.start();
 
+            function inIframe () {
+                try {
+                    return window.self !== window.top;
+                } catch (e) {
+                    return true;
+                }
+            }
+
+            $root.find('.lang').on('click', (e) => {
+                if(inIframe()) {
+                    window.open('http://webdoc.projectefam.cc');
+                    e.preventDefault();
+                }
+            });
+
             next();
         },
         after: function after(next) {
