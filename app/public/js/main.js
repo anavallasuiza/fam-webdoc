@@ -7,9 +7,18 @@ const $ = require('jquery');
 const director = require('director');
 const co = require('co');
 
-if (parent.location.href !== location.href) {
-    parent.location.href = location.href;
+function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
 }
+
+if(inIframe()) {
+    window.open('https://webdoc.projectefam.cc');
+}
+
 
 const app = {
     config: {
