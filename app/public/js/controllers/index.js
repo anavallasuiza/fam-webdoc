@@ -8,6 +8,7 @@ module.exports = (app) => {
         mashup: require('./mashup')(app),
         hub: require('./hub')(app),
         sequence: require('./sequence')(app),
+        end: require('./end')(app),
         middlewares: {
             requireUserId: function(...args) {
                 if (!app.user) {

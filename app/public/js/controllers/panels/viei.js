@@ -6,6 +6,7 @@ const subtitles = require('subtitles');
 
 module.exports = ($panel, app, door) => {
     let $currentContent;
+    let opened = 0;
 
     let bgSound;
     const $bgSound = $panel.find('.bgsound');
@@ -101,6 +102,7 @@ module.exports = ($panel, app, door) => {
                 });
 
                 $spot.on('click', (e) => {
+                    opened++;
                     $currentContent && hideCurrent();
 
                     $content.removeClass('is-hidden');
@@ -110,11 +112,18 @@ module.exports = ($panel, app, door) => {
                     }
                     $currentContent = $content;
                     e.stopPropagation();
+
+
+                    if(opened > 1 &&$panel.is('[data-door]')) {
+                        door.show();
+                    }
+
                 });
 
             }
         },
         on: () => {
+            opened = 0;
             if (bgSound) {
                 bgSound.volume = 0;
                 bgSound.play();
@@ -123,14 +132,8 @@ module.exports = ($panel, app, door) => {
             }
 
 
-
             if($bgVideo.length) {
                 $bgVideo.get(0).play();
-            }
-
-
-            if($panel.is('[data-door]')) {
-                door.show();
             }
 
         },

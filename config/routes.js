@@ -23,6 +23,9 @@ module.exports = (app) => {
     app.get('/hub', webdoc.hub);
     app.get('/sequence/:id', webdoc.sequence);
     app.get('/outro', webdoc.outro);
+    app.get('/end/share', webdoc.share);
+    app.get('/end/videos', webdoc.videos);
+    app.get('/end/credits', webdoc.credits);
 
 
     /**

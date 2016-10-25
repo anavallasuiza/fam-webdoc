@@ -1,0 +1,149 @@
+.end {
+	background-image: url('/static/img/fondo_end.jpg');
+	background-position: center;
+
+	&.share {
+		.panel {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+			.share {
+				margin: 1em;
+
+				img {
+					width: 100%;
+				}
+
+				.buttons {
+					margin-top: 2rem;
+					font-size: 2rem;
+					text-align: center;
+					a {
+						color: $negative;
+					}
+				}
+
+			}
+		}
+	}
+
+	&.videos {
+		.panel {
+			display: flex;
+			flex-direction: row;
+
+			ul {
+				margin: 2rem;
+				padding: 0;
+				list-style: none;
+
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				align-content: flex-start;
+
+				li {
+					max-width: 50%;
+
+					.video-pair {
+						display: flex;
+						flex-direction: row;
+						padding: 1rem;
+
+						> div {
+							padding: .3rem;
+						}
+
+						.user {
+							color: $red;
+
+							font-size: 1.2rem;
+							font-weight: 800;
+							text-align: right;
+
+
+							strong {
+								display: block;
+								font-size: 2rem;
+								margin-top: -.5rem;
+							}
+
+						}
+
+
+
+						video {
+							width: 100%;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	&.credits {
+		.panel {
+			display: flex;
+			flex-direction: row;
+
+
+			> div {
+				margin: 4rem;
+				flex-grow:1;
+				flex-basis: 0;
+			}
+
+			.branding {
+				font-size: 2rem;
+				font-weight: 200;
+				img {
+					max-width: 100%;
+				}
+				text-align: center;
+
+				a {
+					color: $negative;
+					font-weight: 600;
+					text-decoration: none;
+					display: block;
+					margin-top: 1rem;
+				}
+			}
+
+			.credits {
+				h1 {
+					color: $red;
+					margin: 1rem 0 .5rem 0;
+				}
+
+				ul {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					font-weight: 200;
+				}
+			}
+		}
+
+	}
+
+	.end-menu {
+		position: fixed;
+		left: 1rem;
+		bottom: 2rem;
+		padding: 1rem;
+		background: $positive;
+
+		a{
+			color: $negative;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: 800;
+			padding: 0 .5rem;
+		}
+	}
+}

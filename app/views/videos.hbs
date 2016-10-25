@@ -1,0 +1,27 @@
+<article class="end videos">
+    <section class="panel title">
+        <ul class="video-list">
+            {{#each videos}}
+            <li>
+                <div class="video-pair">
+                    <div class="user">
+                    {{__ 'Usuario'}} <strong>{{user}}</strong>
+                    </div>
+
+                    <div class="intro">
+                        <video type="video/webm" src="/uploads/intro/{{video}}"></video>
+                    </div>
+
+                    <div class="outro">
+                        <video type="video/webm" src="/uploads/intro/{{video}}"></video>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+
+    {{> end-menu}}
+
+    </section>
+
+</article>

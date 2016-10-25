@@ -15,21 +15,22 @@ const app = {
     },
     sequences: {
         's1': {
-            'done': false,
-            'fresh': true
+            'done': false
         },
         's2': {
-            'done': false,
-            'fresh': true
+            'done': false
         },
         's3': {
-            'done': false,
-            'fresh': true
+            'done': false
         }
     },
     hasVideo: false,
     helpers: require('helpers')
 };
+
+function noop(next) {
+    next();
+}
 
 const models = require('./models')(app);
 const controllers = require('./controllers')(app);
@@ -45,11 +46,6 @@ const routes = {
         after: controllers.start.after
     },
     '/intro': {
-        before: controllers.middlewares.requireUserId,
-        on: controllers.intro.on,
-        after: controllers.intro.after
-    },
-    '/outro': {
         // before: controllers.middlewares.requireUserId,
         on: controllers.intro.on,
         after: controllers.intro.after
@@ -68,7 +64,27 @@ const routes = {
         // before: controllers.middlewares.requireUserId,
         on: controllers.sequence.on,
         after: controllers.sequence.after
-    }
+    },
+    '/outro': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.intro.on,
+        after: controllers.intro.after
+    },
+    '/end/share': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.end.on,
+        after: controllers.end.after
+    },
+    '/end/videos': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.end.on,
+        after: controllers.end.after
+    },
+    '/end/credits': {
+        // before: controllers.middlewares.requireUserId,
+        on: controllers.end.on,
+        after: controllers.end.after
+    },
 };
 
 if (DEVELOPMENT) {
@@ -129,6 +145,8 @@ app.controllers = controllers;
  */
 
 $('body').on('click', 'a:not([data-external])', (e) => {
+    console.log($(e.currentTarget).attr('href'));
+    console.log(router);
     router.setRoute($(e.currentTarget).attr('href'));
 
     e.preventDefault();

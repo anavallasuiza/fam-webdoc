@@ -5,6 +5,8 @@ const wrap = require('co-express');
 
 const uploader = require('../lib/uploader');
 const selector = require('../lib/selector');
+const allvideos = require('../lib/allvideos');
+
 const _ = require('lodash');
 
 /**
@@ -138,8 +140,8 @@ module.exports.sequence = (req, res) => {
 };
 
 /**
-* Outro
-*/
+ * Outro
+ */
 
 module.exports.outro = (req, res) => {
     if (req.xhr) {
@@ -153,6 +155,59 @@ module.exports.outro = (req, res) => {
         });
     }
 };
+
+/**
+ * End
+ */
+
+module.exports.share = (req, res) => {
+
+    if (req.xhr) {
+        return res.render('share', {
+            layout: null
+        });
+
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+};
+
+module.exports.videos = wrap(function*(req, res) {
+    const videos = yield allvideos.get();
+
+
+    if (req.xhr) {
+        return res.render('videos', {
+            videos: videos.map(video => ({
+                user: video.split('-')[1],
+                video
+            })),
+            layout: null
+        });
+
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+});
+
+module.exports.credits = (req, res) => {
+
+    if (req.xhr) {
+        return res.render('credits', {
+            layout: null
+        });
+
+    } else {
+        return res.render('base', {
+            app: 'main'
+        });
+    }
+};
+
 
 
 /**

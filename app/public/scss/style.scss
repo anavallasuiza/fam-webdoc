@@ -3,7 +3,7 @@ $positive: #000;
 $negative: #fff;
 $link: #3079ed; //Azul claro
 $block: #eee;
-$red: #580607;
+$red: #6b1414;
 $bgalpha: rgba(0,0,0,.5);
 
 //Fonts
@@ -25,6 +25,7 @@ $bgalpha: rgba(0,0,0,.5);
 @import 'sections/mashup';
 @import 'sections/hub';
 @import 'sections/sequence';
+@import 'sections/end';
 
 //Sequence panels
 @import 'panels/title';
