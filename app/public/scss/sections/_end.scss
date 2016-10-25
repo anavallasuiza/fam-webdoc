@@ -115,9 +115,11 @@
 			}
 
 			.credits {
+				padding-bottom: 20rem;
 				h1 {
 					color: $red;
 					margin: 1rem 0 .5rem 0;
+					font-size: 1.7em;
 				}
 
 				ul {
@@ -125,6 +127,18 @@
 					padding: 0;
 					list-style: none;
 					font-weight: 200;
+
+					li {
+						font-size: 1.3rem;
+						a{
+							color: $negative;
+							text-decoration: none;
+						}
+					}
+				}
+
+				p {
+					font-size: 1.4rem;
 				}
 			}
 		}
