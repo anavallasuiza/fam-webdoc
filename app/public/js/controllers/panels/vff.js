@@ -68,7 +68,7 @@ module.exports = ($panel, app) => {
                     video.pause();
                 }
 
-            }, 20);
+            }, 40);
         },
         after: () => {
             $sequence.off('scroll.vff');

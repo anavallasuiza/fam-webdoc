@@ -1,7 +1,7 @@
 .sequence {
     .timeline {
         background: $positive;
-
+        position: relative;
         .tray {
             background-image: url(/static/img/canvas/fondo_canvas.jpg);
             background-size: fit;
@@ -92,14 +92,14 @@
                 .scrubber {
                     position: relative;
                     background: $red;
-                    height: .8rem;
+                    height: .3rem;
                     width: 100%;
 
                     .text {
                         position: absolute;
                         font-weight: 600;
                         font-size: 1.6rem;
-                        top: -10px;
+                        top: -14px;
                         left: -210px;
                         width: 200px;
                         text-align: right;
@@ -114,6 +114,7 @@
                 color: $red;
                 font-size: 2rem;
                 padding: 1rem 0;
+                background: transparent;
 
                 &.top {
                     border-top: 1rem solid $red;

@@ -1,6 +1,7 @@
 'use strict';
 const $ = require('jquery');
 const inView = require('in-view');
+const _ = require('lodash');
 
 function range(v, range1, range2) {
     return (v - range1[0]) * (range2[1] - range2[0]) / (range1[1] - range1[0]) + range2[0];
@@ -70,13 +71,15 @@ module.exports = ($panel, app, door) => {
             const positionHandler = () => {
                 const pos = $parent.scrollTop();
 
+                // $handler.css('top', pos + 'px');
+
                 if (pos >= contentOffset && pos <= bottom) {
                     const scruberPosition = range(pos, [contentOffset, bottom], [0, sliderHeight]);
                     $scrubber.css('top', Math.floor(scruberPosition));
                 }
             };
 
-            scrollSpy = setInterval(positionHandler, 100);
+            scrollSpy = setInterval(positionHandler, 20);
 
             $scrubber.css('top', '0px');
 

@@ -1,11 +1,47 @@
 .sequence {
     .generic {
+    	position: relative;
     	iframe {
     		display: block;
     		border: none;
     		width: 100vw;
     		height: 100vh;
-    		pointer-events: none;
+    	}
+
+		.off {
+		    display: none;
+		}
+
+		.on {
+		    display: inline;
+		}
+
+		iframe {
+		    pointer-events: none;
+		}
+
+    	&.active {
+    		.off {
+    			display: inline;
+    		}
+
+    		.on {
+    			display: none;
+    		}
+
+    		iframe {
+    			pointer-events: auto;
+    		}
+    	}
+
+    	.action {
+    		position: absolute;
+    		top: 4rem;
+    		right: 2rem;
+    		padding: 1rem;
+    		background: $red;
+    		color: $negative;
+    		cursor: pointer;
     	}
     }
 }

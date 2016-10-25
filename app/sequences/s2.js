@@ -40,7 +40,7 @@ const s1 = function(req) {
                     text: i18n.__.call(req, "La UE ha signat en els darrers anys acords de lliure comerç amb diverses regions del món, entre aquestes els països ACP (Àfrica - Carib - Pacífic). A la vegada que insta als països del Sud a obrir les seves fronteres als productes i inversions europees, subvenciona l'agricultura i indústria europees pròpies que exporten a aquestes regions, generant una competència deslleial dels productes europeus subvencionats en front als productes produïts als països del Sud. Aquest fenònem d'exportació a preus subsidiats es anomenat dumping.")
                 }
             }, {
-                top: '70%',
+                top: '62%',
                 left: '73%',
                 class: 'small',
                 anchor: 'bottom right',
@@ -161,7 +161,7 @@ const s1 = function(req) {
                 }
             }]
         }, {
-            type: 'title',
+            type: 'end',
             text: i18n.__.call(req, 'Tornar al mosaic'),
             terminal: 's2'
         }]
