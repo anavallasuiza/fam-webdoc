@@ -1,0 +1,16 @@
+<section class="panel {{type}}" data-type="{{type}}">
+{{#if bgsound}}
+    <audio src="/static/media/{{bgsound}}" loop></audio>
+{{/if}}
+
+    {{#if terminal}}
+    <a data-external data-terminal="{{terminal}}" href="/hub">
+    {{/if}}
+
+        <h1>{{text}}</h1>
+
+    {{#if terminal}}
+    </a>
+    {{/if}}
+
+</section>

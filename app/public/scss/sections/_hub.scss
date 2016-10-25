@@ -15,22 +15,30 @@
 
     .go {
         position: absolute;
-        bottom:0;
+        top:0;
         left: 0;
+        right: 0;
         padding: 12px;
         box-sizing: border-box;
         text-align: center;
-        width: 100%;
         color: $positive;
         cursor: pointer;
-        background: lime;
+        background: $red;
+        color: $negative;
+        margin: 0 auto;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 1.2rem;
+        padding: .7rem 2rem;
+        width: 200px;
+        box-shadow: 0px 0px 4px $positive;
     }
     .overlay {
         position: absolute;
         width: 100vw;
         height: 100vh;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
 
         .f {
             display: none;
@@ -43,14 +51,21 @@
             padding-bottom: 150px;
             background-image: url('/static/img/icono_mosaico.png');
             background-repeat: no-repeat;
-            background-position: center bottom 50px;
+            background-position: center bottom 30px;
+            margin-top: 40px;
+            z-index: 2;
 
             &.s1, &.s2, &.s3 {
                 background-image: url('/static/img/icono_mosaico_visto.png');
             }
 
             &:nth-child(2) {
+                position: absolute;
+                width: 100vw;
+                hegith: 100%;
                 text-align: center;
+                z-index: 0;
+
             }
             &:last-child {
                 text-align: right;

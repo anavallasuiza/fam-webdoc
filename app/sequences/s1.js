@@ -32,7 +32,7 @@ const s1 = function(req) {
                 buerk: `buerk_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
                 bill:  `bill_${i18n.__.call(req,'CURRENT_LANG')}.srt`
             }, {
-                type: 'title',
+                type: 'end',
                 text: i18n.__.call(req,'Tornar al mosaic'),
                 terminal: 's1'
 

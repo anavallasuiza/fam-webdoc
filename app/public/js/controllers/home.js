@@ -14,7 +14,6 @@ module.exports = (app) => {
 
             videomask.start();
 
-
             next();
         },
         after: function after(next) {

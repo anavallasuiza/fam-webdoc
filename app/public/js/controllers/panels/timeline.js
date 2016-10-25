@@ -33,6 +33,7 @@ module.exports = ($panel, app, door) => {
     const bottom = contentOffset + contentHeight - $images.last().outerHeight() - $scrubber.outerHeight();
 
     // TODO: update with better module
+    inView.offset(200);
     inView('.timeline img')
         .on('enter', function(img) {
             const $img = $(img);
@@ -61,6 +62,7 @@ module.exports = ($panel, app, door) => {
 
     return {
         on: () => {
+            $handler.removeClass('is-hidden');
             for(const sub of subs) {
                 sub.listen();
             }
@@ -74,12 +76,13 @@ module.exports = ($panel, app, door) => {
                 }
             };
 
-            scrollSpy = setInterval(positionHandler, 50);
+            scrollSpy = setInterval(positionHandler, 100);
 
             $scrubber.css('top', '0px');
 
         },
         after: () => {
+            $handler.addClass('is-hidden');
             playingMedia && playingMedia.pause();
             clearInterval(scrollSpy);
             for(const sub of subs) {

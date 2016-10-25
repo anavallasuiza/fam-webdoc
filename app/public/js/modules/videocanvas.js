@@ -25,7 +25,7 @@ class VideoCanvas {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.fillText(this.text, 60, this.canvas.height - this.hPos);
         this.ctx.globalCompositeOperation = 'source-in';
-        this.ctx.drawImage(this.video, 0, 0);
+        this.ctx.drawImage(this.video, 0, -200);
 
         setTimeout(this.loop.bind(this), 1000 / 12);
         this.ctx.restore();

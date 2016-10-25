@@ -1,0 +1,33 @@
+.sequence {
+    .end {
+        flex-direction: row;
+        justify-content: center;
+        background: $positive;
+
+        h1 {
+            margin:0;
+            font-size: 2rem;
+            position: relative;
+
+            &::after {
+                content: "X";
+                color: $negative;
+                position: absolute;
+                top: 3rem;
+                left: 0;
+                padding: 1rem 0;
+                width: 100%;
+                background: $red;
+                box-sizing: border-box;
+                font-size: 3rem;
+                text-align: center;
+                font-weight: 300;
+            }
+        }
+
+        a {
+        	color: $negative;
+            text-decoration: none;
+        }
+    }
+}
