@@ -24,7 +24,7 @@ module.exports = (app) => {
 
             $root.find('.lang').on('click', (e) => {
                 if(inIframe()) {
-                    window.open('http://webdoc.projectefam.cc');
+                    window.open(`http://webdoc.projectefam.cc/locale/${$(e.target).data('lang')}`);
                     e.preventDefault();
                 }
             });
