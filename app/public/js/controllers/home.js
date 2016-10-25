@@ -16,7 +16,7 @@ module.exports = (app) => {
 
             function inIframe () {
                 try {
-                    return window.self !== window.top;
+                    return parent.location.href !== location.href;
                 } catch (e) {
                     return true;
                 }
