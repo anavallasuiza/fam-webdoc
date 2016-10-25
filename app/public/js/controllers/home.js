@@ -1,6 +1,7 @@
 'use strict';
 
 const VideoCanvas = require('videocanvas');
+const $ = require('jquery');
 
 module.exports = (app) => {
     return {
