@@ -1,87 +1,84 @@
 1
-00:00:00,050 --> 00:00:03,096
-CATNos llegan informes de otra crisis de hambre en África,
+00:00:00,500 --> 00:00:03,960
+Ens arriben nous informes d'una crisi de fam a l'Africa,
 
 2
 00:00:04,000 --> 00:00:05,000
-ahora, en Etiopia,
+ara, a Etiòpia,
 
 3
-00:00:05,000 --> 00:00:07,050
-con hambre extrema y muerte.
+00:00:05,000 --> 00:00:07,500
+amb fam extrema i mort.
 
 4
-00:00:07,050 --> 00:00:09,060
-En Etiopia, 7 millones de personas
+00:00:07,500 --> 00:00:09,600
+A Etiòpia, 7 milions de persones
 
 5
-00:00:09,060 --> 00:00:11,060
-están amenazadas por el hambre.
+00:00:09,600 --> 00:00:11,600
+estan amenaçades per la fam.
 
 6
-00:00:11,060 --> 00:00:13,030
-Cientos, ya han muerto.
+00:00:11,600 --> 00:00:13,300
+Centenars, ja han mort.
 
 7
-00:00:13,030 --> 00:00:15,060
-La  peor sequía de su historia
+00:00:13,300 --> 00:00:15,600
+La pitjor secada de la seva història
 
 8
-00:00:15,060 --> 00:00:18,060
-amenaza la vida de 150 millones de personas,
+00:00:15,600 --> 00:00:18,600
+amenaça la vida de 150 milions de persones,
 
 9
-00:00:18,060 --> 00:00:19,060
-sin nada que comer.
+00:00:18,600 --> 00:00:19,600
+sense res per menjar.
 
 10
-00:00:19,060 --> 00:00:24,020
-El terror de las personas sin comida ni casa.
+00:00:19,600 --> 00:00:24,200
+El terror de les persones sense menjar ni casa.
 
 11
-00:00:24,020 --> 00:00:27,000
-La hambruna ataca contra África.
+00:00:24,200 --> 00:00:27,000
+La fam ataca l'Africa.
 
 12
 00:00:27,000 --> 00:00:28,000
-Al borde de la muerte,
+Properes a la mort,
 
 13
-00:00:28,000 --> 00:00:30,004
-dos milliones de personas en África.
+00:00:28,000 --> 00:00:30,040
+dos milions de persones a l'Africa.
 
 14
-00:00:30,004 --> 00:00:32,040
-La ONU ha declarado la hambruna.
+00:00:30,040 --> 00:00:32,400
+La ONU ha declarat la fam.
 
 15
-00:00:32,040 --> 00:00:35,028
-Millones de personas al límite de la supervivencia.
+00:00:35,280 --> 00:00:39,280
+Refugiats de Somàlia intenten escapar a través de Etiòpia.
 
 16
-00:00:35,028 --> 00:00:39,028
-Refugiados somalís intentan escapar a través de Etiopia.
+00:00:39,280 --> 00:00:42,800
+Comencem amb impactants notìcies de Somàlia.
 
 17
-00:00:39,028 --> 00:00:42,080
-Empezamos con impactantes noticias de Somalia.
+00:00:42,800 --> 00:00:45,800
+Les Nacions Unides confirmen una secada extrema,
 
 18
-00:00:42,080 --> 00:00:45,080
-Naciones Unidas confirma una sequía extrema,
+00:00:45,800 --> 00:00:48,100
+conflictes entre grups rivals pel poder
 
 19
-00:00:45,080 --> 00:00:48,010
-conflictos entre grupos rivales por el poder
+00:00:48,100 --> 00:00:50,800
+i la lenta reaccio de la resta del món.
 
 20
-00:00:48,010 --> 00:00:50,080
-y la lenta reacción del resto del mundo.
+00:00:50,800 --> 00:00:53,100
+Tots en tenen part de culpa.
 
 21
-00:00:50,080 --> 00:00:53,010
-Todos tienen parte de culpa.
+00:00:53,100 --> 00:00:55,100
+Naomi Grimley ens informa.
 
-22
-00:00:53,010 --> 00:00:55,010
-Naomi Grimley nos informa.
