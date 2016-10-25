@@ -7,6 +7,10 @@ const $ = require('jquery');
 const director = require('director');
 const co = require('co');
 
+if (parent.location.href !== location.href) {
+    parent.location.href = location.href;
+}
+
 const app = {
     config: {
         $mountPoint: $('[data-app]'),
