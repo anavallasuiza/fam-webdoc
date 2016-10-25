@@ -152,7 +152,7 @@ const s1 = function(req) {
                 top: '31%',
                 left: '95%',
                 class: 'small',
-                anchor: 'top right',
+                anchor: 'bottom right',
                 borderPoint: true,
                 tooltip: i18n.__.call(req, 'OMC'),
                 content: {

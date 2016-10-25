@@ -8,9 +8,6 @@ const s1 = function(req) {
         id: 'sq1',
 
         adquired: [{
-            type: 'generic',
-            html: '<iframe src="https://www.google.com/maps/d/embed?mid=1vV9D2270BCtexhfE-ufLAP1Pc7o" width="640" height="480"></iframe>',
-        }, {
             type: 'title',
             text: i18n.__.call(req, 'Demanar diners, enviar ajuda, demanar diners, demanar ajuda… Un cicle infinit en el qual mai entenem què falla. ONGS i ciutadania en un circuit tancat, on les coses milloren per tornar a empitjorar. Política.')
         }, {
@@ -54,8 +51,8 @@ const s1 = function(req) {
                     }
                 }
             }, {
-                top: '82%',
-                left: '54%',
+                top: '6%',
+                left: '6%',
                 icon: {
                     file: `donate_${i18n.__.call(req,'CURRENT_LANG')}.png`,
                     width: 527,
@@ -73,24 +70,29 @@ const s1 = function(req) {
                 }
             }]
         }],
-        missing: [{
-            type: 'autoplay',
-            video: 'sankara.mp4',
-        }, {
-            type: 'autoplay',
-            video: 'especulacion.mp4',
-        }, {
-            type: 'autoplay',
-            video: 'recursos.mp4',
-        }, {
-            type: 'autoplay',
-            video: 'revoltes.mp4',
-        }, {
-            type: 'end',
-            text: i18n.__.call(req, 'Tornar al mosaic'),
-            terminal: 's3'
+        missing: [
+            {
+                type: 'autoplay',
+                video: 'sankara.mp4',
+            },{
+                type: 'autoplay',
+                video: 'especulacion.mp4',
+            },{
+                type: 'generic',
+                html: '<iframe src="https://www.google.com/maps/d/embed?mid=1vV9D2270BCtexhfE-ufLAP1Pc7o" width="640" height="480"></iframe>',
+            },{
+                type: 'autoplay',
+                video: 'recursos.mp4',
+            },{
+                type: 'autoplay',
+                video: 'revoltes.mp4',
+            }, {
+                type: 'end',
+                text: i18n.__.call(req, 'Tornar al mosaic'),
+                terminal: 's3'
 
-        }]
+            }
+        ]
 
     };
 
