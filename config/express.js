@@ -120,8 +120,17 @@ module.exports = function(app) {
             return i18n.__.apply(req, arguments);
         });
 
-        if(req.device.type !== 'desktop' && req.path !== '/sorry') {
-            return res.redirect('/sorry');
+        //TODO: refactor
+        if (req.path !== '/sorry') {
+            if (req.device.type !== 'desktop') {
+                return res.redirect('/sorry');
+            }
+
+            const ua = req.headers['user-agent'];
+
+            if (ua.match(/MSIE/) || ua.match(/Version\/[\d\.]+.*Safari/)) {
+                return res.redirect('/sorry');
+            }
         }
 
         return next();
