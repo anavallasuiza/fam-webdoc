@@ -21,6 +21,7 @@ const device = require('express-device');
 
 const viewHelpers = require(path.join(config.root, 'app/lib/view-helpers'));
 
+
 const env = config.env;
 
 module.exports = function(app) {
@@ -74,11 +75,26 @@ module.exports = function(app) {
      * Session
      */
 
-    app.use(session({
-        secret: config.secret,
-        resave: true,
-        saveUninitialized: true
-    }));
+    if (env === 'development') {
+        app.use(session({
+            secret: config.secret,
+            resave: true,
+            saveUninitialized: true
+        }));
+    } else if (env === 'production') {
+        const RedisStore = require('connect-redis')(session);
+        app.use(session({
+            store: new RedisStore({
+                host: 'localhost',
+                port: 6379
+            }),
+            secret: config.secret,
+            resave: true,
+            saveUninitialized: true
+        }));
+
+
+    }
 
     /**
      * Init i18n
