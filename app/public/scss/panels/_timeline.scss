@@ -56,7 +56,14 @@
                         }
                     }
 
-                    video {
+                    &.kissinger {
+                        audio {
+                            top: 50vh;
+                            left: 5%;
+                        }
+                    }
+
+                    video, audio {
                         position: absolute;
                         z-index: 100;
                     }

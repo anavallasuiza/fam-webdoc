@@ -19,15 +19,9 @@ module.exports = (app) => {
             $('body').css('overflow', 'hidden');
 
             function checkSupport() {
-                navigator.getUserMedia({video: true}, function() {
-                    $('html, body').animate({
-                        scrollTop: $root.find('.permissions').offset().top
-                    }, 2000);
-
-                }, function() {
-                    app.hasVideo = false;
-                    app.router.setRoute('/intro');
-                });
+                $('html, body').animate({
+                    scrollTop: $root.find('.permissions').offset().top
+                }, 2000);
             }
 
 
@@ -59,6 +53,7 @@ module.exports = (app) => {
 
                 mediaRecorder.requestPermission()
                     .then(stream => {
+                        console.log('si que hai video e audio');
                         for (let st of stream.getTracks()) {
                             st.stop();
                         }
@@ -66,6 +61,7 @@ module.exports = (app) => {
                         app.router.setRoute('/intro');
                     })
                     .catch(() => {
+                        console.log('non hai video ou audio');
                         app.hasVideo = false;
                         app.router.setRoute('/intro');
                     });

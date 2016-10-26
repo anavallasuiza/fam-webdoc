@@ -37,6 +37,7 @@ var subtitles = {
                         return (t > s.startTime && t < s.endTime);
                     })[0];
 
+
                     if (sub) {
                         if (sub.text !== this.currentSub) {
                             this.viewer.show(sub.text);

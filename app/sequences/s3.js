@@ -29,7 +29,6 @@ const s1 = function(req) {
                     video: {
                         src: 'ong.mp4',
                         subtitles: `ong_${i18n.__.call(req,'CURRENT_LANG')}.srt`
-                            // subtitles: 'foo.srt'
                     }
                 }
             }, {
@@ -42,7 +41,7 @@ const s1 = function(req) {
                     offset: -56
                 },
                 class: 'big',
-                anchor: 'bottom right',
+                anchor: 'bottom left',
                 borderPoint: true,
                 content: {
                     video: {
@@ -111,7 +110,7 @@ const s1 = function(req) {
         }, {
             type: 'title',
             text: i18n.__.call(req, 'Ellos luchan. Nosotros luchamos.'),
-        },{
+        }, {
             type: 'end',
             text: i18n.__.call(req, 'Tornar al mosaic'),
             terminal: 's3'

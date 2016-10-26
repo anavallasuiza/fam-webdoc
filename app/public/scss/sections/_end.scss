@@ -98,11 +98,21 @@
 			}
 
 			.branding {
-				font-size: 2rem;
-				font-weight: 200;
-				img {
+
+				p.title {
+					font-size: 2rem;
+					font-weight: 200;
+				}
+
+				img.title {
 					max-width: 100%;
 				}
+
+				a.title {
+					font-size: 2rem;
+					margin-bottom: 3rem;
+				}
+
 				text-align: center;
 
 				a {

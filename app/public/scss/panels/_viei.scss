@@ -24,6 +24,7 @@
             right: 0;
             margin: auto;
             li {
+
                 position: absolute;
                 &[data-tooltip]:hover::before {
                     content: attr(data-tooltip);
@@ -63,6 +64,19 @@
                     background: rgba($negative, .9);
                     color: $positive;
                     box-sizing: border-box;
+                    z-index: 30000;
+
+                    .arrows{
+                        background: transparent;
+
+                        img {
+                            width: 30px;
+                            margin-left: 220px;
+                            margin-bottom: 20px;
+                        }
+                    }
+
+
                     h1,
                     h2 {
                         margin: .1rem;
@@ -84,6 +98,7 @@
                         width: 100%;
                     }
                     &.small {
+
                         padding: 1rem 1rem 1rem 2rem;
                         width: 300px;
                         font-size: .8rem;

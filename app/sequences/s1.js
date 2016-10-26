@@ -30,7 +30,8 @@ const s1 = function(req) {
                 unknown: `unknown_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
                 pilger: `pilger_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
                 buerk: `buerk_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
-                bill:  `bill_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+                bill:  `bill_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
+                kissinger: `kissinger_${i18n.__.call(req,'CURRENT_LANG')}.srt`
             }, {
                 type: 'end',
                 text: i18n.__.call(req,'Tornar al mosaic'),
