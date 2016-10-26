@@ -18,20 +18,20 @@ module.exports = (app) => {
 
             videomask.start();
 
-            function inIframe () {
-                try {
-                    return parent.location.href !== location.href;
-                } catch (e) {
-                    return true;
-                }
-            }
+            // function inIframe () {
+            //     try {
+            //         return parent.location.href !== location.href;
+            //     } catch (e) {
+            //         return true;
+            //     }
+            // }
 
-            $root.find('.lang').on('click', (e) => {
-                if(inIframe()) {
-                    window.open(`http://webdoc.projectefam.cc/locale/${$(e.target).data('lang')}`);
-                    e.preventDefault();
-                }
-            });
+            // $root.find('.lang').on('click', (e) => {
+            //     if(inIframe()) {
+            //         window.open(`http://webdoc.projectefam.cc/locale/${$(e.target).data('lang')}`);
+            //         e.preventDefault();
+            //     }
+            // });
 
             next();
         },
