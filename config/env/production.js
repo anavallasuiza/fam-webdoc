@@ -14,6 +14,6 @@ module.exports = {
 
     },
     url: process.env.URL,
-    env: 'development',
+    env: 'production',
     secret: process.env.SECRET
 };
