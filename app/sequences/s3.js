@@ -108,7 +108,7 @@ const s1 = function(req) {
             type: 'autoplay',
             video: 'revoltes.mp4',
             subtitles: `rev_${i18n.__.call(req,'CURRENT_LANG')}.srt`
-        } {
+        },{
             type: 'end',
             text: i18n.__.call(req, 'Ellos luchan. Nosotros luchamos.'),
             terminal: 's3'
