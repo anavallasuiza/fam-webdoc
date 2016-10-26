@@ -221,3 +221,14 @@ module.exports.locale = (req, res) => {
 
     res.redirect('/start');
 };
+
+/**
+ * Sorry
+ */
+
+module.exports.sorry = (req, res) => {
+    return res.render('sorry', {
+        layout: 'simple'
+    });
+
+};

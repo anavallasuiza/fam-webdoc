@@ -16,6 +16,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const session = require('express-session');
+const device = require('express-device');
+
 
 const viewHelpers = require(path.join(config.root, 'app/lib/view-helpers'));
 
@@ -104,6 +106,8 @@ module.exports = function(app) {
     app.engine('.hbs', hbs.engine);
     app.set('view engine', '.hbs');
 
+    app.use(device.capture());
+
     /**
      * Some default locals
      */
@@ -115,6 +119,10 @@ module.exports = function(app) {
         hbs.handlebars.registerHelper('__', function() {
             return i18n.__.apply(req, arguments);
         });
+
+        if(req.device.type !== 'desktop' && req.path !== '/sorry') {
+            return res.redirect('/sorry');
+        }
 
         return next();
     });

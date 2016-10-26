@@ -26,6 +26,7 @@ module.exports = (app) => {
     app.get('/end/share', webdoc.share);
     app.get('/end/videos', webdoc.videos);
     app.get('/end/credits', webdoc.credits);
+    app.get('/sorry', webdoc.sorry);
 
 
     /**
