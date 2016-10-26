@@ -12,7 +12,6 @@ const s1 = function(req) {
             text: i18n.__.call(req, 'Demanar diners, enviar ajuda, demanar diners, demanar ajuda… Un cicle infinit en el qual mai entenem què falla. ONGS i ciutadania en un circuit tancat, on les coses milloren per tornar a empitjorar. Política.')
         }, {
             type: 'viei',
-            door: true,
             image: 'avion.jpg',
             points: [{
                 top: '47%',
@@ -29,7 +28,8 @@ const s1 = function(req) {
                 content: {
                     video: {
                         src: 'ong.mp4',
-                        // subtitles: 'foo.srt'
+                        subtitles: `ong_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+                            // subtitles: 'foo.srt'
                     }
                 }
             }, {
@@ -47,7 +47,7 @@ const s1 = function(req) {
                 content: {
                     video: {
                         src: 'wfp.mp4',
-                        // subtitles: 'foo.srt'
+                        subtitles: `wfp_${i18n.__.call(req,'CURRENT_LANG')}.srt`
                     }
                 }
             }, {
@@ -65,34 +65,55 @@ const s1 = function(req) {
                 content: {
                     video: {
                         src: 'givemethemoney.mp4',
-                        // subtitles: 'foo.srt'
+                        subtitles: `give_${i18n.__.call(req,'CURRENT_LANG')}.srt`
                     }
                 }
             }]
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, '¿Comprar soluciones? Entender.'),
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'Será muy difícil encontrar una solución humanitaria a un problema político.'),
+            door: true
         }],
-        missing: [
-            {
-                type: 'autoplay',
-                video: 'sankara.mp4',
-            },{
-                type: 'autoplay',
-                video: 'especulacion.mp4',
-            },{
-                type: 'generic',
-                html: '<iframe src="https://www.google.com/maps/d/embed?mid=1vV9D2270BCtexhfE-ufLAP1Pc7o" width="640" height="480"></iframe>',
-            },{
-                type: 'autoplay',
-                video: 'recursos.mp4',
-            },{
-                type: 'autoplay',
-                video: 'revoltes.mp4',
-            }, {
-                type: 'end',
-                text: i18n.__.call(req, 'Tornar al mosaic'),
-                terminal: 's3'
+        missing: [{
+            type: 'autoplay',
+            video: 'sankara.mp4',
+            subtitles: `sankara_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'La deuda y la intervención de las grandes economías son una herramienta de dominación del presente. Descolonizar el hambre.'),
+        }, {
+            type: 'autoplay',
+            video: 'especulacion.mp4',
+            subtitles: `esp_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'Especular. Jugar. Hambre.'),
+        }, {
+            type: 'generic',
+            html: '<iframe src="https://www.google.com/maps/d/embed?mid=1vV9D2270BCtexhfE-ufLAP1Pc7o" width="640" height="480"></iframe>',
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'Una tierra comprada, un alimento que se va.'),
+        }, {
+            type: 'autoplay',
+            video: 'recursos.mp4',
+            subtitles: `rec_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'El precio (no pagado) de los recursos naturales son personas empujadas a la nada. Expolio.'),
+        }, {
+            type: 'autoplay',
+            video: 'revoltes.mp4',
+            subtitles: `rev_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+        } {
+            type: 'end',
+            text: i18n.__.call(req, 'Ellos luchan. Nosotros luchamos.'),
+            terminal: 's3'
 
-            }
-        ]
+        }]
 
     };
 

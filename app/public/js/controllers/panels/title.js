@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ($panel, app) => {
+module.exports = ($panel, app, door) => {
     let audio;
     const $audio = $panel.find('audio');
     const $terminal = $panel.find('a[data-terminal]');
@@ -19,6 +19,11 @@ module.exports = ($panel, app) => {
 
             }
 
+            if($panel.is('[data-door]')) {
+                door.show();
+            }
+
+
             $terminal.on('click', (e) => {
                 e.preventDefault();
                 const sq = $terminal.data('terminal');
@@ -28,6 +33,8 @@ module.exports = ($panel, app) => {
                 }
 
                 app.router.setRoute($terminal.attr('href'));
+
+
             });
 
 

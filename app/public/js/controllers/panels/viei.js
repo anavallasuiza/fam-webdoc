@@ -102,7 +102,6 @@ module.exports = ($panel, app, door) => {
                 });
 
                 $spot.on('click', (e) => {
-                    opened++;
                     $currentContent && hideCurrent();
 
                     $content.removeClass('is-hidden');
@@ -112,12 +111,6 @@ module.exports = ($panel, app, door) => {
                     }
                     $currentContent = $content;
                     e.stopPropagation();
-
-
-                    if(opened > 1 &&$panel.is('[data-door]')) {
-                        door.show();
-                    }
-
                 });
 
             }

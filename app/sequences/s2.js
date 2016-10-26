@@ -14,10 +14,12 @@ const s1 = function(req) {
         }, {
             type: 'autoplay',
             video: 's2p2.mp4',
-            subtitles: `telediarios_${i18n.__.call(req,'CURRENT_LANG')}.srt`,
             door: true
         }],
         missing: [{
+            type: 'title',
+            text: i18n.__.call(req, 'Paremos. Y ¿si hay otras causas más profundas, más determinantes, más incómodas, más indignantes?'),
+        }, {
             type: 'viei',
             // bgsound: 'music.mp3',
             video: 's2loop.mp4',
@@ -160,6 +162,9 @@ const s1 = function(req) {
                     text: i18n.__.call(req, "Els acords en el si de l'OMC, tot i que han avançat menys del que els països del Nord haguessin volgut, han suposat la mercantilització d'àmbits com l'alimentació i els recursos naturals. Els països del sud han resistit i aturat diverses rondes de liberalització comercial, amb la demanda clara de defensar certs sectors, com el dels aliments. El que no han aconseguit països com EEUU o la UE en el marc de l'OMC ho han perseguit a través de tractats bilaterals.")
                 }
             }]
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'Cambian las caras, continúan las políticas.'),
         }, {
             type: 'end',
             text: i18n.__.call(req, 'Tornar al mosaic'),

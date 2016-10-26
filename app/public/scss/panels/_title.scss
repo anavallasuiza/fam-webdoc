@@ -3,6 +3,7 @@
         flex-direction: column;
         @include flexCenter;
         background: $positive;
+        text-align: center;
 
         h1 {
             padding: 4rem;
