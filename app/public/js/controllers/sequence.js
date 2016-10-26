@@ -33,6 +33,7 @@ module.exports = (app) => {
             let current = $panels.get(0);
 
             const handlers = new Map();
+            let doorTimeout;
 
             const handleDoor = () => {
                 $root.find('.sequence').addClass('lateral');
@@ -43,7 +44,12 @@ module.exports = (app) => {
                 door.hide();
             };
 
-            $door.one('mouseover', handleDoor);
+            $door.one('mouseover', () => {
+                doorTimeout = setTimeout(handleDoor, 1000);
+            });
+            $door.one('mouseout', () => {
+                clearTimeout(handleDoor);
+            });
 
             const door = {
                 show: () => {

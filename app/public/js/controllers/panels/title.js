@@ -20,7 +20,11 @@ module.exports = ($panel, app, door) => {
             }
 
             if($panel.is('[data-door]')) {
-                door.show();
+                setTimeout(() => {
+                    door.show();
+                }, 2000);
+            } else {
+                door.hide();
             }
 
 

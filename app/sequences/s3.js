@@ -51,8 +51,8 @@ const s1 = function(req) {
                     }
                 }
             }, {
-                top: '6%',
-                left: '6%',
+                top: '80%',
+                left: '55%',
                 icon: {
                     file: `donate_${i18n.__.call(req,'CURRENT_LANG')}.png`,
                     width: 527,
@@ -108,9 +108,12 @@ const s1 = function(req) {
             type: 'autoplay',
             video: 'revoltes.mp4',
             subtitles: `rev_${i18n.__.call(req,'CURRENT_LANG')}.srt`
+        }, {
+            type: 'title',
+            text: i18n.__.call(req, 'Ellos luchan. Nosotros luchamos.'),
         },{
             type: 'end',
-            text: i18n.__.call(req, 'Ellos luchan. Nosotros luchamos.'),
+            text: i18n.__.call(req, 'Tornar al mosaic'),
             terminal: 's3'
 
         }]
