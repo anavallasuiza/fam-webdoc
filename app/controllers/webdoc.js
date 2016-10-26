@@ -180,10 +180,7 @@ module.exports.videos = wrap(function*(req, res) {
 
     if (req.xhr) {
         return res.render('videos', {
-            videos: videos.map(video => ({
-                user: video.split('-')[1],
-                video
-            })),
+            videos: Array.from(videos),
             layout: null
         });
 
