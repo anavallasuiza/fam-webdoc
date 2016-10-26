@@ -6,7 +6,6 @@ const subtitles = require('subtitles');
 
 module.exports = ($panel, app, door) => {
     let $currentContent;
-    let opened = 0;
 
     let bgSound;
     const $bgSound = $panel.find('.bgsound');
@@ -33,7 +32,7 @@ module.exports = ($panel, app, door) => {
             const $points = $panel.find('.points li');
 
 
-            for(const sub of subs) {
+            for (const sub of subs) {
                 sub.listen();
             }
 
@@ -48,7 +47,9 @@ module.exports = ($panel, app, door) => {
 
             if ($media.length) {
                 const handlePoints = () => {
-                    $panel.find('.points').css('height', $media.height());
+                    $panel.find('.points').css({
+                        'height': $media.height()
+                    });
                 };
 
                 $media.on('loadeddata', () => {
@@ -106,7 +107,7 @@ module.exports = ($panel, app, door) => {
 
                     $content.removeClass('is-hidden');
                     const $video = $content.find('video');
-                    if($video.length) {
+                    if ($video.length) {
                         $video.get(0).play();
                     }
                     $currentContent = $content;
@@ -116,7 +117,6 @@ module.exports = ($panel, app, door) => {
             }
         },
         on: () => {
-            opened = 0;
             if (bgSound) {
                 bgSound.volume = 0;
                 bgSound.play();
@@ -125,7 +125,7 @@ module.exports = ($panel, app, door) => {
             }
 
 
-            if($bgVideo.length) {
+            if ($bgVideo.length) {
                 $bgVideo.get(0).play();
             }
 
@@ -137,14 +137,14 @@ module.exports = ($panel, app, door) => {
             }
 
 
-            if($bgVideo.length) {
+            if ($bgVideo.length) {
                 $bgVideo.get(0).pause();
             }
 
 
             $(window).off('resize.viei');
 
-            for(const sub of subs) {
+            for (const sub of subs) {
                 sub.destroy();
             }
         }
