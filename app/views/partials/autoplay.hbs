@@ -1,4 +1,4 @@
 <section class="panel {{type}}" data-type="{{type}}">
     <div class="progress"></div>
-    <video src="/static/media/{{video}}" {{#if door}}data-door{{/if}} preload="none" {{#if subtitles}}data-subtitles='{{parseSRT subtitles}}'{{/if}}></video>
+    <video src="/static/media/{{video}}" {{#if door}}data-door{{/if}} preload="auto" {{#if subtitles}}data-subtitles='{{parseSRT subtitles}}'{{/if}}></video>
 </section>
