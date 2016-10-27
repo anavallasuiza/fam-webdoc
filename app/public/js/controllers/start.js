@@ -53,7 +53,6 @@ module.exports = (app) => {
 
                 mediaRecorder.requestPermission()
                     .then(stream => {
-                        console.log('si que hai video e audio');
                         for (let st of stream.getTracks()) {
                             st.stop();
                         }
@@ -61,10 +60,19 @@ module.exports = (app) => {
                         app.router.setRoute('/intro');
                     })
                     .catch(() => {
-                        console.log('non hai video ou audio');
                         app.hasVideo = false;
                         app.router.setRoute('/intro');
                     });
+            });
+
+            var $notalegal = $root.find('.notalegal');
+
+            $notalegal.find('button').on('click', () => {
+                $notalegal.addClass('is-hidden');
+            });
+
+            $root.find('.condiciones').on('click', () => {
+                $notalegal.removeClass('is-hidden');
             });
 
             next();

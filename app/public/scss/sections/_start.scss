@@ -1,6 +1,45 @@
 .start {
     background-image: url('/static/img/portada_camara_fondo.jpg');
     background-position: center;
+    .notalegal {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 400px;
+        height: 400px;
+        margin: auto;
+        z-index: 1000000;
+        padding: 1rem;
+        color: $positive;
+        background: $negative;
+        margin: auto;
+
+        .fineprint {
+            height: 360px;
+            overflow: auto;
+        }
+
+        h1, h2 {
+            font-size: 1rem;
+        }
+
+        p, ol {
+            font-size: .7em;
+        }
+
+        button {
+            display: block;
+            background: $red;
+            border: none;
+            color: $negative;
+            font-size: .8rem;
+            padding: .4rem;
+            margin-top: 14px;
+        }
+    }
+
     .panel {
         min-width: auto;
     }
@@ -121,10 +160,15 @@
                 font-size: 3rem;
             }
             p {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
             p.legal {
                 font-size: .8em;
+
+                .condiciones {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
             }
             button {
                 color: $negative;

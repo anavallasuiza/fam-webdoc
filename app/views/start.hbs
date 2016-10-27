@@ -1,4 +1,5 @@
 <article class="start">
+    {{> legal}}
     <section class="panel title">
         <div class="cover"></div>
         <header>
@@ -32,7 +33,7 @@
         <div class="camera">
             <strong>{{{__ 'Activar<br> webcam i micro'}}}</strong>
             <p>{{__ 'F-A-M està pensat perquè juguis amb imatges, les reconeguis, les remiris, les repensis i descobreixis de noves. Activa la webcam i el micro per ser part de la història que expliquem, perquè de fet, ja ho ets.'}}</p>
-            <p class="legal">{{__ 'Al activar la cámara, aceptas que las imágenes grabadas se incorporen al contenido del webdoc. En ningún caso se compartirán fuera del proyecto.'}}</p>
+            <p class="legal">{{__ 'Al activar la cámara, aceptas que las imágenes grabadas se incorporen al contenido del webdoc. En ningún caso se compartirán fuera del proyecto.'}} <span class="condiciones">{{__ 'Ver condiciones.'}}</span></p>
 
             <button data-activate type="button">{{__ 'activar'}}</button>
             <button data-cancel type="button">{{__ 'no, gracias'}}</button>
