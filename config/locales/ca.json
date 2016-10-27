@@ -163,9 +163,7 @@
 	"Ellos luchan. Nosotros luchamos.": "Ells lluiten. Nosaltres lluitem.",
 	"Cambian las caras, continúan las políticas.": "Canvien les cares, continuen les polítiques.",
 	"Lo sentimos tu navegador o dispositivo no está soportado por esta web. Para visualizarla correctamente usa una versión <strong>de escritorio</strong> reciente de <strong>Mozilla</strong> Firefox o <strong>Google Chrome</strong>.": "Lo sentimos tu navegador o dispositivo no está soportado por esta web. Para visualizarla correctamente usa una versión <strong>de escritorio</strong> reciente de <strong>Mozilla</strong> Firefox o <strong>Google Chrome</strong>.",
-	"Al activar la cámara, aceptas que las imágenes grabadas se incorporen al contenido del webdoc. En ningún caso se compartirán fuera del proyecto.": "A l'activar la càmera, acceptes que les imatges gravades siguin incorporades al contingut del webdoc. En cap cas es compartiran fora del projecte.",
-	"NOTA_LEGAL": "NOTA_LEGAL",
+	"Al activar la cámara, aceptas que las imágenes grabadas se incorporen al contenido del webdoc. En ningún caso se compartirán fuera del proyecto.": "A l'activar la càmera, acceptes que les imatges gravades siguin incorporades al contingut públic del webdoc. En cap cas es compartiran fora del projecte.",
 	"Cerrar nota legal": "Cerrar nota legal",
-	"Ver condiciones": "Ver condiciones",
 	"Ver condiciones.": "Ver condiciones."
 }
