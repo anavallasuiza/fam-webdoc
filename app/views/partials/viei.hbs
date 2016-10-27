@@ -15,7 +15,6 @@
         <li {{#if tooltip}}data-tooltip="{{tooltip}}"{{/if}} style="top: {{top}};left: {{left}}" class="{{#if borderPoint}}border{{/if}}">
             <img  class="spot {{#if ../icon.class}}{{../icon.class}}{{/if}}" src="/static/img/{{#if icon}}{{icon.file}}{{else}}{{../icon.file}}{{/if}}" width="{{#if icon}}{{icon.width}}{{else}}{{../icon.width}}{{/if}}" height="{{#if icon}}{{icon.height}}{{else}}{{../icon.height}}{{/if}}" style="martin-top: {{#if icon}}{{icon.offset}}{{else}}{{../icon.offset}}{{/if}}x; margin-left: {{#if icon}}{{icon.offset}}{{else}}{{../icon.offset}}{{/if}}px">
 
-
             <div data-anchor="{{anchor}}" {{#if class}}class="is-hidden {{class}}"{{/if}}>
             {{#if content.title}}
                 <h1>{{content.title}}</h1>
