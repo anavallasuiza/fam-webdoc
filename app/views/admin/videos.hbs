@@ -1,0 +1,29 @@
+<div class="admin-wrapper">
+    <h1>Administración de videos</h1>
+
+    <section class="videos">
+    <form method="post">
+        <ul class="video-list">
+            {{#each videos}}
+            <li>
+                    {{#if intro}}
+                    <div class="intro">
+                        <video type="video/webm" preload="auto" src="/uploads/intro/{{intro}}" controls></video>
+                        <button value="intro/{{intro}}" name="delete">Delete</button>
+                    </div>
+                    {{/if}}
+
+                    {{#if outro}}
+                    <div class="outro">
+                        <video type="video/webm"  preload="auto" src="/uploads/outro/{{outro}}" controls></video>
+                        <button value="outro/{{outro}}" name="delete">Delete</button>
+                    </div>
+                    {{/if}}
+
+            </li>
+            {{/each}}
+        </ul>
+    </form>
+
+    </section>
+</div>

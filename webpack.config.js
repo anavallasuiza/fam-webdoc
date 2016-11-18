@@ -3,7 +3,8 @@ const webpack = require('webpack');
 module.exports = {
     cache: true,
     entry: {
-        main: './app/public/js/main.js'
+        main: './app/public/js/main.js',
+        admin: './app/public/js/admin/admin.js'
     },
     output: {
         path: './dist/js',

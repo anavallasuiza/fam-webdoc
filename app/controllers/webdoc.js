@@ -1,11 +1,14 @@
 'use strict';
 
 
+const path = require('path');
+const fs = require('fs');
 const wrap = require('co-express');
 
 const uploader = require('../lib/uploader');
 const selector = require('../lib/selector');
 const allvideos = require('../lib/allvideos');
+const config = require('../../config/');
 
 const _ = require('lodash');
 
@@ -205,6 +208,24 @@ module.exports.credits = (req, res) => {
     }
 };
 
+module.exports.VMList = wrap(function*(req, res) {
+    const videos = yield allvideos.get();
+
+    return res.render('admin/videos', {
+        videos: _.sortBy(Array.from(videos), 'name'),
+        layout: 'admin',
+        app: 'admin'
+    });
+
+});
+
+
+module.exports.VMDelete = (req, res) => {
+    const file = req.body.delete;
+    fs.unlinkSync(path.join(config.uploads, file));
+
+    res.redirect('/admin/videos');
+};
 
 
 /**

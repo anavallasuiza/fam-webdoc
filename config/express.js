@@ -24,6 +24,21 @@ const viewHelpers = require(path.join(config.root, 'app/lib/view-helpers'));
 
 const env = config.env;
 
+//Passport
+
+const passport = require('passport');
+const BasicStrategy = require('passport-http').BasicStrategy;
+
+passport.use(new BasicStrategy(
+    function(username, password, done) {
+        if (username.valueOf() === 'admin' &&
+            password.valueOf() === config.secret)
+            return done(null, true);
+        else
+            return done(null, false);
+    }
+));
+
 module.exports = function(app) {
 
     /**
@@ -123,6 +138,8 @@ module.exports = function(app) {
     app.set('view engine', '.hbs');
 
     app.use(device.capture());
+
+    app.use(passport.initialize());
 
     /**
      * Some default locals

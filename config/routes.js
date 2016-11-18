@@ -1,6 +1,8 @@
 'use strict';
 
 const path = require('path');
+const passport = require('passport');
+
 
 const config = require('./');
 
@@ -27,6 +29,8 @@ module.exports = (app) => {
     app.get('/end/videos', webdoc.videos);
     app.get('/end/credits', webdoc.credits);
     app.get('/sorry', webdoc.sorry);
+    app.get('/admin/videos', passport.authenticate('basic', { session: false }), webdoc.VMList);
+    app.post('/admin/videos', passport.authenticate('basic', { session: false }), webdoc.VMDelete);
 
 
     /**

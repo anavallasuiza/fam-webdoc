@@ -1,0 +1,23 @@
+.admin {
+    .video-list {
+        list-style: none;
+
+        li {
+            display: flex;
+            margin-bottom: 2rem;
+
+            video {
+                display: block;
+                margin-bottom: 1rem;
+            }
+
+            button {
+                background: #ff0000;
+                border: none;
+                font-size: 1.5rem;
+                color: $negative;
+                padding: 1rem;
+            }
+        }
+    }
+}

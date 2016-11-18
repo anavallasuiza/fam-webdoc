@@ -13,3 +13,4 @@ logs
 
 #dev config
 config/env/dev.env.json
+yarn.lock

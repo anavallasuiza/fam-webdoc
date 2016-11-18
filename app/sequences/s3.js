@@ -14,7 +14,7 @@ const s1 = function(req) {
             type: 'viei',
             image: 'avion.jpg',
             points: [{
-                top: '47%',
+                top: '37%',
                 left: '67%',
                 icon: {
                     file: 'eye.png',
@@ -32,7 +32,7 @@ const s1 = function(req) {
                     }
                 }
             }, {
-                top: '57%',
+                top: '47%',
                 left: '37%',
                 icon: {
                     file: 'eye.png',
@@ -50,7 +50,7 @@ const s1 = function(req) {
                     }
                 }
             }, {
-                top: '80%',
+                top: '70%',
                 left: '55%',
                 icon: {
                     file: `donate_${i18n.__.call(req,'CURRENT_LANG')}.png`,
