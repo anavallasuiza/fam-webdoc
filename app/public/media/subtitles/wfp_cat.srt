@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:04,000 --> 00:00:07,500
 Quasi un bilió de famolencs a la terra
 
@@ -97,4 +97,3 @@ ajudant a ajudar-se a ells mateixos
 00:01:56,000 --> 00:02:03,560
 Alimentant a 100 milions de persones en 75 països
 Lluitant contra la fam al món
-

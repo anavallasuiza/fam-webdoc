@@ -7,8 +7,6 @@ const $ = require('jquery');
 const director = require('director');
 const co = require('co');
 
-
-
 const app = {
     config: {
         $mountPoint: $('[data-app]'),
@@ -16,14 +14,14 @@ const app = {
         recordingTime: 10 * 1000
     },
     sequences: {
-        's1': {
-            'done': false
+        s1: {
+            done: false
         },
-        's2': {
-            'done': false
+        s2: {
+            done: false
         },
-        's3': {
-            'done': false
+        s3: {
+            done: false
         }
     },
     hasVideo: false,
@@ -86,7 +84,7 @@ const routes = {
         // before: controllers.middlewares.requireUserId,
         on: controllers.end.on,
         after: controllers.end.after
-    },
+    }
 };
 
 if (DEVELOPMENT) {
@@ -110,16 +108,21 @@ router.configure({
         const html = yield models.getPage('/' + router.getRoute().join('/'));
 
         const media = [
-            ...$(html).find('img').map((n, i) => ({
-                type: 'image',
-                src: i.src
-            })).get(),
-            ...$(html).find('video[data-preload]').map((n, i) => ({
-                type: 'video',
-                src: i.src
-            })).get()
+            ...$(html)
+                .find('img')
+                .map((n, i) => ({
+                    type: 'image',
+                    src: i.src
+                }))
+                .get(),
+            ...$(html)
+                .find('video[data-preload]')
+                .map((n, i) => ({
+                    type: 'video',
+                    src: i.src
+                }))
+                .get()
         ];
-
 
         if (media.length) {
             app.config.$preloadWidget.removeClass('is-hidden');
@@ -127,14 +130,12 @@ router.configure({
             app.config.$preloadWidget.addClass('is-hidden');
         }
 
-
         setTimeout(() => {
             app.config.$mountPoint.html(html).removeClass('is-hidden');
             next();
         }, 400);
     })
 });
-
 
 router.init();
 
@@ -146,7 +147,7 @@ app.controllers = controllers;
  * Handle internal nav
  */
 
-$('body').on('click', 'a:not([data-external])', (e) => {
+$('body').on('click', 'a:not([data-external])', e => {
     const url = $(e.currentTarget).attr('href');
 
     router.setRoute(url);

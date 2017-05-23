@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:00,000 --> 00:00:02,360
 I els voldria explicar algunes històries personals
 
@@ -20,7 +20,7 @@ El meu pare era professor.
 
 6
 00:00:16,000 --> 00:00:19,740
-La meva mare administradora.
+La meva mare, administradora.
 
 7
 00:00:19,760 --> 00:00:22,400
@@ -36,19 +36,19 @@ Quan vaig fer els vuit anys, va arribar a casa un nou ajudant,
 
 10
 00:00:31,400 --> 00:00:34,200
-se'n deia Fide.
+es deia Fide.
 
 11
 00:00:34,200 --> 00:00:36,400
-L'única cosa que la meva mare ens va a explicar,
+L'única cosa que la meva mare ens va a explicar
 
 12
 00:00:36,400 --> 00:00:39,400
-va a ser que la seva família era molt pobra.
+va ser que la seva família era molt pobra.
 
 13
 00:00:39,400 --> 00:00:41,590
-La meva mare enviava a la seva família batates i arròs,
+La meva mare enviava a la seva família satates i arròs,
 
 14
 00:00:41,600 --> 00:00:44,400
@@ -60,7 +60,7 @@ I quan no m'acabava el sopar, la meva mare solia dir
 
 16
 00:00:46,400 --> 00:00:50,760
-"Menja! Què no ho saps que la famìlia del Fide no té res per menjar?".
+"Menja! Que no ho saps que la família del Fide no té res per menjar?".
 
 17
 00:00:51,400 --> 00:00:54,400
@@ -68,7 +68,7 @@ I jo sentia molta llàstima per la família del Fide.
 
 18
 00:00:55,400 --> 00:00:58,400
-Un dissabte vam anar de visita al seu poble, 
+Un dissabte vam anar de visita al seu poble,
 
 19
 00:00:58,400 --> 00:01:01,400
@@ -84,7 +84,7 @@ Estava astorada.
 
 22
 00:01:07,400 --> 00:01:10,400
-no m'havia passat pel cap que ningú de la seva família
+No m'havia passat pel cap que ningú de la seva  família
 
 23
 00:01:10,400 --> 00:01:13,100
@@ -103,122 +103,138 @@ i per tant m'era impossible veure'ls
 com res més que pobres.
 
 27
-00:01:21,200 --> 00:01:25,200
+00:01:21,000 --> 00:01:23,200
 La seva pobresa era l'unica història que en tenia.
 
 28
-00:01:25,400 --> 00:01:28,000
-Uns anys després, vaig tornar a pensar en això quan vaig deixar Nigèria
+00:01:23,200 --> 00:01:25,400
+El que això demostra és
 
 29
-00:01:28,010 --> 00:01:30,100
-per anar a la universitat als Estats Units.
+00:01:25,400 --> 00:01:29,000
+que som impressionables i vulnerables,
 
 30
-00:01:30,110 --> 00:01:32,400
-Tenia 19 anys.
+00:01:29,000 --> 00:01:33,000
+especialment els nens.
 
 31
-00:01:32,400 --> 00:01:36,400
-La meva companya americana d'habitació estava impressionada amb mi.
+00:01:33,000 --> 00:01:36,000
+Uns anys després, vaig tornar a pensar en això quan vaig deixar Nigèria
 
 32
-00:01:36,500 --> 00:01:39,000
-Em va impressionar que sentís llàstima per mi
+00:01:36,000 --> 00:01:39,000
+per anar a la universitat als Estats Units.
 
 33
-00:01:39,000 --> 00:01:41,400
-fins i tot abans de veure'm.
+00:01:39,000 --> 00:01:40,500
+Tenia 19 anys.
 
 34
-00:01:41,410 --> 00:01:44,400
-A priori, pel fet de ser africana, em tractaria
+00:01:40,500 --> 00:01:44,500
+La meva companya americana d'habitació estava impressionada amb mi.
 
 35
-00:01:45,000 --> 00:01:48,400
-amb una mena de proteccionisme, de llàstima ben intencionada.
+00:01:44,500 --> 00:01:47,500
+Em va impressionar que sentís llàstima per mi
 
 36
-00:01:49,520 --> 00:01:52,400
-La meva companya d'habitació tenia una sola història de l'Àfrica:
+00:01:47,500 --> 00:01:49,500
+fins i tot abans de veure'm.
 
 37
-00:01:52,400 --> 00:01:54,400
-Una sola història de la catàstrofe.
+00:01:49,500 --> 00:01:52,500
+A priori, pel fet de ser africana, em tractaria
 
 38
-00:01:54,800 --> 00:01:57,400
-En aquesta única història no hi tenien cabuda
+00:01:52,500 --> 00:01:56,500
+amb una mena de proteccionisme, de llàstima ben intencionada.
 
 39
-00:01:57,400 --> 00:02:00,000
-africans similars a ella mateixa, de cap manera.
+00:01:56,500 --> 00:02:01,000
+La meva companya d'habitació tenia una sola història de l'Àfrica:
 
 40
-00:02:00,400 --> 00:02:04,000
-No tenien cabuda altres sentiments més complexos que la llàstima,
+00:02:01,000 --> 00:02:03,000
+Una sola història de la catàstrofe.
 
 41
-00:02:04,050 --> 00:02:07,100
-no hi havia la possibilitat que hi hagués una connexió entre iguals.
+00:02:03,000 --> 00:02:06,500
+En aquesta única història no hi tenien cabuda africans
 
 42
-00:02:07,100 --> 00:02:10,400
-Així que després de passar uns anys als EUA com a africana,
+00:02:06,500 --> 00:02:09,000
+similars a ella mateixa, de cap manera.
 
 43
-00:02:11,000 --> 00:02:14,400
-vaig començar a entendre la reacció de la meva companya d'habitació cap a mi.
+00:02:09,000 --> 00:02:12,000
+No tenien cabuda altres sentiments més complexos que la llàstima,
 
 44
-00:02:15,500 --> 00:02:18,400
-Si no hagués crescut a Nigèria, i si tot el que sabés de l'Àfrica
+00:02:12,000 --> 00:02:15,000
+no hi havia la possibilitat que hi hagués una connexió entre iguals.
 
 45
-00:02:18,400 --> 00:02:20,400
-provingués d'imatges típiques,
+00:02:15,000 --> 00:02:19,500
+Així que després de passar uns anys als EUA com a africana,
 
 46
-00:02:20,400 --> 00:02:22,590
-jo també pensaria que l'Àfrica és un lloc de
+00:02:19,500 --> 00:02:22,500
+vaig començar a entendre la reacció de la meva companya d'habitació cap a mi.
 
 47
-00:02:23,000 --> 00:02:26,590
-bells paisatges, bells animals,
+00:02:22,500 --> 00:02:27,500
+Si no hagués crescut a Nigèria, i si tot el que sabés de l'Àfrica
 
 48
-00:02:27,300 --> 00:02:28,500
-i gent incomprensible,
+00:02:27,500 --> 00:02:29,500
+provingués d'imatges típiques,
 
 49
-00:02:28,500 --> 00:02:32,400
-que lluiten en guerres sense sentit, i que moren de pobresa i de la SIDA,
+00:02:29,500 --> 00:02:31,500
+jo també pensaria que l'Àfrica és un lloc de
 
 50
-00:02:32,400 --> 00:02:35,000
-incapaços de parlar amb veu pròpia,
+00:02:31,500 --> 00:02:35,000
+bells paisatges, bells animals,
 
 51
-00:02:35,100 --> 00:02:37,100
-i que esperen que els salvin
+00:02:35,000 --> 00:02:37,500
+i gent incomprensible,
 
 52
-00:02:37,120 --> 00:02:39,400
-uns estrangers blancs i amables.
+00:02:37,500 --> 00:02:41,000
+que lluiten en guerres sense sentit, i que moren de pobresa i de la SIDA,
 
 53
-00:02:39,550 --> 00:02:42,400
-Vaig a començar a adonar-me que la meva companya americana d'habitació
+00:02:41,000 --> 00:02:43,000
+incapaços de parlar amb veu pròpia,
 
 54
-00:02:42,400 --> 00:02:44,400
-havia d'haver vist i sentit, al llarg de la sev vida,
+00:02:43,000 --> 00:02:45,000
+i que esperen que els salvin
 
 55
-00:02:44,400 --> 00:02:47,100
-diferents versions
+00:02:45,000 --> 00:02:48,000
+uns estrangers blancs i amables.
 
 56
-00:02:47,120 --> 00:02:50,500
-d'aquesta única història.
+00:02:48,000 --> 00:02:51,000
+Vaig començar a veure als africans, com veia de petita
+
+57
+00:02:51,000 --> 00:02:53,500
+a la família de Fide.
+
+58
+00:02:53,500 --> 00:02:57,000
+Vaig a començar a adonar-me que la meva companya americana d'habitació
+
+59
+00:02:57,000 --> 00:03:00,500
+havia d'haver vist i sentit, al llarg de la seva vida,
+
+60
+00:03:00,500 --> 00:03:02,500
+diferents versions d'aquesta única història.
 

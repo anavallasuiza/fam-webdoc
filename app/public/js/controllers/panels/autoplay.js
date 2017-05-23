@@ -32,7 +32,7 @@ module.exports = ($panel, app, door) => {
             $video.on('timeupdate', () => {
                 progress.update((video.currentTime / video.duration).toFixed(2));
 
-                if ($video.is('[data-door]') && !opened && (video.currentTime > video.duration - 10)) {
+                if ($video.is('[data-door]') && !opened && (video.currentTime > 10)) {
                     door.show();
                     opened = true;
                 }
