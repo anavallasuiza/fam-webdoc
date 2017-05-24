@@ -77,7 +77,7 @@ module.exports.mashup = wrap(function*(req, res) {
         return res.render('mashup', {
             videos: selected,
             where: req.params.where,
-            disruptive: req.params.where === 'intro' ? _.sample(['dis1.mp4', 'dis2.mp4', 'dis3.mp4']) : false,
+            //disruptive: req.params.where === 'intro' ? _.sample(['dis1.mp4', 'dis2.mp4', 'dis3.mp4']) : false,
             layout: null
         });
     } else {
